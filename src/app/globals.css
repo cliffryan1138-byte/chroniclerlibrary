@@ -1,0 +1,34 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+:root {
+  --ink: #1c1917;
+  --parchment: #faf8f5;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ink: #ece9e4;
+    --parchment: #17150f;
+  }
+}
+
+/* Keep long markdown and code from forcing the page sideways on a phone. */
+textarea,
+pre {
+  max-width: 100%;
+}
