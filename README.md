@@ -23,7 +23,10 @@ takes it live a minute or two later.
   be saved in a shape that breaks the site's build.
 - **Edit and delete what's already published**, across every site, from the
   Content tab.
-- **Image uploads** commit into the site's `public/uploads/<year>/`.
+- **Image uploads** commit into the site's `public/uploads/<year>/` — both the
+  hero image and images inside the body. In the Body editor, **Insert image**
+  uploads a file and drops the markdown at your cursor; pasting an image from
+  the clipboard does the same thing.
 - **Two sign-ins.** Each person gets their own login, and their name is stamped
   on the post's `author` field and into the git commit, so the history shows who
   posted what.

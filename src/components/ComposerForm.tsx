@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { marked } from 'marked';
 import FieldInput from './FieldInput';
 import {
@@ -56,6 +56,10 @@ export default function ComposerForm({ initialSite, initialCollection, editFile 
   const [results, setResults] = useState<SaveResult[] | null>(null);
   const [loadError, setLoadError] = useState('');
   const [showPreview, setShowPreview] = useState(false);
+  const [bodyUploading, setBodyUploading] = useState(false);
+  const [bodyUploadError, setBodyUploadError] = useState('');
+  const bodyRef = useRef<HTMLTextAreaElement>(null);
+  const bodyFileRef = useRef<HTMLInputElement>(null);
 
   const site = getSite(siteKey);
   const collection = getCollection(siteKey, collectionKey);
@@ -128,6 +132,65 @@ export default function ComposerForm({ initialSite, initialCollection, editFile 
   function set(name: string, value: FieldValue) {
     setData((d) => ({ ...d, [name]: value }));
     setResults(null);
+  }
+
+  /**
+   * Upload an image and drop the markdown for it at the cursor. Images go to
+   * the same public/uploads folder as hero images, so an in-body image and a
+   * hero image are the same kind of file in the repo.
+   */
+  async function insertBodyImage(file: File) {
+    if (!bodyField) return;
+    setBodyUploading(true);
+    setBodyUploadError('');
+    try {
+      const form = new FormData();
+      form.append('site', siteKey);
+      form.append('file', file);
+      const res = await fetch('/api/upload', { method: 'POST', body: form });
+      const body = await res.json();
+      if (!res.ok) {
+        setBodyUploadError(body.error || 'Upload failed.');
+        return;
+      }
+
+      const alt = file.name.replace(/\.[^.]+$/, '').replace(/[-_]+/g, ' ').trim();
+      const snippet = `![${alt}](${body.url})`;
+      const el = bodyRef.current;
+      const current = String(data[bodyField.name] ?? '');
+
+      // Insert at the cursor when the textarea is focused, otherwise append.
+      let next: string;
+      let caret: number;
+      if (el && el.selectionStart != null) {
+        const start = el.selectionStart;
+        const end = el.selectionEnd ?? start;
+        const before = current.slice(0, start);
+        const after = current.slice(end);
+        const lead = before && !before.endsWith('\n\n') ? (before.endsWith('\n') ? '\n' : '\n\n') : '';
+        const trail = after && !after.startsWith('\n\n') ? (after.startsWith('\n') ? '\n' : '\n\n') : '';
+        next = before + lead + snippet + trail + after;
+        caret = (before + lead + snippet).length;
+      } else {
+        next = current ? `${current.replace(/\n+$/, '')}\n\n${snippet}\n` : `${snippet}\n`;
+        caret = next.length;
+      }
+
+      set(bodyField.name, next);
+      // Restore focus and put the cursor after the inserted image.
+      requestAnimationFrame(() => {
+        const t = bodyRef.current;
+        if (t) {
+          t.focus();
+          t.setSelectionRange(caret, caret);
+        }
+      });
+    } catch {
+      setBodyUploadError('Upload failed. Check your connection.');
+    } finally {
+      setBodyUploading(false);
+      if (bodyFileRef.current) bodyFileRef.current.value = '';
+    }
   }
 
   async function save() {
@@ -268,14 +331,41 @@ export default function ComposerForm({ initialSite, initialCollection, editFile 
                 <h2 className="text-sm font-semibold uppercase tracking-wide opacity-60">
                   {bodyField.label}
                 </h2>
-                <button
-                  type="button"
-                  onClick={() => setShowPreview((p) => !p)}
-                  className="rounded-md border border-black/15 px-2 py-1 text-xs hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10"
-                >
-                  {showPreview ? 'Write' : 'Preview'}
-                </button>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => bodyFileRef.current?.click()}
+                    disabled={bodyUploading || showPreview}
+                    title={showPreview ? 'Switch to Write to insert an image' : 'Insert an image at the cursor'}
+                    className="rounded-md border border-black/15 px-2 py-1 text-xs hover:bg-black/5 disabled:opacity-40 dark:border-white/20 dark:hover:bg-white/10"
+                  >
+                    {bodyUploading ? 'Uploading…' : 'Insert image'}
+                  </button>
+                  <input
+                    ref={bodyFileRef}
+                    type="file"
+                    accept="image/*"
+                    hidden
+                    onChange={(e) => {
+                      const f = e.target.files?.[0];
+                      if (f) insertBodyImage(f);
+                    }}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPreview((p) => !p)}
+                    className="rounded-md border border-black/15 px-2 py-1 text-xs hover:bg-black/5 dark:border-white/20 dark:hover:bg-white/10"
+                  >
+                    {showPreview ? 'Write' : 'Preview'}
+                  </button>
+                </div>
               </div>
+
+              {bodyUploadError && (
+                <p className="mt-2 rounded bg-red-50 px-2 py-1 text-xs text-red-800 dark:bg-red-950/50 dark:text-red-200">
+                  {bodyUploadError}
+                </p>
+              )}
 
               {showPreview ? (
                 <div
@@ -288,8 +378,18 @@ export default function ComposerForm({ initialSite, initialCollection, editFile 
                 />
               ) : (
                 <textarea
+                  ref={bodyRef}
                   value={bodyValue}
                   onChange={(e) => set(bodyField.name, e.target.value)}
+                  onPaste={(e) => {
+                    const img = Array.from(e.clipboardData.files).find((f) =>
+                      f.type.startsWith('image/'),
+                    );
+                    if (img) {
+                      e.preventDefault();
+                      insertBodyImage(img);
+                    }
+                  }}
                   rows={26}
                   placeholder="Write in Markdown…"
                   className="mt-3 w-full rounded-lg border border-black/15 bg-white p-3 font-mono text-sm leading-relaxed outline-none focus:border-black/40 dark:border-white/20 dark:bg-black/30"
