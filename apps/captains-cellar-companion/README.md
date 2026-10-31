@@ -20,7 +20,7 @@ With no environment variables it runs in **demo mode**: one local user, everythi
 1. Create a **new** Supabase project for this app (don't reuse another app's).
 2. Apply the schema: `supabase db push`, or paste `supabase/migrations/20261021000000_init.sql` into the SQL editor.
 3. Load the sample catalog: run `supabase/seed.sql` (regenerate it with `npm run seed:sql` after editing the branch catalog).
-4. Copy `.env.example` to `.env.local` and fill in `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
+4. Copy `.env.example` to `.env.local` and fill in `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` (the legacy `VITE_SUPABASE_ANON_KEY` also works).
 
 ### Checks
 

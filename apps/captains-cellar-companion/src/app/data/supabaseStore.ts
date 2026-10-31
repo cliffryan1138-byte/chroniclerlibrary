@@ -29,7 +29,7 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
     kind: 'supabase',
     currentUser: loadUser,
     async signUp(email, password, birthYear) {
-      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { birth_year: birthYear } } })
+      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { birth_year: birthYear }, emailRedirectTo: window.location.origin } })
       if (error) throw error
       if (!data.session) return 'check-email'
       return (await loadUser())!
