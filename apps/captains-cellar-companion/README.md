@@ -22,6 +22,13 @@ With no environment variables it runs in **demo mode**: one local user, everythi
 3. Load the sample catalog: run `supabase/seed.sql` (regenerate it with `npm run seed:sql` after editing the branch catalog).
 4. Copy `.env.example` to `.env.local` and fill in `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` (the legacy `VITE_SUPABASE_ANON_KEY` also works).
 
+### Band scanning (optional)
+
+`api/scan-band.ts` is a Vercel Function that reads a photo of a cigar band with Claude and pre-fills the
+Maker and Cigar fields. Set `ANTHROPIC_API_KEY` in the Vercel project (Production and Preview) to turn it on.
+Only signed-in users can call it (it checks the Supabase session), so demo mode shows a "needs an account"
+note instead. Photos are resized in the browser before upload and are not stored.
+
 ### Checks
 
 ```bash

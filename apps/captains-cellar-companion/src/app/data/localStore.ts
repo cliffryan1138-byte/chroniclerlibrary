@@ -31,6 +31,7 @@ export function createLocalStore(): Store {
       if (!user) throw new Error('No demo profile in this browser yet. Sign up instead.')
       return user
     },
+    async accessToken() { return null },
     async signOut() {
       for (const k of Object.values(KEY)) localStorage.removeItem(k)
     },

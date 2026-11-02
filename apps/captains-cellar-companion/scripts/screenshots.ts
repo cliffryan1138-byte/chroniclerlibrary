@@ -45,6 +45,11 @@ async function run(scheme: 'light' | 'dark') {
   await shot('03-discover-cold-start')
 
   await page.getByRole('button', { name: 'Log', exact: true }).click()
+  // Band scan: demo mode has no account, so it should explain instead of failing.
+  const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg==', 'base64')
+  await page.locator('input[type=file]').setInputFiles({ name: 'band.png', mimeType: 'image/png', buffer: png })
+  await page.getByText('Band scanning needs an account').waitFor()
+
   // A cigar the catalog doesn't know: typed straight in, no picking.
   await page.getByLabel('Maker').fill('Test Maker')
   await page.getByLabel('Cigar', { exact: true }).fill('Test Maduro Robusto')

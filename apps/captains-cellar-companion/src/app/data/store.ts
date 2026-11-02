@@ -26,6 +26,8 @@ export interface Store {
   signUp(email: string, password: string, birthYear: number): Promise<AppUser | 'check-email'>
   signIn(email: string, password: string): Promise<AppUser>
   signOut(): Promise<void>
+  /** Bearer token for this app's own server functions; null in demo mode. */
+  accessToken(): Promise<string | null>
   updateUser(patch: UserPatch): Promise<AppUser>
   listItems(category: string): Promise<Item[]>
   /** A cigar the catalog doesn't have yet: saved as pending, visible only to the person who added it. */
