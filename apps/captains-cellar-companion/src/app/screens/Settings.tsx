@@ -3,7 +3,28 @@ import { branches } from '../branch'
 import { store } from '../data'
 import { useApp } from '../state'
 import { useTheme, type ThemeSetting } from '../theme'
+import { useInstall } from '../install'
 import { Button, Card, Section, Segmented } from '../components/ui'
+
+function InstallCard() {
+  const { state, install } = useInstall()
+  if (state === 'installed') return null
+  return (
+    <Section title="Add to your Home Screen" hint="It opens full screen like any other app, with its own icon. No app store needed.">
+      <Card className="space-y-2 text-sm">
+        {state === 'prompt' && <Button className="w-full" onClick={install}>Install the app</Button>}
+        {state === 'ios' && (
+          <ol className="list-decimal space-y-1 pl-5">
+            <li>Open this page in <span className="font-semibold">Safari</span>.</li>
+            <li>Tap the <span className="font-semibold">Share</span> button (the square with an arrow).</li>
+            <li>Scroll down and tap <span className="font-semibold">Add to Home Screen</span>, then <span className="font-semibold">Add</span>.</li>
+          </ol>
+        )}
+        {state === 'manual' && <p className="text-muted">Open your browser's menu and choose <span className="font-semibold">Install app</span> or <span className="font-semibold">Add to Home screen</span>.</p>}
+      </Card>
+    </Section>
+  )
+}
 
 export function Settings({ onRetakeQuiz }: { onRetakeQuiz: () => void }) {
   const { user, updateUser, signOut } = useApp()
@@ -11,6 +32,7 @@ export function Settings({ onRetakeQuiz }: { onRetakeQuiz: () => void }) {
   return (
     <div className="space-y-7">
       <h1 className="font-display text-3xl font-bold">Settings</h1>
+      <InstallCard />
 
       <Section title="Logging mode" hint="Simple: tap families and rate. Detailed: specific notes by third, plus draw, burn, and construction. Both feed the same profile.">
         <Segmented label="Logging mode" value={user?.mode ?? 'simple'} onChange={(mode) => updateUser({ mode })}

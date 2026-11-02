@@ -14,7 +14,8 @@
     "screenshots": "tsx scripts/screenshots.ts",
     "catalog:shopify": "tsx scripts/catalog-from-shopify.ts",
     "catalog:sql": "tsx scripts/catalog-to-sql.ts",
-    "catalog:makers": "tsx scripts/catalog-makers.ts"
+    "catalog:makers": "tsx scripts/catalog-makers.ts",
+    "icons": "tsx scripts/make-icons.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

@@ -4,6 +4,7 @@ import { App } from './app/App'
 import { AppProvider } from './app/state'
 import { applyTheme, initialTheme, ThemeProvider } from './app/theme'
 import './index.css'
+import './app/install' // catches the browser's install prompt before any screen mounts
 
 applyTheme(initialTheme())
 
