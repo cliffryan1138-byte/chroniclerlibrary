@@ -1,12 +1,11 @@
 import { Star } from 'lucide-react'
 import { topFamilies } from '../../core'
 import { copy } from '../../config/captains-cellar'
-import { branch } from '../branch'
 import { useApp } from '../state'
 import { Card, Section } from '../components/ui'
 
 export function Palate() {
-  const { profile, logs, items } = useApp()
+  const { profile, logs, items, branch } = useApp()
   const { taxonomy, strengthLabel } = branch.spec
   const rows = taxonomy.families.map((f) => ({ ...f, value: profile.families[f.id] ?? 0 })).sort((a, b) => b.value - a.value)
   const top = topFamilies(profile).map((f) => taxonomy.families.find((x) => x.id === f)!.label)

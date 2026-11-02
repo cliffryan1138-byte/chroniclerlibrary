@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { copy } from '../../config/captains-cellar'
-import { branch } from '../branch'
 import { useApp } from '../state'
 import { FamilyPicker } from '../components/FamilyPicker'
 import { Button, Section, Segmented } from '../components/ui'
@@ -8,15 +7,16 @@ import { Button, Section, Segmented } from '../components/ui'
 const toggle = (list: string[], v: string) => (list.includes(v) ? list.filter((x) => x !== v) : [...list, v])
 
 export function Quiz({ onDone }: { onDone?: () => void }) {
-  const { user, updateUser } = useApp()
-  const [liked, setLiked] = useState<string[]>(user?.quizSeed?.likedFamilies ?? [])
-  const [disliked, setDisliked] = useState<string[]>(user?.quizSeed?.dislikedFamilies ?? [])
-  const [strength, setStrength] = useState<number | null>(user?.quizSeed?.strength ?? null)
+  const { branch, seeds, saveSeed } = useApp()
+  const seed = seeds[branch.id]
+  const [liked, setLiked] = useState<string[]>(seed?.likedFamilies ?? [])
+  const [disliked, setDisliked] = useState<string[]>(seed?.dislikedFamilies ?? [])
+  const [strength, setStrength] = useState<number | null>(seed?.strength ?? null)
   const [busy, setBusy] = useState(false)
 
   async function finish() {
     setBusy(true)
-    await updateUser({ quizSeed: { likedFamilies: liked, dislikedFamilies: disliked, strength } })
+    await saveSeed({ likedFamilies: liked, dislikedFamilies: disliked, strength })
     setBusy(false)
     onDone?.()
   }
@@ -24,6 +24,7 @@ export function Quiz({ onDone }: { onDone?: () => void }) {
   return (
     <main className="mx-auto max-w-md space-y-7 px-4 py-8">
       <header>
+        <p className="text-xs uppercase tracking-[0.2em] text-accent">{branch.name}</p>
         <h1 className="font-display text-3xl font-bold">{copy.quiz.title}</h1>
         <p className="mt-1 text-muted">{copy.quiz.subtitle}</p>
       </header>

@@ -2,6 +2,7 @@ import type { BranchSpec } from '../../core'
 import { cigarTaxonomy } from './taxonomy'
 
 export const CATEGORY = 'cigar'
+export const DISPLAY_NAME = 'Cigars'
 
 /** Simple mode shows strength as three words; the 1-5 scale lives underneath. */
 export function strengthLabel(strength: number): 'Mild' | 'Medium' | 'Full' {
@@ -20,10 +21,10 @@ export const SIMPLE_STRENGTH_OPTIONS = [
 export const DETAILED_OFFER_AFTER_LOGS = 15
 export const COLD_START_LOGS = 10
 
-export const THIRDS = [
-  { value: 1, label: 'First third' },
-  { value: 2, label: 'Second third' },
-  { value: 3, label: 'Final third' },
+export const STAGES = [
+  { value: 1, label: 'First third', short: 'First' },
+  { value: 2, label: 'Second third', short: 'Second' },
+  { value: 3, label: 'Final third', short: 'Final' },
 ] as const
 
 /** 1-5 scores captured in detailed mode, stored in logs.details. */
@@ -47,6 +48,7 @@ export const ITEM_LABELS = {
   brandPlaceholder: 'The name on the band',
   name: 'Cigar',
   namePlaceholder: 'Line and size, e.g. Maduro Robusto',
+  scan: 'Scan the band',
 } as const
 
 /** Keys allowed in items.attributes for a cigar. */

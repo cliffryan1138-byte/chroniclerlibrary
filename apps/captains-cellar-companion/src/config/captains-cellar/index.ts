@@ -5,7 +5,7 @@ export const appConfig = {
   name: "Captain's Cellar Companion",
   shortName: 'Cellar',
   minimumAge: 21,
-  branches: ['cigar'] as const,
+  branches: ['cigar', 'pipe_tobacco'] as const,
   recommendationCount: 5,
 } as const
 
@@ -40,7 +40,7 @@ export const fonts = {
 
 // Voice: the unhurried host at the end of the day. Warm, a little wry, never snobbish.
 export const copy = {
-  eyebrow: 'Cigars',
+  eyebrow: 'Cigars · Pipe tobacco',
   tagline: 'A tasting journal that learns your palate.',
   compliance: 'For adults 21 and over. A private tasting journal: it does not promote tobacco use, and nothing here is for sale.',
   ageGate: {
@@ -61,7 +61,6 @@ export const copy = {
     title: 'Log a session',
     pickItem: 'What did you have?',
     pickItemHint: 'Type it in. Suggestions pop up as you go.',
-    scan: 'Scan the band',
     scanning: 'Reading the band…',
     scanRead: 'Read from the band. Give it a once-over before saving.',
     scanMissed: "Couldn't make out the band. Try a closer, sharper photo, or type it in.",

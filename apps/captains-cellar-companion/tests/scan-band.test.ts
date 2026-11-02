@@ -99,7 +99,7 @@ describe('the request sent to SPARK', () => {
       return new Response(JSON.stringify({ extracted: { maker: 'A', line: 'B', vitola: null, confidence: 0.9 } }))
     }) as typeof fetch
     try {
-      const out = await defaultDeps.readBand('aGVsbG8=', 'image/jpeg', 'user-9')
+      const out = await defaultDeps.readBand('aGVsbG8=', 'image/jpeg', 'user-9', 'cigar_band')
       expect(out).toEqual({ found: true, maker: 'A', name: 'B', confidence: 'high' })
     } finally {
       globalThis.fetch = realFetch
@@ -111,5 +111,23 @@ describe('the request sent to SPARK', () => {
     expect(form.get('module_id')).toBe('cellar')
     expect(form.get('kind')).toBe('cigar_band')
     expect(await (form.get('file') as Blob).text()).toBe('hello')
+  })
+})
+
+describe('pipe tobacco tins', () => {
+  it('forwards the kind and maps the blend name', async () => {
+    let seenKind = ''
+    const handler = createHandler(deps({ readBand: async (_i, _m, _u, k) => { seenKind = k; return reading } }))
+    await handler(post({ image: 'x', mediaType: 'image/jpeg', kind: 'pipe_tobacco_tin' }))
+    expect(seenKind).toBe('pipe_tobacco_tin')
+    expect(toReading({ maker: 'Example Blender', blend: 'Example Flake', confidence: 0.9 }, 'pipe_tobacco_tin'))
+      .toEqual({ found: true, maker: 'Example Blender', name: 'Example Flake', confidence: 'high' })
+  })
+  it('defaults to cigar bands and rejects unknown kinds', async () => {
+    let seenKind = ''
+    const handler = createHandler(deps({ readBand: async (_i, _m, _u, k) => { seenKind = k; return reading } }))
+    await handler(post({ image: 'x', mediaType: 'image/jpeg' }))
+    expect(seenKind).toBe('cigar_band')
+    expect((await handler(post({ image: 'x', mediaType: 'image/jpeg', kind: 'wine_label' }))).status).toBe(400)
   })
 })

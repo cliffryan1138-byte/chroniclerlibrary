@@ -22,13 +22,13 @@ async function toJpegBase64(file: File): Promise<string> {
 }
 
 /** Returns null when the band couldn't be read; throws with a user-facing message on other failures. */
-export async function scanBand(file: File): Promise<ScanResult | null> {
+export async function scanBand(file: File, kind: string): Promise<ScanResult | null> {
   const token = await store.accessToken()
   if (!token) throw new Error('demo')
   const res = await fetch('/api/scan-band', {
     method: 'POST',
     headers: { 'content-type': 'application/json', authorization: `Bearer ${token}` },
-    body: JSON.stringify({ image: await toJpegBase64(file), mediaType: 'image/jpeg' }),
+    body: JSON.stringify({ image: await toJpegBase64(file), mediaType: 'image/jpeg', kind }),
   })
   const body = await res.json().catch(() => ({}))
   if (!res.ok) throw new Error(`${body.error ?? 'Scan failed.'}${body.code ? ` (${body.code})` : ` (http-${res.status})`}`)

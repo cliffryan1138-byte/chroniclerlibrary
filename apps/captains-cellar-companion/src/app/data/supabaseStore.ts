@@ -101,10 +101,11 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
       }
       return out
     },
-    async saveProfile(profile: TasteProfile) {
+    async saveProfiles(profiles: Record<string, TasteProfile>) {
       const { data: { user } } = await sb.auth.getUser()
       if (!user) return
-      await sb.from('taste_profiles').upsert({ user_id: user.id, profile, log_count: profile.logCount, updated_at: new Date().toISOString() })
+      const logCount = Object.values(profiles).reduce((n, p) => n + p.logCount, 0)
+      await sb.from('taste_profiles').upsert({ user_id: user.id, profile: profiles, log_count: logCount, updated_at: new Date().toISOString() })
     },
   }
 }

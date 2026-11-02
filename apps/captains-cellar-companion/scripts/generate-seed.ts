@@ -1,5 +1,8 @@
 // Prints supabase/seed.sql from the branch's SAMPLE catalog: npm run seed:sql
-import { sampleCatalog } from '../src/branches/cigar'
+import { sampleCatalog as cigars } from '../src/branches/cigar'
+import { sampleCatalog as pipeTobaccos } from '../src/branches/pipe'
+
+const sampleCatalog = [...cigars, ...pipeTobaccos]
 
 const q = (s: string) => `'${s.replace(/'/g, "''")}'`
 const lines = [
