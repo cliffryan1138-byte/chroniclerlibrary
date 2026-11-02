@@ -1,4 +1,4 @@
-import { BookOpen, Compass, PenLine, Settings as Cog } from 'lucide-react'
+import { BookOpen, ClipboardCheck, Compass, PenLine, Settings as Cog } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { copy } from '../config/captains-cellar'
 import { branches } from './branch'
@@ -20,9 +20,10 @@ const TABS: { id: Tab; label: string; Icon: typeof BookOpen }[] = [
   { id: 'discover', label: 'Discover', Icon: Compass },
   { id: 'settings', label: 'Settings', Icon: Cog },
 ]
+const CURATE_TAB = { id: 'curator' as Tab, label: 'Curate', Icon: ClipboardCheck }
 
 export function App() {
-  const { ready, user, allLogs, updateUser, branch, setBranch, seeds } = useApp()
+  const { ready, user, allLogs, updateUser, branch, setBranch, seeds, waiting } = useApp()
   const [tab, setTab] = useState<Tab>('palate')
   const [retakeQuiz, setRetakeQuiz] = useState(false)
   const [toast, setToast] = useState<string | null>(null)
@@ -52,8 +53,8 @@ export function App() {
         {tab === 'palate' && <Palate />}
         {tab === 'log' && <LogScreen key={`${branch.id}-${logKey}`} onSaved={() => { setToast(copy.log.saved); setLogKey((k) => k + 1); setTab('palate') }} />}
         {tab === 'discover' && <Discover />}
-        {tab === 'settings' && <Settings onRetakeQuiz={() => setRetakeQuiz(true)} onOpenCurator={() => setTab('curator')} />}
-        {tab === 'curator' && <Curator onBack={() => setTab('settings')} />}
+        {tab === 'settings' && <Settings onRetakeQuiz={() => setRetakeQuiz(true)} />}
+        {tab === 'curator' && user.isCurator && <Curator />}
       </main>
 
       {toast && (
@@ -72,15 +73,27 @@ export function App() {
       )}
 
       <nav className="fixed inset-x-0 bottom-0 border-t border-line bg-surface/95 pb-[env(safe-area-inset-bottom)] backdrop-blur">
-        <ul className="mx-auto grid max-w-md grid-cols-4">
-          {TABS.map(({ id, label, Icon }) => (
-            <li key={id}>
-              <button onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined}
-                className={cx('flex min-h-16 w-full flex-col items-center justify-center gap-1 text-xs', tab === id ? 'text-accent' : 'text-muted')}>
-                <Icon size={22} />{label}
-              </button>
-            </li>
-          ))}
+        <ul className={cx('mx-auto grid max-w-md', user.isCurator ? 'grid-cols-5' : 'grid-cols-4')}>
+          {(user.isCurator ? [...TABS.slice(0, 3), CURATE_TAB, TABS[3]] : TABS).map(({ id, label, Icon }) => {
+            const badge = id === 'curator' && waiting ? waiting : 0
+            return (
+              <li key={id}>
+                <button onClick={() => setTab(id)} aria-current={tab === id ? 'page' : undefined}
+                  aria-label={badge ? `${label}, ${badge} waiting` : label}
+                  className={cx('flex min-h-16 w-full flex-col items-center justify-center gap-1 text-xs', tab === id ? 'text-accent' : 'text-muted')}>
+                  <span className="relative">
+                    <Icon size={22} />
+                    {badge > 0 && (
+                      <span className="absolute -right-3 -top-2 min-w-5 rounded-full bg-accent px-1 text-center text-[11px] font-bold leading-5 text-accent-ink">
+                        {badge > 99 ? '99+' : badge}
+                      </span>
+                    )}
+                  </span>
+                  {label}
+                </button>
+              </li>
+            )
+          })}
         </ul>
       </nav>
     </div>

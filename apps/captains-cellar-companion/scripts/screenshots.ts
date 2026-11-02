@@ -139,8 +139,8 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await shot('13-cigar-makers')
 
   // Curation: the demo user curates their own typed-in cigar.
-  await page.getByRole('button', { name: 'Settings' }).click()
-  await page.getByRole('button', { name: 'Open the curator queue' }).click()
+  await page.getByRole('button', { name: 'Curate, 1 waiting' }).waitFor()
+  await page.getByRole('button', { name: 'Curate, 1 waiting' }).click()
   await page.getByText('Waiting: 1').waitFor()
   await page.getByText('Logged 1 time by 1 person').waitFor()
   await page.getByLabel('Maker', { exact: true }).fill('SAMPLE House B')
@@ -153,8 +153,8 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await shot('14-curator-merge')
   await page.getByRole('button', { name: 'Merge', exact: true }).click()
   await page.getByText('Nothing waiting. The catalog is all caught up.').waitFor()
+  await page.getByRole('button', { name: 'Curate', exact: true }).waitFor()  // the badge is gone
   await shot('15-curator-empty')
-  await page.getByRole('button', { name: '← Settings' }).click()
   await page.getByRole('button', { name: 'Palate' }).click()
   await page.getByText('Sessions logged').waitFor()
   if (await page.getByText('Test Maduro Robusto').count()) throw new Error('the merged entry should be gone from the palate')

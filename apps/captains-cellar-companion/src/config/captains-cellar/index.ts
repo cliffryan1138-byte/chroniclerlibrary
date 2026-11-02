@@ -95,7 +95,6 @@ export const copy = {
     title: 'Curator',
     subtitle: 'What people typed in that the catalog doesn\'t have yet. Approve it, merge it into the right entry, or reject it. You see counts, never who.',
     empty: 'Nothing waiting. The catalog is all caught up.',
-    open: 'Open the curator queue',
   },
   demoBanner: 'Demo mode: everything is saved in this browser only.',
 }
