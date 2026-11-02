@@ -1,11 +1,12 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { CommunityAggregates, Item, Log, LogTag, TasteProfile } from '../../core'
-import type { AppUser, NewLog, Store, UserPatch } from './store'
+import type { AppUser, CuratorActions, NewLog, QueueEntry, Store, UserPatch } from './store'
 
-interface UserRow { id: string; mode: AppUser['mode']; birth_year: number; quiz_seed: AppUser['quizSeed']; detailed_offer_seen: boolean }
+interface UserRow { id: string; mode: AppUser['mode']; birth_year: number; quiz_seed: AppUser['quizSeed']; detailed_offer_seen: boolean; is_curator?: boolean }
 
 const toUser = (row: UserRow, email: string | null): AppUser => ({
   id: row.id, email, mode: row.mode, birthYear: row.birth_year, quizSeed: row.quiz_seed, detailedOfferSeen: row.detailed_offer_seen,
+  isCurator: row.is_curator === true,
 })
 
 export function createSupabaseStore(url: string, anonKey: string): Store {
@@ -36,8 +37,37 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
     return error ? null : added.id
   }
 
+  const rpc = async (fn: string, args: Record<string, unknown>) => {
+    const { error } = await sb.rpc(fn, args)
+    if (error) throw new Error(error.message)
+  }
+
+  const curator: CuratorActions = {
+    async queue() {
+      const { data, error } = await sb.rpc('curator_queue')
+      if (error) throw new Error(error.message)
+      return ((data ?? []) as Record<string, unknown>[]).map((r) => ({
+        kind: r.kind, id: r.id, category: r.category, brand: r.brand, name: r.name, strength: r.strength,
+        attributes: r.attributes ?? {}, makerId: r.maker_id, createdAt: r.created_at,
+        logCount: Number(r.log_count ?? 0), people: r.people == null ? null : Number(r.people),
+      })) as QueueEntry[]
+    },
+    async makers() {
+      const { data, error } = await sb.from('makers').select('id, name, country, website').eq('status', 'curated').order('name')
+      if (error) throw new Error(error.message)
+      return data ?? []
+    },
+    approveItem: (id, brand, name, strength) => rpc('approve_item', { item_id: id, new_brand: brand, new_name: name, new_strength: strength }),
+    mergeItem: (fromId, intoId) => rpc('merge_item', { from_id: fromId, into_id: intoId }),
+    rejectItem: (id) => rpc('reject_item', { item_id: id }),
+    approveMaker: (id, name, country, website) => rpc('approve_maker', { maker_id: id, new_name: name, new_country: country, new_website: website }),
+    mergeMaker: (fromId, intoId) => rpc('merge_maker', { from_id: fromId, into_id: intoId }),
+    rejectMaker: (id) => rpc('reject_maker', { maker_id: id }),
+  }
+
   return {
     kind: 'supabase',
+    curator,
     currentUser: loadUser,
     async signUp(email, password, birthYear) {
       const { data, error } = await sb.auth.signUp({ email, password, options: { data: { birth_year: birthYear }, emailRedirectTo: window.location.origin } })

@@ -8,6 +8,8 @@ export interface AppUser {
   /** Quiz answers per category. Older rows hold a single cigar seed; readSeeds() handles both. */
   quizSeed: QuizSeeds | SeedProfile | null
   detailedOfferSeen: boolean
+  /** Can review what people type in. Granted with SQL only; the app can't set it. */
+  isCurator: boolean
 }
 
 export type QuizSeeds = Partial<Record<string, SeedProfile>>
@@ -26,6 +28,34 @@ export interface NewLog {
   notes: string | null
   details: Record<string, unknown>
   tags: LogTag[]
+}
+
+/** One entry in the curator's queue. Counts only: who logged it never leaves the database. */
+export interface QueueEntry {
+  kind: 'item' | 'maker'
+  id: string
+  category: string | null
+  brand: string
+  name: string
+  strength: number | null
+  attributes: Record<string, unknown>
+  makerId: string | null
+  createdAt: string
+  logCount: number
+  people: number | null
+}
+
+export interface MakerRecord { id: string; name: string; country: string | null; website: string | null }
+
+export interface CuratorActions {
+  queue(): Promise<QueueEntry[]>
+  makers(): Promise<MakerRecord[]>
+  approveItem(id: string, brand: string, name: string, strength: number | null): Promise<void>
+  mergeItem(fromId: string, intoId: string): Promise<void>
+  rejectItem(id: string): Promise<void>
+  approveMaker(id: string, name: string, country: string, website: string): Promise<void>
+  mergeMaker(fromId: string, intoId: string): Promise<void>
+  rejectMaker(id: string): Promise<void>
 }
 
 export type UserPatch = Partial<Pick<AppUser, 'mode' | 'quizSeed' | 'detailedOfferSeen'>>
@@ -47,4 +77,5 @@ export interface Store {
   communityAggregates(): Promise<CommunityAggregates>
   /** The derived profile for each category, saved as one row. */
   saveProfiles(profiles: Record<string, TasteProfile>): Promise<void>
+  curator: CuratorActions
 }

@@ -15,8 +15,20 @@ async function noOverflow(page: Page, label: string) {
 }
 
 async function run(scheme: 'light' | 'dark') {
+  let current: Page | null = null
+  try { await walk(scheme, (p) => { current = p }) } catch (err) {
+    if (current) {
+      await (current as Page).screenshot({ path: `${out}/${scheme}-FAILED.png`, fullPage: true })
+      console.error('localStorage at failure:', await (current as Page).evaluate(() => JSON.stringify({ items: JSON.parse(localStorage.getItem('ccc:items') ?? '[]').map((i: { id: string; name: string; status: string }) => [i.id, i.name, i.status]), logs: JSON.parse(localStorage.getItem('ccc:logs') ?? '[]').map((l: { itemId: string }) => l.itemId) })))
+    }
+    throw err
+  }
+}
+
+async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   const browser = await chromium.launch({ executablePath: process.env.CHROMIUM_PATH ?? '/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell' })
   const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2, colorScheme: scheme, isMobile: true, hasTouch: true })
+  expose(page)
   const errors: string[] = []
   page.on('console', (m) => m.type() === 'error' && !m.text().includes('fonts.g') && errors.push(m.text()))
   page.on('pageerror', (e) => errors.push(e.message))
@@ -83,12 +95,6 @@ async function run(scheme: 'light' | 'dark') {
   await page.getByText('Specific notes you like').waitFor()
   await page.getByText('Test Maduro Robusto').waitFor()
   await page.getByRole('button', { name: 'Discover' }).click()
-  if (await page.getByText('Browse by style').count()) throw new Error('cigars should not show the pipe style browser')
-  await page.locator('summary', { hasText: 'SAMPLE House B' }).click()
-  await page.locator('details[open]').getByText('SAMPLE Cocoa Box Toro').waitFor()
-  await shot('13-cigar-makers')
-
-  await page.getByRole('button', { name: 'Discover' }).click()
   await page.getByText('% match').first().waitFor()
   await shot('08-discover')
 
@@ -126,6 +132,34 @@ async function run(scheme: 'light' | 'dark') {
   await page.getByRole('button', { name: 'Palate' }).click()
   await page.getByRole('radio', { name: 'Cigars' }).click()
   await page.getByText('Test Maduro Robusto').waitFor()
+  await page.getByRole('button', { name: 'Discover' }).click()
+  if (await page.getByText('Browse by style').count()) throw new Error('cigars should not show the pipe style browser')
+  await page.locator('summary', { hasText: 'SAMPLE House B' }).click()
+  await page.locator('details[open]').getByText('SAMPLE Cocoa Box Toro').waitFor()
+  await shot('13-cigar-makers')
+
+  // Curation: the demo user curates their own typed-in cigar.
+  await page.getByRole('button', { name: 'Settings' }).click()
+  await page.getByRole('button', { name: 'Open the curator queue' }).click()
+  await page.getByText('Waiting: 1').waitFor()
+  await page.getByText('Logged 1 time by 1 person').waitFor()
+  await page.getByLabel('Maker', { exact: true }).fill('SAMPLE House B')
+  await page.getByLabel('Cigar', { exact: true }).fill('sample cocoa box toro')
+  await page.getByRole('button', { name: 'Approve' }).click()
+  await page.getByText('Already in the catalog: merge it instead').waitFor()
+  await page.getByRole('button', { name: 'Merge…' }).click()
+  await page.getByPlaceholder('Search the catalog').fill('cocoa')
+  await page.getByRole('button', { name: /SAMPLE House B SAMPLE Cocoa Box Toro/ }).click()
+  await shot('14-curator-merge')
+  await page.getByRole('button', { name: 'Merge', exact: true }).click()
+  await page.getByText('Nothing waiting. The catalog is all caught up.').waitFor()
+  await shot('15-curator-empty')
+  await page.getByRole('button', { name: '← Settings' }).click()
+  await page.getByRole('button', { name: 'Palate' }).click()
+  await page.getByText('Sessions logged').waitFor()
+  if (await page.getByText('Test Maduro Robusto').count()) throw new Error('the merged entry should be gone from the palate')
+  if ((await page.getByText('SAMPLE Cocoa Box Toro').count()) < 2) throw new Error('both logs should now be on the catalog cigar')
+
 
   await browser.close()
   if (errors.length) throw new Error(`${scheme}: console errors:\n${errors.join('\n')}`)
