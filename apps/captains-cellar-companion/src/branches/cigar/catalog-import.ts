@@ -1,37 +1,14 @@
-import type { ItemTag } from '../../core'
+import {
+  fillBlanks, labelledWith, tagsOf, makerSlug, mergeIntoMakerFileWith, stripHtml, tagsFromTextWith, tidy,
+  type CatalogEntryOf, type MakerFileOf, type ShopifyProduct,
+} from '../../core'
 import { cigarTaxonomy } from './taxonomy'
 import type { CigarAttributes } from './rules'
 
-/**
- * One cigar in a reviewable catalog file (catalog/*.json). Facts only: no marketing copy, images,
- * prices or links are kept, and a field the source doesn't state is null, never a guess.
- */
-export interface CatalogEntry {
-  brand: string
-  name: string
-  attributes: CigarAttributes & { source?: string }
-  strength: number | null
-  tags: ItemTag[]
-  /** What the reviewer should check before loading; not written to the database. */
-  review: string[]
-  /** Every site that listed this cigar (domains only). */
-  sources?: string[]
-  /** The source's own product photos, as addresses for the reviewer to look at. Not downloaded or loaded:
-   * band-photo matching needs our own (or licensed) reference photos and a SPARK image-match step first. */
-  reference_images: string[]
-}
-
-/** The parts of a Shopify product the importer reads (Shopify's public /products.json). */
-export interface ShopifyProduct {
-  title: string
-  vendor?: string
-  product_type?: string
-  tags?: string[] | string
-  body_html?: string | null
-  options?: { name: string; values: string[] }[]
-  variants?: { title: string }[]
-  images?: { src: string }[]
-}
+/** One cigar in a reviewable catalog file (catalog/makers/<maker>.json). */
+export type CatalogEntry = CatalogEntryOf<CigarAttributes>
+export type { ShopifyProduct }
+export { makerSlug, stripHtml }
 
 const VITOLAS = [
   'double corona', 'corona gorda', 'petit corona', 'gran toro', 'box-pressed toro', 'double robusto', 'robusto', 'toro', 'churchill',
@@ -49,17 +26,6 @@ const NOT_CIGARS = new RegExp('\\b(' + [
 const LOOKS_LIKE_CIGAR = new RegExp(`\\b(cigars?|${VITOLAS.join('|')})\\b`, 'i')
 const PACKAGING = /^(single|singles?|each|\d+\s*-?\s*(pack|ct|count)|box( of \d+)?|bundle( of \d+)?|default title)$/i
 
-export function stripHtml(html: string | null | undefined): string {
-  return (html ?? '')
-    .replace(/<(br|\/p|\/li|\/div|\/h\d)\s*\/?>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#39;|&rsquo;/g, "'")
-    .replace(/&times;/g, 'x').replace(/&[a-z]+;/g, ' ')
-    .replace(/[ \t]+/g, ' ')
-    .replace(/\n\s*/g, '\n')
-    .trim()
-}
-
 /** Pack counts, sizes and packaging words belong in attributes or nowhere, not in the cigar's name. */
 export function cleanName(title: string): string {
   return tidy(title
@@ -71,23 +37,11 @@ export function cleanName(title: string): string {
     .replace(/\s*[-–—|]\s*$/, ''))
 }
 
-const tidy = (s: string) => s.replace(/\s+/g, ' ').replace(/^[\s:–—-]+|[\s.;,]+$/g, '').trim()
-
 const KNOWN_LABELS = ['wrapper', 'binder', 'fillers?', 'origin', 'country(?: of origin)?', 'made in', 'strength', 'body',
   'profile', 'size', 'vitola', 'shape', 'length', 'ring(?: gauge)?', 'finish', 'manufactured', 'availability', 'notes?',
   'flavou?r(?: notes)?', 'pairing', 'aroma', 'construction', 'blend']
-const NEXT_LABEL = new RegExp(`\\s(?:${KNOWN_LABELS.join('|')})\\s*:`, 'i')
-
 /** "Wrapper: Ecuadorian Habano" style lines. Only an explicit label counts, and a value ends where the next label starts. */
-export function labelled(text: string, labels: string[]): string | null {
-  for (const label of labels) {
-    const m = text.match(new RegExp(`(?:^|\\n|\\s)${label}s?\\s*[:\\-–—]\\s*([^\\n|]{2,200})`, 'i'))
-    if (!m) continue
-    const value = tidy(m[1].split(NEXT_LABEL)[0].replace(/[\\"”]+$/, ''))
-    if (value) return value.length > 80 ? null : value
-  }
-  return null
-}
+export const labelled = (text: string, labels: string[]) => labelledWith(text, labels, KNOWN_LABELS)
 
 /** 5 x 50, 5 1/2 x 50, 5.5" x 50, 50 x 5 1/2 → { length, ring_gauge }. */
 export function parseSize(text: string): { length?: number; ring_gauge?: number } {
@@ -120,15 +74,8 @@ export function strengthFromWords(text: string | null): number | null {
   return null
 }
 
-/** Flavor notes the description names, mapped through the taxonomy. Named descriptors outrank named families. */
-export function tagsFromText(text: string): ItemTag[] {
-  const lower = text.toLowerCase()
-  const byFamily = new Map<string, number>()
-  const has = (word: string) => new RegExp(`\\b${word.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')}\\b`).test(lower)
-  for (const d of cigarTaxonomy.descriptors) if (has(d.label.toLowerCase())) byFamily.set(d.family, Math.max(byFamily.get(d.family) ?? 0, 0.6))
-  for (const f of cigarTaxonomy.families) if (has(f.label.toLowerCase())) byFamily.set(f.id, Math.max(byFamily.get(f.id) ?? 0, 0.5))
-  return [...byFamily].map(([family, weight]) => ({ family, weight }))
-}
+/** Flavor notes the description names, mapped through the cigar taxonomy. */
+export const tagsFromText = (text: string) => tagsFromTextWith(text, cigarTaxonomy)
 
 function vitolaIn(text: string): string | undefined {
   const lower = text.toLowerCase()
@@ -137,7 +84,7 @@ function vitolaIn(text: string): string | undefined {
 }
 
 export function isCigarProduct(p: ShopifyProduct): boolean {
-  const tags = Array.isArray(p.tags) ? p.tags.join(' ') : p.tags ?? ''
+  const tags = tagsOf(p)
   const hay = `${p.title} ${p.product_type ?? ''} ${tags}`
   return !NOT_CIGARS.test(`${p.title} ${p.product_type ?? ''}`) && LOOKS_LIKE_CIGAR.test(hay)
 }
@@ -187,15 +134,7 @@ export function mergeDuplicates(entries: CatalogEntry[]): CatalogEntry[] {
     const key = `${e.brand}|${e.name}`.toLowerCase().replace(/\s+/g, ' ')
     const seen = byKey.get(key)
     if (!seen) { byKey.set(key, { ...e, attributes: { ...e.attributes }, tags: [...e.tags] }); continue }
-    for (const k of FIELDS) if (seen.attributes[k] == null && e.attributes[k] != null) (seen.attributes as Record<string, unknown>)[k] = e.attributes[k]
-    seen.strength ??= e.strength
-    for (const t of e.tags) {
-      const mine = seen.tags.find((x) => x.family === t.family)
-      if (!mine) seen.tags.push(t)
-      else mine.weight = Math.max(mine.weight, t.weight)
-    }
-    seen.reference_images = [...new Set([...seen.reference_images, ...e.reference_images])].slice(0, 3)
-    seen.sources = [...new Set([...(seen.sources ?? []), ...(e.sources ?? [])])]
+    fillBlanks(seen, e, FIELDS, 'union')
   }
   for (const e of byKey.values()) {
     e.review = []
@@ -208,33 +147,8 @@ export function mergeDuplicates(entries: CatalogEntry[]): CatalogEntry[] {
 }
 
 /** One maker's reviewable catalog file: catalog/makers/<slug>.json. */
-export interface MakerFile {
-  maker: { name: string; website?: string | null; country?: string | null }
-  category: string
-  entries: CatalogEntry[]
-}
+export type MakerFile = MakerFileOf<CatalogEntry>
 
-export const makerSlug = (name: string) =>
-  name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'unknown'
-
-/**
- * Folds a fresh fetch into a maker's existing file. What's already in the file was reviewed, so it
- * wins; the fetch only adds new cigars, fills fields still blank, and adds its source.
- */
-export function mergeIntoMakerFile(existing: MakerFile | null, maker: MakerFile['maker'], category: string, fresh: CatalogEntry[]): MakerFile {
-  const file: MakerFile = existing
-    ? { ...existing, maker: { ...maker, ...existing.maker, website: existing.maker.website ?? maker.website ?? null } }
-    : { maker, category, entries: [] }
-  const key = (e: CatalogEntry) => e.name.toLowerCase().replace(/\s+/g, ' ')
-  const byName = new Map(file.entries.map((e) => [key(e), e]))
-  for (const e of fresh) {
-    const kept = byName.get(key(e))
-    if (!kept) { file.entries.push(e); byName.set(key(e), e); continue }
-    for (const k of FIELDS) if (kept.attributes[k] == null && e.attributes[k] != null) (kept.attributes as Record<string, unknown>)[k] = e.attributes[k]
-    kept.strength ??= e.strength
-    if (!kept.tags.length) kept.tags = e.tags
-    kept.sources = [...new Set([...(kept.sources ?? []), ...(e.sources ?? [])])]
-    kept.reference_images = [...new Set([...kept.reference_images, ...e.reference_images])].slice(0, 3)
-  }
-  return file
-}
+/** Folds a fresh fetch into a maker's file; what's already there was reviewed, so it wins. */
+export const mergeIntoMakerFile = (existing: MakerFile | null, maker: MakerFile['maker'], category: string, fresh: CatalogEntry[]): MakerFile =>
+  mergeIntoMakerFileWith(existing, maker, category, fresh, FIELDS)

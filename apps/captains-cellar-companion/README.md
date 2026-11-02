@@ -145,5 +145,30 @@ prices or links, and leaves anything the site doesn't state blank. Products sold
 size. Re-running the SQL updates the same cigars rather than duplicating them (ids come from maker + name).
 `reference_images` in the JSON are the site's own photos, listed for the reviewer only; they are not loaded.
 
+### Pipe tobacco
 
-The starter items in `src/branches/cigar/catalog.ts` are clearly labelled **SAMPLE** placeholders, not real products. Once a real catalog is loaded they can be removed with `delete from items where name like 'SAMPLE %';`.
+```bash
+npm run catalog:shopify -- https://tobacconist.example --category pipe_tobacco
+# -> catalog/pipe-tobacco/<maker>.json
+npm run catalog:sql -- catalog/pipe-tobacco/<maker>.json > out.sql
+```
+
+This is the same flow with a blend reader (`src/branches/pipe/catalog-import.ts`). It keeps facts only:
+
+- maker and blend name, with tin sizes and words like "tin", "bulk" and "pipe tobacco" moved out of the name
+- style, the leaf (Virginia, Burley, Latakia, Perique, Oriental…), cut, tin sizes and origin
+- a stated nicotine strength (Mild 2, Medium 3, Full 4) and flavor notes the description names
+
+The reader skips pipes, gear (cleaners, tampers, pouches, jars), cigars and samplers. A blend sold as a tin and in
+bulk comes out as one blend, with all its tin sizes listed.
+
+The reader only fills a style when the source states it, as a "Style:" line, the product type or a tag. When none is
+given, it suggests one from the leaf (Latakia → English, Virginia + Perique → VaPer, a topping → Aromatic) and marks
+the entry "style guessed: check" in `review`. Leaf read from the prose instead of a "Tobaccos:" line is marked too.
+Mixtures with no clear lead get no style, so you pick one.
+
+The shared plumbing (Shopify product shape, maker files, review-first merging) lives in `src/core/catalog-import.ts`.
+Each branch plugs in its own fields and vocabulary.
+
+
+The starter items in `src/branches/cigar/catalog.ts` and `src/branches/pipe/catalog.ts` are clearly labelled **SAMPLE** placeholders, not real products. Once a real catalog is loaded for a category, remove its samples with `delete from items where name like 'SAMPLE %' and category = 'cigar';` (or `'pipe_tobacco'`).
