@@ -1,0 +1,21 @@
+{
+  "about": "Makers' own websites for npm run catalog:makers. Not checked from here: the script says which ones run on Shopify, which are catalog-only, and which addresses are wrong. Edit freely: add makers, fix addresses, remove ones that don't pan out.",
+  "makers": [
+    { "maker": "Tabanero Cigars", "site": "https://tabanerocigars.com", "category": "cigar", "note": "already loaded; re-running only adds what's new" },
+    { "maker": "Leccia Tobacco", "site": "https://leccia-tobacco.com", "category": "cigar" },
+    { "maker": "Dunbarton Tobacco & Trust", "site": "https://www.dunbartontobacco.com", "category": "cigar" },
+    { "maker": "Warped Cigars", "site": "https://warpedcigars.com", "category": "cigar" },
+    { "maker": "Crowned Heads", "site": "https://crownedheads.com", "category": "cigar" },
+    { "maker": "Tatuaje", "site": "https://tatuajecigars.com", "category": "cigar" },
+    { "maker": "RoMa Craft Tobac", "site": "https://romacrafttobac.com", "category": "cigar" },
+    { "maker": "Southern Draw", "site": "https://www.southerndrawcigars.com", "category": "cigar" },
+    { "maker": "Caldwell Cigar Co", "site": "https://caldwellcigarcompany.com", "category": "cigar" },
+    { "maker": "Foundation Cigar Co", "site": "https://foundationcigars.com", "category": "cigar" },
+    { "maker": "Cornell & Diehl", "site": "https://www.cornellanddiehl.com", "category": "pipe_tobacco" },
+    { "maker": "G. L. Pease", "site": "https://www.glpease.com", "category": "pipe_tobacco" },
+    { "maker": "Seattle Pipe Club", "site": "https://seattlepipeclub.com", "category": "pipe_tobacco" },
+    { "maker": "Sutliff Tobacco", "site": "https://www.sutlifftobacco.com", "category": "pipe_tobacco" },
+    { "maker": "Mac Baren", "site": "https://www.macbaren.com", "category": "pipe_tobacco" },
+    { "maker": "Samuel Gawith", "site": "https://www.samuelgawith.co.uk", "category": "pipe_tobacco" }
+  ]
+}

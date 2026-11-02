@@ -145,6 +145,19 @@ prices or links, and leaves anything the site doesn't state blank. Products sold
 size. Re-running the SQL updates the same cigars rather than duplicating them (ids come from maker + name).
 `reference_images` in the JSON are the site's own photos, listed for the reviewer only; they are not loaded.
 
+### Many makers at once
+
+`catalog/maker-sites.json` lists makers' own websites. Each entry has a maker, a site and a category.
+`npm run catalog:makers` goes down that list one site at a time. Each Shopify site it can read becomes review
+files, exactly like `catalog:shopify`. Products a maker's store sells under another brand's name go to that
+brand's file. The rest are listed at the end as catalog-only or unreachable, and nothing is loaded into the
+database. The list hasn't been checked against the live sites, so edit it as you learn which addresses work.
+
+For catalog-only sites, `catalog/BROWSER_CLAUDE.md` holds a prompt for Claude in Chrome. It reads the maker's
+pages and returns the same file format, with facts only and no guessing. `catalog:sql` checks every file before
+writing SQL: known flavor families, strength 1-5, names present. A hand-made file with a mistake is refused,
+with the reason named.
+
 ### Pipe tobacco
 
 ```bash

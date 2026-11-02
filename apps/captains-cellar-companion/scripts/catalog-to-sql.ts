@@ -7,6 +7,15 @@
 import { readFileSync } from 'node:fs'
 import { CATEGORY, type CatalogEntry, type MakerFile } from '../src/branches/cigar'
 import { catalogId, sqlQuote as q } from './catalog-ids'
+import { cigarTaxonomy } from '../src/branches/cigar'
+import { pipeTaxonomy } from '../src/branches/pipe'
+
+// Files can be hand-made (see catalog/BROWSER_CLAUDE.md), so nothing reaches the SQL unchecked.
+const FAMILIES: Record<string, Set<string>> = {
+  cigar: new Set(cigarTaxonomy.families.map((f) => f.id)),
+  pipe_tobacco: new Set(pipeTaxonomy.families.map((f) => f.id)),
+}
+const problems: string[] = []
 
 const files = process.argv.slice(2)
 if (!files.length) {
@@ -29,6 +38,9 @@ for (const file of files) {
     }))
 
   for (const g of groups) {
+    const families = FAMILIES[g.category]
+    if (!families) { problems.push(`${file}: unknown category "${g.category}" (cigar or pipe_tobacco)`); continue }
+    if (!g.maker?.name?.trim()) { problems.push(`${file}: the maker has no name`); continue }
     lines.push(
       `insert into public.makers (name, website, country, status) values (${q(g.maker.name)}, ${g.maker.website ? q(g.maker.website) : 'null'}, ${g.maker.country ? q(g.maker.country) : 'null'}, 'curated')`,
       `  on conflict (name_key) do update set status = 'curated', website = coalesce(excluded.website, makers.website), country = coalesce(excluded.country, makers.country);`,
@@ -36,7 +48,10 @@ for (const file of files) {
     makers++
     const makerId = `(select id from public.makers where name_key = ${keyOf(g.maker.name)})`
     for (const e of g.entries) {
-      if (!e.name) continue
+      if (!e.name?.trim()) { problems.push(`${file}: an entry has no name`); continue }
+      if (e.attributes != null && (typeof e.attributes !== 'object' || Array.isArray(e.attributes))) { problems.push(`${file}: ${e.name}: attributes must be an object`); continue }
+      for (const t of e.tags ?? []) if (!families.has(t.family)) problems.push(`${file}: ${e.name}: "${t.family}" isn't a ${g.category} flavor family (${[...families].join(', ')})`)
+      if (e.strength != null && !(typeof e.strength === 'number' && e.strength >= 1 && e.strength <= 5)) problems.push(`${file}: ${e.name}: strength must be 1-5 or null`)
       const brand = g.maker.name
       const id = catalogId(g.category, brand, e.name)
       const strength = e.strength != null && e.strength >= 1 && e.strength <= 5 ? Math.round(e.strength) : 'null'
@@ -55,6 +70,10 @@ for (const file of files) {
       count++
     }
   }
+}
+if (problems.length) {
+  console.error(`Not written: fix these first\n  ${problems.join('\n  ')}`)
+  process.exit(1)
 }
 lines.push('commit;', `-- ${makers} maker(s), ${count} items`)
 console.log(lines.join('\n'))
