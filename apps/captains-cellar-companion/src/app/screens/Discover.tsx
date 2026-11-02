@@ -1,10 +1,22 @@
+import { useMemo } from 'react'
+import type { Item } from '../../core'
 import { copy } from '../../config/captains-cellar'
+import { normalizeName } from '../lib'
 import { useApp } from '../state'
 import { BrowseBy } from '../components/BrowseBy'
 import { Card } from '../components/ui'
 
+const makerKey = (i: Item) => i.makerId ?? normalizeName(i.brand)
+
 export function Discover() {
   const { recommendations, branch, items } = useApp()
+  const curated = useMemo(() => items.filter((i) => i.status === 'curated'), [items])
+  // Grouped by the maker record when there is one, else by the maker's name ignoring case and spacing.
+  const makers = useMemo(() => {
+    const byKey = new Map<string, string>()
+    for (const i of curated) if (!byKey.has(makerKey(i))) byKey.set(makerKey(i), i.brand)
+    return [...byKey].map(([id, label]) => ({ id, label })).sort((a, b) => a.label.localeCompare(b.label))
+  }, [curated])
   return (
     <div className="space-y-5">
       <header>
@@ -27,7 +39,14 @@ export function Discover() {
           </li>
         ))}
       </ol>
-      {branch.browse && <BrowseBy browse={branch.browse} items={items} branch={branch} />}
+      {branch.browse && (
+        <BrowseBy title={branch.browse.title} groups={branch.browse.groups} branch={branch} noun={branch.itemLabels.noun} hideEmpty={['Other']}
+          membersOf={(id) => curated.filter((i) => String((i.attributes as Record<string, unknown>)[branch.browse!.field] ?? 'Other') === id)} />
+      )}
+      {makers.length > 0 && (
+        <BrowseBy title={copy.discover.byMaker} groups={makers} branch={branch} noun={branch.itemLabels.noun}
+          membersOf={(key) => curated.filter((i) => makerKey(i) === key)} />
+      )}
     </div>
   )
 }

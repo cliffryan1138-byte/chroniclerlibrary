@@ -41,6 +41,8 @@ export interface Item {
   strength: number | null
   status: 'curated' | 'user_added_pending'
   tags?: ItemTag[]
+  /** The producer's record, when the data layer keeps one. `brand` stays as the display name. */
+  makerId?: string | null
 }
 
 export interface LogTag {

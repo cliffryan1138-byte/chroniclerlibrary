@@ -49,6 +49,7 @@ export const ITEM_LABELS = {
   name: 'Cigar',
   namePlaceholder: 'Line and size, e.g. Maduro Robusto',
   scan: 'Scan the band',
+  noun: ['cigar', 'cigars'] as [string, string],
 } as const
 
 /** Keys allowed in items.attributes for a cigar. */

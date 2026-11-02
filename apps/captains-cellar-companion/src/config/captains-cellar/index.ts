@@ -83,6 +83,7 @@ export const copy = {
     title: 'You might like',
     subtitle: 'Picked from what you rate highly. No ads, no sponsors, no links to buy.',
     empty: 'Nothing left to suggest. You have logged the whole cellar.',
+    byMaker: 'Browse by maker',
   },
   detailedOffer: {
     title: 'Ready for more detail?',

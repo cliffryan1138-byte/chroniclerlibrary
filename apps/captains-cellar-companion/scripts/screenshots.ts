@@ -84,6 +84,9 @@ async function run(scheme: 'light' | 'dark') {
   await page.getByText('Test Maduro Robusto').waitFor()
   await page.getByRole('button', { name: 'Discover' }).click()
   if (await page.getByText('Browse by style').count()) throw new Error('cigars should not show the pipe style browser')
+  await page.locator('summary', { hasText: 'SAMPLE House B' }).click()
+  await page.locator('details[open]').getByText('SAMPLE Cocoa Box Toro').waitFor()
+  await shot('13-cigar-makers')
 
   await page.getByRole('button', { name: 'Discover' }).click()
   await page.getByText('% match').first().waitFor()

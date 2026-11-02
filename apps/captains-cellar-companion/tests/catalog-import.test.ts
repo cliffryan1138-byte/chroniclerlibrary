@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { cleanName, fromShopifyProduct, isCigarProduct, labelled, mergeDuplicates, parseSize, strengthFromWords, stripHtml, tagsFromText } from '../src/branches/cigar'
+import { cleanName, fromShopifyProduct, isCigarProduct, labelled, makerSlug, mergeDuplicates, mergeIntoMakerFile, parseSize, strengthFromWords, stripHtml, tagsFromText } from '../src/branches/cigar'
 
 // A made-up store: shaped like Shopify's /products.json, no real products.
 const robusto = {
@@ -127,5 +127,32 @@ describe('what a real store feed throws at it', () => {
     expect(merged[0].attributes.wrapper).toBe('Connecticut')
     expect(merged[0].strength).toBe(1)
     expect(merged[0].review).not.toContain('no strength stated')
+  })
+})
+
+describe('one file per maker', () => {
+  const fetchFrom = (source: string, body: string) =>
+    fromShopifyProduct({ title: 'Example Robusto', vendor: 'Example Cigar Co', body_html: body }, { source })
+
+  it('a second store adds to the maker file, fills only blanks, and keeps the review', () => {
+    const first = mergeIntoMakerFile(null, { name: 'Example Cigar Co', website: 'https://example.com' }, 'cigar', fetchFrom('example.com', '<p>Wrapper: Habano</p>'))
+    first.entries[0].strength = 4                       // the reviewer filled this in by hand
+    first.entries[0].attributes.wrapper = 'Ecuador Habano' // and corrected this
+    const second = mergeIntoMakerFile(first, { name: 'Example Cigar Co', website: null }, 'cigar',
+      [...fetchFrom('shop.example.net', '<p>Wrapper: Something else</p><p>Binder: Nicaraguan</p><p>Strength: Mild</p>'),
+        ...fromShopifyProduct({ title: 'Example Toro', vendor: 'Example Cigar Co' }, { source: 'shop.example.net' })])
+    const robusto = second.entries.find((e) => e.name === 'Example Robusto')!
+    expect(second.entries.map((e) => e.name)).toEqual(['Example Robusto', 'Example Toro'])
+    expect(robusto.attributes.wrapper).toBe('Ecuador Habano')   // review wins
+    expect(robusto.attributes.binder).toBe('Nicaraguan')        // blank filled
+    expect(robusto.strength).toBe(4)
+    expect(robusto.sources).toEqual(['example.com', 'shop.example.net'])
+    expect(second.maker.website).toBe('https://example.com')
+  })
+
+  it('names files safely', () => {
+    expect(makerSlug('Tabanero')).toBe('tabanero')
+    expect(makerSlug("J.C. Newman's Ybor Cigar Factory")).toBe('j-c-newman-s-ybor-cigar-factory')
+    expect(makerSlug('Plasencia Ñ')).toBe('plasencia-n')
   })
 })
