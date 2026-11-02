@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { fromShopifyProduct, isCigarProduct, labelled, parseSize, strengthFromWords, stripHtml, tagsFromText } from '../src/branches/cigar'
+import { cleanName, fromShopifyProduct, isCigarProduct, labelled, mergeDuplicates, parseSize, strengthFromWords, stripHtml, tagsFromText } from '../src/branches/cigar'
 
 // A made-up store: shaped like Shopify's /products.json, no real products.
 const robusto = {
@@ -78,5 +78,54 @@ describe('parsing helpers', () => {
   it('strips markup', () => expect(stripHtml('<p>a&nbsp;b</p><br>c')).toBe('a b\nc'))
   it('finds named notes through the taxonomy', () => {
     expect(tagsFromText('Hints of espresso and cream').map((t) => t.family).sort()).toEqual(['creamy', 'roasted'])
+  })
+})
+
+describe('what a real store feed throws at it', () => {
+  it('skips merch, coffee, samplers, promos and non-products', () => {
+    for (const title of ['House T-Shirts Large', 'Espresso Robusto Ground Coffee Can', 'Espresso Robusto 16oz', 'Big Sampler',
+      "Father's Day Sampler Gift Pack", 'Bespoke Cigar Club', 'Two complimentary cigars for orders over $50',
+      'Bonus Cigar for every $25', 'Drink Cigar Holders', 'Ybor Cigar Factory Building']) {
+      expect(isCigarProduct({ title, product_type: 'Cigars' }), title).toBe(false)
+    }
+    expect(isCigarProduct({ title: 'Robusto Sweet Lips', product_type: 'Cigars' })).toBe(true)
+  })
+
+  it('takes pack counts and sizes out of names', () => {
+    expect(cleanName('Barberpole Toro 6"X52 - 25ct Bundle')).toBe('Barberpole Toro')
+    expect(cleanName('Toro Habano Sweet Lips 6x52- 5ct Bundle')).toBe('Toro Habano Sweet Lips')
+    expect(cleanName('Torpedo Habano 6 1/8 x 52 (25ct Bundle)')).toBe('Torpedo Habano')
+    expect(cleanName('OB Mild Corona 42x5” 25ct')).toBe('OB Mild Corona')
+    expect(cleanName('Churchill 4 Pack Limited Edition')).toBe('Churchill')
+    expect(cleanName('Patriarch Robusto Box Press')).toBe('Patriarch Robusto Box Press')
+  })
+
+  it('stops a value where the next label starts on the same line', () => {
+    const text = 'Corona — 42 × 5 Wrapper: U.S. Connecticut Filler: Nicaraguan Seco & Colombian Viso Finish: Sweet Tip'
+    expect(labelled(text, ['wrapper'])).toBe('U.S. Connecticut')
+    expect(labelled(text, ['filler'])).toBe('Nicaraguan Seco & Colombian Viso')
+    expect(labelled('Wrapper: Maduro Ecuadorian Habano Seed\\', ['wrapper'])).toBe('Maduro Ecuadorian Habano Seed')
+  })
+
+  it('takes the vitola from a real vitola word, not a size line', () => {
+    const [e] = fromShopifyProduct({ title: 'Example Robusto Box Press', vendor: 'X', body_html: '<p>Shape: 50x5" box press</p>' }, { source: 's' })
+    expect(e.attributes.vitola).toBe('Robusto')
+    expect([e.attributes.length, e.attributes.ring_gauge]).toEqual([5, 50])
+  })
+
+  it('trims "100% handmade in" from the origin', () => {
+    const [e] = fromShopifyProduct({ title: 'Example Toro', vendor: 'X', body_html: '<p>Origin: 100% Handmade In Esteli Nicaragua</p>' }, { source: 's' })
+    expect(e.attributes.origin).toBe('Esteli Nicaragua')
+  })
+
+  it('merges the same cigar sold in two pack sizes, keeping what either listing stated', () => {
+    const a = fromShopifyProduct({ title: 'Example Sweet Lips 6x52- 5ct Bundle', vendor: 'X', body_html: '<p>Wrapper: Connecticut</p>' }, { source: 's' })
+    const b = fromShopifyProduct({ title: 'Example Sweet Lips 6x52- 25ct Bundle', vendor: 'X', body_html: '<p>Strength: Mild. Notes of honey.</p>' }, { source: 's' })
+    const merged = mergeDuplicates([...a, ...b])
+    expect(merged).toHaveLength(1)
+    expect(merged[0].name).toBe('Example Sweet Lips')
+    expect(merged[0].attributes.wrapper).toBe('Connecticut')
+    expect(merged[0].strength).toBe(1)
+    expect(merged[0].review).not.toContain('no strength stated')
   })
 })

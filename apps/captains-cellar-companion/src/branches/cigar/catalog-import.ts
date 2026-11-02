@@ -32,11 +32,18 @@ export interface ShopifyProduct {
 }
 
 const VITOLAS = [
-  'double corona', 'corona gorda', 'petit corona', 'gran toro', 'box-pressed toro', 'robusto', 'toro', 'churchill',
+  'double corona', 'corona gorda', 'petit corona', 'gran toro', 'box-pressed toro', 'double robusto', 'robusto', 'toro', 'churchill',
   'corona', 'lancero', 'torpedo', 'belicoso', 'gordo', 'perfecto', 'figurado', 'salomon', 'lonsdale', 'panatela',
   'petite', 'short robusto', 'gigante', 'presidente', 'piramide', 'pyramid', 'cigarillo',
 ]
-const NOT_CIGARS = /\b(cutter|lighter|humidor|ash ?tray|shirt|t-shirt|hat|cap|hoodie|gift ?card|accessor|case|mug|sticker|lanyard|poster)\b/i
+const NOT_CIGARS = new RegExp('\\b(' + [
+  // merchandise and accessories
+  'cutters?', 'lighters?', 'humidors?', 'ash ?trays?', 't-?shirts?', 'shirts?', 'hats?', 'caps?', 'hoodies?', 'mugs?',
+  'stickers?', 'lanyards?', 'posters?', 'holders?', 'cases?', 'accessor(y|ies)', 'gift ?cards?', 'coffee', '\\d+ ?oz',
+  // more than one cigar, or not a product at all
+  'samplers?', 'gift ?packs?', 'gift ?box(es)?', 'variety', 'assortment', 'club', 'membership', 'subscription',
+  'complimentary', 'bonus', 'free', 'building', 'tour', 'events?', 'tickets?',
+].join('|') + ')\\b', 'i')
 const LOOKS_LIKE_CIGAR = new RegExp(`\\b(cigars?|${VITOLAS.join('|')})\\b`, 'i')
 const PACKAGING = /^(single|singles?|each|\d+\s*-?\s*(pack|ct|count)|box( of \d+)?|bundle( of \d+)?|default title)$/i
 
@@ -51,13 +58,31 @@ export function stripHtml(html: string | null | undefined): string {
     .trim()
 }
 
+/** Pack counts, sizes and packaging words belong in attributes or nowhere, not in the cigar's name. */
+export function cleanName(title: string): string {
+  return tidy(title
+    .replace(/\(([^)]*)\)/g, (_, inner) => (/\b(ct|count|pack|bundle|box)\b/i.test(inner) ? ' ' : `(${inner})`))
+    .replace(/\b\d+\s*-?\s*(ct|count|pk|pack)\b/gi, ' ')
+    .replace(/\b(box of \d+|bundle( of \d+)?|single|singles|limited edition)\b/gi, ' ')
+    .replace(/\d+(?:\.\d+)?(?:\s+\d\/\d)?\s*(?:"|”|''|in\b)?\s*[x×X]\s*\d+(?:\.\d+)?(?:\s+\d\/\d)?\s*(?:"|”|'')?/g, ' ')
+    .replace(/\s*[-–—|]\s*(?=$|[-–—|])/g, ' ')
+    .replace(/\s*[-–—|]\s*$/, ''))
+}
+
 const tidy = (s: string) => s.replace(/\s+/g, ' ').replace(/^[\s:–—-]+|[\s.;,]+$/g, '').trim()
 
-/** "Wrapper: Ecuadorian Habano" style lines. Only an explicit label counts. */
+const KNOWN_LABELS = ['wrapper', 'binder', 'fillers?', 'origin', 'country(?: of origin)?', 'made in', 'strength', 'body',
+  'profile', 'size', 'vitola', 'shape', 'length', 'ring(?: gauge)?', 'finish', 'manufactured', 'availability', 'notes?',
+  'flavou?r(?: notes)?', 'pairing', 'aroma', 'construction', 'blend']
+const NEXT_LABEL = new RegExp(`\\s(?:${KNOWN_LABELS.join('|')})\\s*:`, 'i')
+
+/** "Wrapper: Ecuadorian Habano" style lines. Only an explicit label counts, and a value ends where the next label starts. */
 export function labelled(text: string, labels: string[]): string | null {
   for (const label of labels) {
-    const m = text.match(new RegExp(`(?:^|\\n|\\s)${label}s?\\s*[:\\-–—]\\s*([^\\n|]{2,80})`, 'i'))
-    if (m) return tidy(m[1]) || null
+    const m = text.match(new RegExp(`(?:^|\\n|\\s)${label}s?\\s*[:\\-–—]\\s*([^\\n|]{2,200})`, 'i'))
+    if (!m) continue
+    const value = tidy(m[1].split(NEXT_LABEL)[0].replace(/[\\"”]+$/, ''))
+    if (value) return value.length > 80 ? null : value
   }
   return null
 }
@@ -123,7 +148,7 @@ export function fromShopifyProduct(p: ShopifyProduct, opts: { brand?: string; so
   const wrapper = labelled(text, ['wrapper'])
   const binder = labelled(text, ['binder'])
   const filler = labelled(text, ['filler', 'fillers'])
-  const origin = labelled(text, ['origin', 'country of origin', 'country', 'made in'])
+  const origin = labelled(text, ['origin', 'country of origin', 'country', 'made in'])?.replace(/^100%\s*hand\s*-?\s*made\s+in\s+/i, '') ?? null
   if (wrapper) base.wrapper = wrapper
   if (binder) base.binder = binder
   if (filler) base.filler = filler
@@ -137,10 +162,10 @@ export function fromShopifyProduct(p: ShopifyProduct, opts: { brand?: string; so
   const variants = sizes.length > 1 ? sizes : [null]
 
   return variants.map((size) => {
-    const title = tidy(p.title.replace(/\s*[-–|(]\s*(box of \d+|single|\d+\s*-?\s*pack|\d+\s*ct)\)?\s*$/i, ''))
+    const title = cleanName(p.title)
     const name = size ? tidy(`${title} ${size}`) : title
     const attributes: CatalogEntry['attributes'] = { ...base, ...parseSize(size ?? `${p.title}\n${text}`) }
-    const vitola = vitolaIn(size ?? '') ?? labelled(text, ['vitola', 'shape']) ?? vitolaIn(p.title)
+    const vitola = vitolaIn(size ?? '') ?? vitolaIn(p.title) ?? vitolaIn(labelled(text, ['vitola', 'shape']) ?? '')
     if (vitola) attributes.vitola = vitola
     const review: string[] = []
     if (!brand) review.push('no maker: pass --brand')
@@ -149,4 +174,32 @@ export function fromShopifyProduct(p: ShopifyProduct, opts: { brand?: string; so
     if (!tags.length) review.push('no flavor notes named')
     return { brand, name, attributes, strength, tags, review, reference_images: (p.images ?? []).map((i) => i.src).slice(0, 3) }
   })
+}
+
+const FIELDS = ['vitola', 'length', 'ring_gauge', 'wrapper', 'binder', 'filler', 'origin'] as const
+
+/** The same cigar sold as a 5-pack and a 25-ct bundle comes out once, with whatever either listing stated. */
+export function mergeDuplicates(entries: CatalogEntry[]): CatalogEntry[] {
+  const byKey = new Map<string, CatalogEntry>()
+  for (const e of entries) {
+    const key = `${e.brand}|${e.name}`.toLowerCase().replace(/\s+/g, ' ')
+    const seen = byKey.get(key)
+    if (!seen) { byKey.set(key, { ...e, attributes: { ...e.attributes }, tags: [...e.tags] }); continue }
+    for (const k of FIELDS) if (seen.attributes[k] == null && e.attributes[k] != null) (seen.attributes as Record<string, unknown>)[k] = e.attributes[k]
+    seen.strength ??= e.strength
+    for (const t of e.tags) {
+      const mine = seen.tags.find((x) => x.family === t.family)
+      if (!mine) seen.tags.push(t)
+      else mine.weight = Math.max(mine.weight, t.weight)
+    }
+    seen.reference_images = [...new Set([...seen.reference_images, ...e.reference_images])].slice(0, 3)
+  }
+  for (const e of byKey.values()) {
+    e.review = []
+    if (!e.brand) e.review.push('no maker: pass --brand')
+    for (const k of FIELDS) if (e.attributes[k] == null) e.review.push(`no ${k.replace('_', ' ')} stated`)
+    if (e.strength == null) e.review.push('no strength stated')
+    if (!e.tags.length) e.review.push('no flavor notes named')
+  }
+  return [...byKey.values()]
 }

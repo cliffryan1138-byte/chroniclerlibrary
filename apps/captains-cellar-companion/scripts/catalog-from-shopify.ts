@@ -3,7 +3,7 @@
 // Facts only (maker, name, size, leaf, origin, strength, named notes). No copy, images, prices or links.
 import { mkdirSync, writeFileSync } from 'node:fs'
 import { dirname } from 'node:path'
-import { fromShopifyProduct, isCigarProduct, type CatalogEntry, type ShopifyProduct } from '../src/branches/cigar/catalog-import'
+import { fromShopifyProduct, isCigarProduct, mergeDuplicates, type CatalogEntry, type ShopifyProduct } from '../src/branches/cigar/catalog-import'
 
 const args = process.argv.slice(2)
 const flag = (name: string) => { const i = args.indexOf(`--${name}`); return i >= 0 ? args[i + 1] : undefined }
@@ -29,7 +29,7 @@ for (let page = 1; page <= 20; page++) {
 }
 
 const cigars = products.filter(isCigarProduct)
-const entries: CatalogEntry[] = cigars.flatMap((p) => fromShopifyProduct(p, { brand: flag('brand'), source }))
+const entries: CatalogEntry[] = mergeDuplicates(cigars.flatMap((p) => fromShopifyProduct(p, { brand: flag('brand'), source })))
 mkdirSync(dirname(out), { recursive: true })
 writeFileSync(out, JSON.stringify({ source, fetched_at: new Date().toISOString(), entries }, null, 2) + '\n')
 
