@@ -82,6 +82,8 @@ async function run(scheme: 'light' | 'dark') {
   await page.getByRole('button', { name: 'Save to journal' }).click()
   await page.getByText('Specific notes you like').waitFor()
   await page.getByText('Test Maduro Robusto').waitFor()
+  await page.getByRole('button', { name: 'Discover' }).click()
+  if (await page.getByText('Browse by style').count()) throw new Error('cigars should not show the pipe style browser')
 
   await page.getByRole('button', { name: 'Discover' }).click()
   await page.getByText('% match').first().waitFor()
@@ -95,7 +97,7 @@ async function run(scheme: 'light' | 'dark') {
   await shot('09-pipe-quiz')
   await page.getByRole('button', { name: 'Start my journal' }).click()
   await page.getByRole('heading', { name: 'You might like' }).waitFor()
-  await page.getByText('SAMPLE Campfire English').waitFor()
+  await page.locator('ol').getByText('SAMPLE Campfire English').waitFor()
   await page.getByRole('button', { name: 'Log', exact: true }).click()
   await page.getByText('Scan the tin').waitFor()
   await page.getByLabel('Maker').fill('sample blender a')
@@ -111,7 +113,14 @@ async function run(scheme: 'light' | 'dark') {
   await page.getByText('SAMPLE Morning Virginia Flake').waitFor()
   await shot('11-pipe-palate')
 
-  // Switching back keeps the cigar palate separate.
+  await page.getByRole('button', { name: 'Discover' }).click()
+  await page.getByText('Browse by style').waitFor()
+  await page.locator('summary', { hasText: 'English' }).click()
+  await page.getByText('Built around Latakia').waitFor()
+  await shot('12-pipe-styles')
+
+  // Switching back keeps the cigar palate separate, and cigars have no style browser.
+  await page.getByRole('button', { name: 'Palate' }).click()
   await page.getByRole('radio', { name: 'Cigars' }).click()
   await page.getByText('Test Maduro Robusto').waitFor()
 
