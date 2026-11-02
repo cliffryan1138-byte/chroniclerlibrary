@@ -44,6 +44,20 @@ npm run build && npx vite preview --port 4173 &
 npm run screenshots -- http://localhost:4173   # phone-width walkthrough, light + dark, into screenshots/
 ```
 
+## Home-screen app (PWA)
+
+The app installs to a phone's home screen and opens full screen with its own icon. No app store is involved.
+
+- **Install file and icons:** `public/manifest.webmanifest` holds the install details. It points at PNG icons at
+  192 and 512, a maskable 512 for Android, and an `apple-touch-icon` for iPhone. `npm run icons` redraws all of
+  them from the artwork in `scripts/make-icons.ts`.
+- **Offline cache:** `public/sw.js` keeps the app shell, so the app opens with no signal. Pages load from the
+  network first, built files from the cache first. `/api` calls are never cached. Bump `CACHE` in `sw.js` when its
+  rules change.
+- **Install card:** Settings has an "Add to your Home Screen" card. On Android and desktop Chrome it shows an
+  Install button. On iPhone it gives the Safari Share steps. It hides once the app is installed.
+- **Checked:** the phone walkthrough loads the install file and every icon, then reopens the app offline.
+
 ## The three-layer rule
 
 ```

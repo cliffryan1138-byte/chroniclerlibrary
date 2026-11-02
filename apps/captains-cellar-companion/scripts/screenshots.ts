@@ -189,6 +189,27 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await page.getByRole('button', { name: 'Save to journal' }).waitFor()
   if ((await page.getByRole('button', { name: 'Log', exact: true }).getAttribute('aria-current')) !== 'page') throw new Error('the app should open on Log')
 
+  // Home-screen app: the install file and icons load, Settings explains how to add it, and with the
+  // offline cache in place the app still opens with no signal.
+  const manifest = await (await page.request.get(`${base}/manifest.webmanifest`)).json() as { display: string; icons: { src: string; sizes: string; purpose: string }[] }
+  if (manifest.display !== 'standalone') throw new Error('manifest should open standalone')
+  for (const want of ['192x192', '512x512']) if (!manifest.icons.some((i) => i.sizes === want && i.src.endsWith('.png'))) throw new Error(`manifest is missing a ${want} PNG icon`)
+  if (!manifest.icons.some((i) => i.purpose === 'maskable')) throw new Error('manifest is missing a maskable icon')
+  for (const src of [...manifest.icons.map((i) => i.src), '/apple-touch-icon.png']) {
+    const res = await page.request.get(`${base}${src}`)
+    if (!res.ok()) throw new Error(`${src} answered ${res.status()}`)
+  }
+  await page.getByRole('button', { name: 'Settings' }).click()
+  await page.getByRole('heading', { name: 'Add to your Home Screen' }).waitFor()
+  await shot('18-install')
+  await page.evaluate(async () => { await navigator.serviceWorker.ready })
+  await page.reload() // now controlled by the service worker, which caches as it goes
+  await page.getByRole('button', { name: 'Save to journal' }).waitFor()
+  await page.context().setOffline(true)
+  await page.reload()
+  await page.getByRole('button', { name: 'Save to journal' }).waitFor()
+  await page.context().setOffline(false)
+
   await browser.close()
   if (errors.length) throw new Error(`${scheme}: console errors:\n${errors.join('\n')}`)
   console.log(`${scheme}: ok`)
