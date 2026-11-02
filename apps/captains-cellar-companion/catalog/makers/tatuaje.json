@@ -1,0 +1,2705 @@
+{
+  "maker": {
+    "name": "Tatuaje",
+    "website": "https://tatuajecigars.com",
+    "country": null
+  },
+  "category": "cigar",
+  "entries": [
+    {
+      "brand": "Tatuaje",
+      "name": "15th Anniversary Belicoso Fino Rosado Claro",
+      "attributes": {
+        "vitola": "Belicoso Fino",
+        "length": 5.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text also says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/15thAnniversary.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "15th Anniversary Belicoso Fino Rosado Oscuro",
+      "attributes": {
+        "vitola": "Belicoso Fino",
+        "length": 5.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text also says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/15thAnniversary.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "15th Anniversary Torpedo Grande Rosado Claro",
+      "attributes": {
+        "vitola": "Torpedo Grande",
+        "length": 6.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text also says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/15thAnniversary.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "15th Anniversary Torpedo Grande Rosado Oscuro",
+      "attributes": {
+        "vitola": "Torpedo Grande",
+        "length": 6.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text also says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/15thAnniversary.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Seleccion de Cazador Havana Cazadores",
+      "attributes": {
+        "vitola": "Havana Cazadores",
+        "length": 6.375,
+        "ring_gauge": 43,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text calls the line both Full Bodied and Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/cazador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Seleccion de Cazador Unicos",
+      "attributes": {
+        "vitola": "Unicos",
+        "length": 6.125,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text calls the line both Full Bodied and Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/cazador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Seleccion de Cazador Noellas",
+      "attributes": {
+        "vitola": "Noellas",
+        "length": 5.125,
+        "ring_gauge": 42,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text calls the line both Full Bodied and Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/cazador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Seleccion de Cazador Tainos",
+      "attributes": {
+        "vitola": "Tainos",
+        "length": 7.625,
+        "ring_gauge": 49,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text calls the line both Full Bodied and Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/cazador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Seleccion de Cazador Especiales",
+      "attributes": {
+        "vitola": "Especiales",
+        "length": 7.5,
+        "ring_gauge": 38,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text calls the line both Full Bodied and Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/cazador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Seleccion de Cazador Regios",
+      "attributes": {
+        "vitola": "Regios",
+        "length": 5.5,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; page text calls the line both Full Bodied and Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/cazador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami Cojonu 2003",
+      "attributes": {
+        "vitola": "Cojonu 2003",
+        "length": 6.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami Gran Cojonu",
+      "attributes": {
+        "vitola": "Gran Cojonu",
+        "length": 6.5,
+        "ring_gauge": 60,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami Cojonu 2006",
+      "attributes": {
+        "vitola": "Cojonu 2006",
+        "length": 5.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami Cojonu 2009",
+      "attributes": {
+        "vitola": "Cojonu 2009",
+        "length": 6.75,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami RC184",
+      "attributes": {
+        "vitola": "RC184",
+        "length": 7.25,
+        "ring_gauge": 57,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami RC233",
+      "attributes": {
+        "vitola": "RC233",
+        "length": 9.5,
+        "ring_gauge": 55,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami Reserva A Uno",
+      "attributes": {
+        "vitola": "Reserva A Uno",
+        "length": 9.25,
+        "ring_gauge": 47,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami Reserva SW",
+      "attributes": {
+        "vitola": "Reserva SW",
+        "length": 7,
+        "ring_gauge": 47,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami Reserva J21",
+      "attributes": {
+        "vitola": "Reserva J21",
+        "length": 5,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Miami K222 Reserva",
+      "attributes": {
+        "vitola": "K222 Reserva",
+        "length": 5.875,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "USA"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "origin field says USA but page text says rolled in Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/miami-reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua Petite Tatuaje",
+      "attributes": {
+        "vitola": "Petite Tatuaje",
+        "length": 4.5,
+        "ring_gauge": 32,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua Petite Tatuaje Reserva Broadleaf",
+      "attributes": {
+        "vitola": "Petite Tatuaje Reserva Broadleaf",
+        "length": 4.5,
+        "ring_gauge": 32,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua Petit Cazadores Reseva Broadleaf",
+      "attributes": {
+        "vitola": "Petit Cazadores Reseva Broadleaf",
+        "length": 4,
+        "ring_gauge": 40,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which",
+        "name copied as the page spells it ('Reseva')"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua 7th Natural Habano",
+      "attributes": {
+        "vitola": "7th Natural Habano",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua 7th Capa Especial Sumatra",
+      "attributes": {
+        "vitola": "7th Capa Especial Sumatra",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua 7th Reserva Broadleaf",
+      "attributes": {
+        "vitola": "7th Reserva Broadleaf",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua 10th Belle Encre - Perfecto",
+      "attributes": {
+        "vitola": "10th Belle Encre - Perfecto",
+        "length": 5.375,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua 10th Bon Chasseur",
+      "attributes": {
+        "vitola": "10th Bon Chasseur",
+        "length": 5.375,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua Cojonu 2012 Habano",
+      "attributes": {
+        "vitola": "Cojonu 2012 Habano",
+        "length": 6.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua Cojonu 2012 Sumatra",
+      "attributes": {
+        "vitola": "Cojonu 2012 Sumatra",
+        "length": 6.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Reserva Nicaragua Cojonu 2012 Broadleaf",
+      "attributes": {
+        "vitola": "Cojonu 2012 Broadleaf",
+        "length": 6.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 5 of 5; page text also says Full Bodied and Medium Bodied",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/reserva.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Hermosos",
+      "attributes": {
+        "vitola": "Hermosos",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/havanavi.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Angeles",
+      "attributes": {
+        "vitola": "Angeles",
+        "length": 4.625,
+        "ring_gauge": 42,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/havanavi.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Victorias",
+      "attributes": {
+        "vitola": "Victorias",
+        "length": 6,
+        "ring_gauge": 38,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/havanavi.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Artistas",
+      "attributes": {
+        "vitola": "Artistas",
+        "length": 6.125,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/havanavi.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Nobles",
+      "attributes": {
+        "vitola": "Nobles",
+        "length": 5,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/havanavi.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Almirantes",
+      "attributes": {
+        "vitola": "Almirantes",
+        "length": 7,
+        "ring_gauge": 47,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/havanavi.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Gorditos",
+      "attributes": {
+        "vitola": "Gorditos",
+        "length": 5.5,
+        "ring_gauge": 56,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/havanavi.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Imperiales",
+      "attributes": {
+        "vitola": "Imperiales",
+        "length": 7,
+        "ring_gauge": 47,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '2+'; page text says Medium Bodied, so recorded as 3"
+      ],
+      "sources": [
+        "tatuajecigars.com/cabaiguan.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Belicoso Fino",
+      "attributes": {
+        "vitola": "Belicoso Fino",
+        "length": 5.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '2+'; page text says Medium Bodied, so recorded as 3"
+      ],
+      "sources": [
+        "tatuajecigars.com/cabaiguan.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Coronas Extra",
+      "attributes": {
+        "vitola": "Coronas Extra",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '2+'; page text says Medium Bodied, so recorded as 3"
+      ],
+      "sources": [
+        "tatuajecigars.com/cabaiguan.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Robustos Extra",
+      "attributes": {
+        "vitola": "Robustos Extra",
+        "length": 5.25,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '2+'; page text says Medium Bodied, so recorded as 3"
+      ],
+      "sources": [
+        "tatuajecigars.com/cabaiguan.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Petite Cabaiguan",
+      "attributes": {
+        "vitola": "Petite Cabaiguan",
+        "length": 4.5,
+        "ring_gauge": 32,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '2+'; page text says Medium Bodied, so recorded as 3"
+      ],
+      "sources": [
+        "tatuajecigars.com/cabaiguan.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos Toro Grande Natural",
+      "attributes": {
+        "vitola": "Toro Grande",
+        "length": 5.625,
+        "ring_gauge": 54,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos Toro Grande Maduro",
+      "attributes": {
+        "vitola": "Toro Grande",
+        "length": 5.625,
+        "ring_gauge": 54,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos 46 Corona Gorda Natural",
+      "attributes": {
+        "vitola": "Corona Gorda",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos 46 Corona Gorda Maduro",
+      "attributes": {
+        "vitola": "Corona Gorda",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos RX Robusto Extra Natural",
+      "attributes": {
+        "vitola": "Robusto Extra",
+        "length": 5.25,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos RX Robusto Extra Maduro",
+      "attributes": {
+        "vitola": "Robusto Extra",
+        "length": 5.25,
+        "ring_gauge": 50,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos Junior Petite Corona Natural",
+      "attributes": {
+        "vitola": "Petite Corona",
+        "length": 4.625,
+        "ring_gauge": 42,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Cabaiguan Guapos Junior Petite Corona Maduro",
+      "attributes": {
+        "vitola": "Petite Corona",
+        "length": 4.625,
+        "ring_gauge": 42,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/guapos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Fausto FT114 Short Robusto",
+      "attributes": {
+        "vitola": "Short Robusto",
+        "length": 4.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/fausto.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Fausto FT127 Robusto",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5,
+        "ring_gauge": 54,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/fausto.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Fausto FT140 Robusto Extra",
+      "attributes": {
+        "vitola": "Robusto Extra",
+        "length": 5.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/fausto.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Fausto FT153 Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/fausto.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Fausto FT166 Short Churchill",
+      "attributes": {
+        "vitola": "Short Churchill",
+        "length": 6.5,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/fausto.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.1 Lonsdale",
+      "attributes": {
+        "vitola": "Lonsdale",
+        "length": 6.5,
+        "ring_gauge": 42,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.2 Belicoso Fino",
+      "attributes": {
+        "vitola": "Belicoso Fino",
+        "length": 5.5,
+        "ring_gauge": 52,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.3 Corona Gorda",
+      "attributes": {
+        "vitola": "Corona Gorda",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.4 Robusto",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5,
+        "ring_gauge": 48,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.5 Petit Corona",
+      "attributes": {
+        "vitola": "Petit Corona",
+        "length": 4.375,
+        "ring_gauge": 42,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.6 Lancero",
+      "attributes": {
+        "vitola": "Lancero",
+        "length": 7.5,
+        "ring_gauge": 38,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.7 Toro Grande",
+      "attributes": {
+        "vitola": "Toro Grande",
+        "length": 5.875,
+        "ring_gauge": 54,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Riqueza No.8 Toro Gordo",
+      "attributes": {
+        "vitola": "Toro Gordo",
+        "length": 6,
+        "ring_gauge": 60,
+        "wrapper": "USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/lariqueza.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.1 Lonsdale",
+      "attributes": {
+        "vitola": "Lonsdale",
+        "length": 6.5,
+        "ring_gauge": 42,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.2 Belicoso Fino",
+      "attributes": {
+        "vitola": "Belicoso Fino",
+        "length": 5.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.3 Corona Gorda",
+      "attributes": {
+        "vitola": "Corona Gorda",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.4 Robusto",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.5 Petit Corona",
+      "attributes": {
+        "vitola": "Petit Corona",
+        "length": 4.375,
+        "ring_gauge": 42,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.6 Lancero",
+      "attributes": {
+        "vitola": "Lancero",
+        "length": 7.5,
+        "ring_gauge": 38,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.7 Toro Grande",
+      "attributes": {
+        "vitola": "Toro Grande",
+        "length": 5.875,
+        "ring_gauge": 54,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador No.8 Toro Gordo",
+      "attributes": {
+        "vitola": "Toro Gordo",
+        "length": 6,
+        "ring_gauge": 60,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "El Triunfador Lancero Limited Broadleaf",
+      "attributes": {
+        "vitola": "Lancero",
+        "length": 7.5,
+        "ring_gauge": 38,
+        "wrapper": "Ecuador / USA",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page marks between 2 and 3; page text says Medium Bodied, so recorded as 3",
+        "wrapper listed once for the whole line as 'Ecuador / USA'; page does not say which size uses which"
+      ],
+      "sources": [
+        "tatuajecigars.com/eltriunfador.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Short No.1 Habano",
+      "attributes": {
+        "vitola": "Short",
+        "length": 4.5,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Short No.2 Sumatra",
+      "attributes": {
+        "vitola": "Short",
+        "length": 4.5,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Robusto No.1 Habano",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Robusto No.2 Sumatra",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Toro No.1 Habano",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Toro No.2 Sumatra",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Grande No.1 Habano",
+      "attributes": {
+        "vitola": "Grande",
+        "length": 5.5,
+        "ring_gauge": 56,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Ambos Mundos Grande No.2 Sumatra",
+      "attributes": {
+        "vitola": "Grande",
+        "length": 5.5,
+        "ring_gauge": 56,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied and also 'Medium to Mild in flavor'",
+        "wrapper listed once for the whole line as 'Ecuador'; Habano/Sumatra appear only in the size names"
+      ],
+      "sources": [
+        "tatuajecigars.com/ambosmundos.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Casita Criolla HCB Corona",
+      "attributes": {
+        "vitola": "Corona",
+        "length": 5.125,
+        "ring_gauge": 42,
+        "wrapper": "USA",
+        "binder": "USA",
+        "filler": "USA",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '3+'; no strength text on page, recorded as 3",
+        "page has no description text",
+        "wrapper, binder and filler all listed as USA while country of origin is listed as Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/lacasita.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Casita Criolla HCBC Corona Gorda",
+      "attributes": {
+        "vitola": "Corona Gorda",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "USA",
+        "binder": "USA",
+        "filler": "USA",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '3+'; no strength text on page, recorded as 3",
+        "page has no description text",
+        "wrapper, binder and filler all listed as USA while country of origin is listed as Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/lacasita.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Casita Criolla HCR Robusto",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5,
+        "ring_gauge": 50,
+        "wrapper": "USA",
+        "binder": "USA",
+        "filler": "USA",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '3+'; no strength text on page, recorded as 3",
+        "page has no description text",
+        "wrapper, binder and filler all listed as USA while country of origin is listed as Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/lacasita.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "La Casita Criolla HCBF Short Churchill",
+      "attributes": {
+        "vitola": "Short Churchill",
+        "length": 6.5,
+        "ring_gauge": 48,
+        "wrapper": "USA",
+        "binder": "USA",
+        "filler": "USA",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '3+'; no strength text on page, recorded as 3",
+        "page has no description text",
+        "wrapper, binder and filler all listed as USA while country of origin is listed as Nicaragua"
+      ],
+      "sources": [
+        "tatuajecigars.com/lacasita.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Avion 11",
+      "attributes": {
+        "length": 6.75,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text",
+        "no vitola name stated",
+        "ring gauge listed as a range '48/52', so left null"
+      ],
+      "sources": [
+        "tatuajecigars.com/avion.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Avion 12",
+      "attributes": {
+        "length": 5.625,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text",
+        "no vitola name stated",
+        "ring gauge listed as a range '48/52', so left null"
+      ],
+      "sources": [
+        "tatuajecigars.com/avion.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Avion 13 Broadleaf",
+      "attributes": {
+        "length": 6.875,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '5+'; no strength text on page, recorded as 5",
+        "page has no description text",
+        "no vitola name stated",
+        "wrapper listed once for the whole line as 'Ecuador'; 'Broadleaf' appears only in the size name"
+      ],
+      "sources": [
+        "tatuajecigars.com/avion.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Verocu No.1 Toro Grande",
+      "attributes": {
+        "vitola": "Toro Grande",
+        "length": 6.25,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '4+'; page text says the blend is in the style of Medium Bodied Cuban cigars, recorded as 4 from the scale"
+      ],
+      "sources": [
+        "tatuajecigars.com/verocu.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Verocu No.2 Robusto Grande",
+      "attributes": {
+        "vitola": "Robusto Grande",
+        "length": 5.5,
+        "ring_gauge": 54,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '4+'; page text says the blend is in the style of Medium Bodied Cuban cigars, recorded as 4 from the scale"
+      ],
+      "sources": [
+        "tatuajecigars.com/verocu.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Verocu No.3 Corona Larga",
+      "attributes": {
+        "vitola": "Corona Larga",
+        "length": 6,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '4+'; page text says the blend is in the style of Medium Bodied Cuban cigars, recorded as 4 from the scale"
+      ],
+      "sources": [
+        "tatuajecigars.com/verocu.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Verocu No.4 Robusto",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5.25,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '4+'; page text says the blend is in the style of Medium Bodied Cuban cigars, recorded as 4 from the scale"
+      ],
+      "sources": [
+        "tatuajecigars.com/verocu.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Verocu No.5 Petite",
+      "attributes": {
+        "vitola": "Petite",
+        "length": 4,
+        "ring_gauge": 40,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '4+'; page text says the blend is in the style of Medium Bodied Cuban cigars, recorded as 4 from the scale"
+      ],
+      "sources": [
+        "tatuajecigars.com/verocu.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Verocu No.6 Torpedo",
+      "attributes": {
+        "vitola": "Torpedo",
+        "length": 6.125,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '4+'; page text says the blend is in the style of Medium Bodied Cuban cigars, recorded as 4 from the scale"
+      ],
+      "sources": [
+        "tatuajecigars.com/verocu.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Havana VI Verocu No.9 Petite Robusto",
+      "attributes": {
+        "vitola": "Petite Robusto",
+        "length": 4.5,
+        "ring_gauge": 49,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows '4+'; page text says the blend is in the style of Medium Bodied Cuban cigars, recorded as 4 from the scale"
+      ],
+      "sources": [
+        "tatuajecigars.com/verocu.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Black Label Petite Robusto",
+      "attributes": {
+        "vitola": "Petite Robusto",
+        "length": 4,
+        "ring_gauge": 50,
+        "wrapper": "Nicaragua",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/blacklabel.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Black Label Petite Lancero",
+      "attributes": {
+        "vitola": "Petite Lancero",
+        "length": 6,
+        "ring_gauge": 38,
+        "wrapper": "Nicaragua",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/blacklabel.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Black Label Private Reserve Corona Gorda",
+      "attributes": {
+        "vitola": "Corona Gorda",
+        "length": 5.625,
+        "ring_gauge": 46,
+        "wrapper": "Nicaragua",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; no strength text on page",
+        "page has no description text",
+        "'Private Reserve' is part of the size name as the page prints it"
+      ],
+      "sources": [
+        "tatuajecigars.com/blacklabel.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Black Label Cazadores",
+      "attributes": {
+        "vitola": "Cazadores",
+        "length": 6.375,
+        "ring_gauge": 43,
+        "wrapper": "Nicaragua",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/blacklabel.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Black Label Gran Toro",
+      "attributes": {
+        "vitola": "Gran Toro",
+        "length": 6.5,
+        "ring_gauge": 52,
+        "wrapper": "Nicaragua",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 4 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/blacklabel.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Negociant Monopole No.1",
+      "attributes": {
+        "length": 5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua/Mexico",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text",
+        "no vitola name stated, only 'Monopole No.1'"
+      ],
+      "sources": [
+        "tatuajecigars.com/negociant.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Negociant Monopole No.2",
+      "attributes": {
+        "length": 5.75,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua/Mexico",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text",
+        "no vitola name stated, only 'Monopole No.2'"
+      ],
+      "sources": [
+        "tatuajecigars.com/negociant.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Negociant Monopole No.3",
+      "attributes": {
+        "length": 6.25,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua/Mexico",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text",
+        "no vitola name stated, only 'Monopole No.3'"
+      ],
+      "sources": [
+        "tatuajecigars.com/negociant.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Negociant Monopole No.4",
+      "attributes": {
+        "length": 4.125,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua/Mexico",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text",
+        "no vitola name stated, only 'Monopole No.4'"
+      ],
+      "sources": [
+        "tatuajecigars.com/negociant.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Series P Short Robusto",
+      "attributes": {
+        "vitola": "Short Robusto",
+        "length": 4.5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/seriesp.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Series P Robusto",
+      "attributes": {
+        "vitola": "Robusto",
+        "length": 5,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/seriesp.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Series P Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; page text says Medium Bodied"
+      ],
+      "sources": [
+        "tatuajecigars.com/seriesp.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Tattoo Caballero",
+      "attributes": {
+        "vitola": "Caballero",
+        "length": 5,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/tattoo.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Tattoo Universo",
+      "attributes": {
+        "vitola": "Universo",
+        "length": 6,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/tattoo.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Tattoo Bonito",
+      "attributes": {
+        "vitola": "Bonito",
+        "length": 6.125,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/tattoo.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Tattoo Adivino",
+      "attributes": {
+        "vitola": "Adivino",
+        "length": 5.5,
+        "ring_gauge": 58,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text"
+      ],
+      "sources": [
+        "tatuajecigars.com/tattoo.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Nuevitas Esteli",
+      "attributes": {
+        "length": 5,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text",
+        "no vitola name stated, only 'Esteli'"
+      ],
+      "sources": [
+        "tatuajecigars.com/nuevitas.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Nuevitas Jibaro No.1",
+      "attributes": {
+        "length": 5,
+        "ring_gauge": 54,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text",
+        "no vitola name stated, only 'Jibaro No.1'"
+      ],
+      "sources": [
+        "tatuajecigars.com/nuevitas.html"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Tatuaje",
+      "name": "Nuevitas Jibaro No.2",
+      "attributes": {
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Nicaragua",
+        "filler": "Nicaragua",
+        "origin": "Nicaragua"
+      },
+      "strength": 3,
+      "tags": [],
+      "review": [
+        "no flavor notes stated",
+        "strength scale on page shows 3 of 5; no strength text on page",
+        "page has no description text",
+        "no vitola name stated, only 'Jibaro No.2'"
+      ],
+      "sources": [
+        "tatuajecigars.com/nuevitas.html"
+      ],
+      "reference_images": []
+    }
+  ]
+}

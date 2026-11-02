@@ -198,4 +198,15 @@ The shared plumbing (Shopify product shape, maker files, review-first merging) l
 Each branch plugs in its own fields and vocabulary.
 
 
-The starter items in `src/branches/cigar/catalog.ts` and `src/branches/pipe/catalog.ts` are clearly labelled **SAMPLE** placeholders, not real products. Once a real catalog is loaded for a category, remove its samples with `delete from items where name like 'SAMPLE %' and category = 'cigar';` (or `'pipe_tobacco'`).
+The starter items in `src/branches/cigar/catalog.ts` and `src/branches/pipe/catalog.ts` are clearly labelled **SAMPLE** placeholders, not real products. Once a real catalog is loaded for a category, remove its samples. Logs block a plain delete, so remove the logs on them first (set the category to `'cigar'` or `'pipe_tobacco'`):
+
+```sql
+begin;
+delete from public.logs where item_id in (select id from public.items where name like 'SAMPLE %' and category = 'pipe_tobacco');
+delete from public.inventory where item_id in (select id from public.items where name like 'SAMPLE %' and category = 'pipe_tobacco');
+delete from public.pairings where item_id in (select id from public.items where name like 'SAMPLE %' and category = 'pipe_tobacco')
+  or paired_item_id in (select id from public.items where name like 'SAMPLE %' and category = 'pipe_tobacco');
+delete from public.items where name like 'SAMPLE %' and category = 'pipe_tobacco';
+delete from public.makers m where m.name like 'SAMPLE %' and not exists (select 1 from public.items i where i.maker_id = m.id);
+commit;
+```

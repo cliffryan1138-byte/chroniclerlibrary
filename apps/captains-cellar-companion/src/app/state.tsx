@@ -92,8 +92,18 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (!user) return
+    let loadedAt = Date.now()
     reloadCatalog()
     store.communityAggregates().then(setCommunity).catch(() => setCommunity({}))
+    // A home-screen app stays alive in the background for days, so coming back to it refreshes the
+    // catalog (curator changes, newly loaded makers). At most once a minute; a failed refresh keeps what's shown.
+    const onVisible = () => {
+      if (document.visibilityState !== 'visible' || Date.now() - loadedAt < 60_000) return
+      loadedAt = Date.now()
+      reloadCatalog().catch(() => {})
+    }
+    document.addEventListener('visibilitychange', onVisible)
+    return () => document.removeEventListener('visibilitychange', onVisible)
   }, [user?.id, reloadCatalog])
 
   const setBranch = useCallback((id: BranchId) => {
