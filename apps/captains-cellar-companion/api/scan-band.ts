@@ -1,9 +1,9 @@
 // Vercel Function: POST /api/scan-band
 // Reads a photo of a cigar band and returns the maker and cigar name so the log form can pre-fill.
-// The Anthropic key lives only here (ANTHROPIC_API_KEY on Vercel); only signed-in users can call it.
-// Cigar-specific prompt on purpose: this endpoint belongs to the cigar branch of this app.
+// The model call happens in Chronicler's SPARK install (/v1/extract, module cellar, kind cigar_band),
+// which owns the model key, the spending caps and the audit log. This function only checks that the
+// caller is signed in and forwards the photo with the install's token (SPARK_URL, SPARK_CORE_TOKEN).
 
-import Anthropic from '@anthropic-ai/sdk'
 import { createClient } from '@supabase/supabase-js'
 
 export const MAX_IMAGE_BYTES = 3_500_000
@@ -17,29 +17,29 @@ export interface BandReading {
   confidence: 'high' | 'medium' | 'low'
 }
 
-const SYSTEM = `You read cigar bands from photos for a private tasting journal.
-Report the maker (the brand or manufacturer printed on the band) and the cigar's name
-(line, blend, and size or vitola if the band or a secondary band shows it).
-Only report text you can actually see. Never guess a brand from colors or band style alone.
-If no cigar band is visible or the text is unreadable, set found to false and both fields to null.
-Use the band's own spelling and capitalization.`
-
-const SCHEMA = {
-  type: 'object',
-  properties: {
-    found: { type: 'boolean' },
-    maker: { type: ['string', 'null'] },
-    name: { type: ['string', 'null'] },
-    confidence: { type: 'string', enum: ['high', 'medium', 'low'] },
-  },
-  required: ['found', 'maker', 'name', 'confidence'],
-  additionalProperties: false,
+/** What SPARK's cigar_band kind returns in `extracted`. */
+export interface SparkBand {
+  maker: string | null
+  line: string | null
+  vitola: string | null
+  confidence: number | null
 }
+
+/** SPARK reports a line and a size separately; the log form has one "Cigar" line for both. */
+export function toReading(band: SparkBand | null): BandReading {
+  if (!band || !(band.maker || band.line)) return { found: false, maker: null, name: null, confidence: 'low' }
+  const name = [band.line, band.vitola].filter(Boolean).join(' ') || null
+  const c = band.confidence ?? 0
+  return { found: true, maker: band.maker, name, confidence: c >= 0.8 ? 'high' : c >= 0.5 ? 'medium' : 'low' }
+}
+
+/** A refusal SPARK means for the person (a spending cap reached): shown to them as-is. */
+export class SparkRefused extends Error {}
 
 export interface Deps {
   /** Resolves the bearer token to a user id, or null if it isn't a valid session. */
   verifyUser: (token: string) => Promise<string | null>
-  readBand: (image: string, mediaType: MediaType) => Promise<BandReading>
+  readBand: (image: string, mediaType: MediaType, userId: string) => Promise<BandReading>
 }
 
 const json = (body: unknown, status = 200) =>
@@ -49,7 +49,8 @@ export function createHandler(deps: Deps) {
   return async function POST(request: Request): Promise<Response> {
     const token = request.headers.get('authorization')?.replace(/^Bearer\s+/i, '')
     if (!token) return json({ error: 'Sign in to scan a band.' }, 401)
-    if (!(await deps.verifyUser(token))) return json({ error: 'Your session expired. Sign in again.' }, 401)
+    const userId = await deps.verifyUser(token)
+    if (!userId) return json({ error: 'Your session expired. Sign in again.' }, 401)
 
     let body: { image?: unknown; mediaType?: unknown }
     try {
@@ -63,8 +64,9 @@ export function createHandler(deps: Deps) {
     if (image.length * 0.75 > MAX_IMAGE_BYTES) return json({ error: 'That photo is too large.' }, 413)
 
     try {
-      return json(await deps.readBand(image, mediaType as MediaType))
+      return json(await deps.readBand(image, mediaType as MediaType, userId))
     } catch (err) {
+      if (err instanceof SparkRefused) return json({ error: err.message }, 429)
       console.error('scan-band failed', err)
       return json({ error: "Couldn't read the band right now. Type it in instead." }, 502)
     }
@@ -80,28 +82,24 @@ export const defaultDeps: Deps = {
     return error ? null : data.user?.id ?? null
   },
 
-  async readBand(image, mediaType) {
-    const client = new Anthropic()
-    const response = await client.beta.messages.create({
-      model: 'claude-opus-5-5',
-      max_tokens: 4000,
-      // A false-positive safety decline retries on Anthropic's recommended fallback model instead of failing.
-      betas: ['server-side-fallback-2026-07-01'],
-      fallbacks: 'default',
-      output_config: { effort: 'low', format: { type: 'json_schema', schema: SCHEMA } },
-      system: SYSTEM,
-      messages: [{
-        role: 'user',
-        content: [
-          { type: 'image', source: { type: 'base64', media_type: mediaType, data: image } },
-          { type: 'text', text: 'What does this cigar band say?' },
-        ],
-      }],
+  async readBand(image, mediaType, userId) {
+    const base = process.env.SPARK_URL
+    const coreToken = process.env.SPARK_CORE_TOKEN
+    if (!base || !coreToken) throw new Error('SPARK_URL and SPARK_CORE_TOKEN must be set')
+    const form = new FormData()
+    form.append('module_id', 'cellar')
+    form.append('kind', 'cigar_band')
+    form.append('file', new Blob([Buffer.from(image, 'base64')], { type: mediaType }), 'band.' + mediaType.split('/')[1])
+    const res = await fetch(new URL('/v1/extract', base), {
+      method: 'POST',
+      // X-Subject and X-App let SPARK's meter apply the per-user and per-app spending caps.
+      headers: { 'X-Core-Token': coreToken, 'X-App': 'cellar', 'X-Subject': userId, 'X-Feature': 'scan-band' },
+      body: form,
     })
-    if (response.stop_reason === 'refusal') return { found: false, maker: null, name: null, confidence: 'low' }
-    const text = response.content.find((b) => b.type === 'text')
-    if (!text || text.type !== 'text') throw new Error(`No text in response (stop_reason ${response.stop_reason})`)
-    return JSON.parse(text.text) as BandReading
+    const body = await res.json().catch(() => ({}))
+    if (res.status === 429) throw new SparkRefused(body.detail ?? "You've hit today's scan limit. Type it in for now.")
+    if (!res.ok) throw new Error(`SPARK ${res.status}: ${body.detail ?? 'no detail'}`)
+    return toReading(body.extracted ?? null)
   },
 }
 
