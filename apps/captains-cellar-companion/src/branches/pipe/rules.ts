@@ -47,6 +47,7 @@ export const ITEM_LABELS = {
   name: 'Blend',
   namePlaceholder: 'The blend name on the tin',
   scan: 'Scan the tin',
+  noun: ['blend', 'blends'] as [string, string],
 } as const
 
 /** Pipe smokers choose by style first. Each style gets one plain-English line for the browse view. */

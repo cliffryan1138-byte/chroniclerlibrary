@@ -18,7 +18,7 @@ With no environment variables it runs in **demo mode**: one local user, everythi
 ### Using Supabase
 
 1. Create a **new** Supabase project for this app (don't reuse another app's).
-2. Apply the schema: `supabase db push`, or paste `supabase/migrations/20261021000000_init.sql` into the SQL editor.
+2. Apply the schema: `supabase db push`, or paste each file in `supabase/migrations/` into the SQL editor, oldest first.
 3. Load the sample catalog: run `supabase/seed.sql` (regenerate it with `npm run seed:sql` after editing the branch catalog).
 4. Copy `.env.example` to `.env.local` and fill in `VITE_SUPABASE_URL` and `VITE_SUPABASE_PUBLISHABLE_KEY` (the legacy `VITE_SUPABASE_ANON_KEY` also works).
 
@@ -96,12 +96,17 @@ A user-submitted item is pending and visible only to whoever submitted it. A tri
 
 ## Catalog
 
-Real catalogs load in three steps, run from a machine that can reach the maker's site:
+The catalog is organized by **maker** (the `makers` table), not by the store a listing came from. Every item
+points at its maker; a maker can make cigars and pipe tobacco alike. Discover has "Browse by maker" for each category.
+
+Real catalogs load in three steps, run from a machine that can reach the site:
 
 ```bash
-npm run catalog:shopify -- https://maker-site.com --brand "Maker"   # writes catalog/<site>.json
-# open the JSON: fix names, fill blanks, delete anything that isn't a cigar. "review" lists what the site didn't say.
-npm run catalog:sql -- catalog/<site>.json > catalog/<site>.sql      # paste into the Supabase SQL editor
+npm run catalog:shopify -- https://maker-site.com --maker "Maker"   # a maker's own store
+npm run catalog:shopify -- https://tobacconist.example              # a multi-brand store: each product's own maker
+# -> catalog/makers/<maker>.json, one file per maker. Another store carrying the same maker adds to that file;
+#    what's already in it (your review) wins. "review" lists what the site didn't say.
+npm run catalog:sql -- catalog/makers/<maker>.json > out.sql        # paste into the Supabase SQL editor
 ```
 
 The importer reads a Shopify store's public product list and keeps facts only: maker, name, vitola, size, wrapper,

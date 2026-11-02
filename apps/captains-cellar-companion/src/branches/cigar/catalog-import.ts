@@ -14,6 +14,8 @@ export interface CatalogEntry {
   tags: ItemTag[]
   /** What the reviewer should check before loading; not written to the database. */
   review: string[]
+  /** Every site that listed this cigar (domains only). */
+  sources?: string[]
   /** The source's own product photos, as addresses for the reviewer to look at. Not downloaded or loaded:
    * band-photo matching needs our own (or licensed) reference photos and a SPARK image-match step first. */
   reference_images: string[]
@@ -172,7 +174,7 @@ export function fromShopifyProduct(p: ShopifyProduct, opts: { brand?: string; so
     for (const k of ['vitola', 'length', 'ring_gauge', 'wrapper', 'binder', 'filler', 'origin'] as const) if (attributes[k] == null) review.push(`no ${k.replace('_', ' ')} stated`)
     if (strength == null) review.push('no strength stated')
     if (!tags.length) review.push('no flavor notes named')
-    return { brand, name, attributes, strength, tags, review, reference_images: (p.images ?? []).map((i) => i.src).slice(0, 3) }
+    return { brand, name, attributes, strength, tags, review, sources: [opts.source], reference_images: (p.images ?? []).map((i) => i.src).slice(0, 3) }
   })
 }
 
@@ -193,6 +195,7 @@ export function mergeDuplicates(entries: CatalogEntry[]): CatalogEntry[] {
       else mine.weight = Math.max(mine.weight, t.weight)
     }
     seen.reference_images = [...new Set([...seen.reference_images, ...e.reference_images])].slice(0, 3)
+    seen.sources = [...new Set([...(seen.sources ?? []), ...(e.sources ?? [])])]
   }
   for (const e of byKey.values()) {
     e.review = []
@@ -202,4 +205,36 @@ export function mergeDuplicates(entries: CatalogEntry[]): CatalogEntry[] {
     if (!e.tags.length) e.review.push('no flavor notes named')
   }
   return [...byKey.values()]
+}
+
+/** One maker's reviewable catalog file: catalog/makers/<slug>.json. */
+export interface MakerFile {
+  maker: { name: string; website?: string | null; country?: string | null }
+  category: string
+  entries: CatalogEntry[]
+}
+
+export const makerSlug = (name: string) =>
+  name.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'unknown'
+
+/**
+ * Folds a fresh fetch into a maker's existing file. What's already in the file was reviewed, so it
+ * wins; the fetch only adds new cigars, fills fields still blank, and adds its source.
+ */
+export function mergeIntoMakerFile(existing: MakerFile | null, maker: MakerFile['maker'], category: string, fresh: CatalogEntry[]): MakerFile {
+  const file: MakerFile = existing
+    ? { ...existing, maker: { ...maker, ...existing.maker, website: existing.maker.website ?? maker.website ?? null } }
+    : { maker, category, entries: [] }
+  const key = (e: CatalogEntry) => e.name.toLowerCase().replace(/\s+/g, ' ')
+  const byName = new Map(file.entries.map((e) => [key(e), e]))
+  for (const e of fresh) {
+    const kept = byName.get(key(e))
+    if (!kept) { file.entries.push(e); byName.set(key(e), e); continue }
+    for (const k of FIELDS) if (kept.attributes[k] == null && e.attributes[k] != null) (kept.attributes as Record<string, unknown>)[k] = e.attributes[k]
+    kept.strength ??= e.strength
+    if (!kept.tags.length) kept.tags = e.tags
+    kept.sources = [...new Set([...(kept.sources ?? []), ...(e.sources ?? [])])]
+    kept.reference_images = [...new Set([...kept.reference_images, ...e.reference_images])].slice(0, 3)
+  }
+  return file
 }

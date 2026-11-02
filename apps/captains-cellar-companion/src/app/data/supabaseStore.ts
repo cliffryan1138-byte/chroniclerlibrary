@@ -25,6 +25,17 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
     return toUser(created as UserRow, user.email ?? null)
   }
 
+  /** The maker this name belongs to (matched ignoring case and spacing), adding a pending one if it's new. */
+  async function findOrAddMaker(name: string, userId: string): Promise<string | null> {
+    const key = name.trim().replace(/\s+/g, ' ').toLowerCase()
+    const { data: found } = await sb.from('makers').select('id').eq('name_key', key).maybeSingle()
+    if (found) return found.id
+    const { data: added, error } = await sb.from('makers')
+      .insert({ name: name.trim().replace(/\s+/g, ' '), status: 'user_added_pending', created_by: userId }).select('id').single()
+    // Someone else's pending maker can hold the name unseen; the item still saves, unlinked, until curation.
+    return error ? null : added.id
+  }
+
   return {
     kind: 'supabase',
     currentUser: loadUser,
@@ -59,16 +70,18 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
       if (error) throw error
       return (data ?? []).map((r) => ({
         id: r.id, category: r.category, brand: r.brand, name: r.name, attributes: r.attributes, strength: r.strength, status: r.status,
+        makerId: r.maker_id ?? null,
         tags: (r.item_tags ?? []).map((t: { family: string; descriptor: string | null; weight: number }) => ({ ...t, weight: Number(t.weight) })),
       })) as Item[]
     },
     async addItem(category, brand, name) {
       const { data: { user } } = await sb.auth.getUser()
+      const makerId = await findOrAddMaker(brand, user!.id)
       const { data, error } = await sb.from('items')
-        .insert({ category, brand, name, status: 'user_added_pending', created_by: user!.id })
+        .insert({ category, brand, name, status: 'user_added_pending', created_by: user!.id, maker_id: makerId })
         .select().single()
       if (error) throw error
-      return { id: data.id, category, brand, name, attributes: data.attributes ?? {}, strength: data.strength, status: data.status, tags: [] } as Item
+      return { id: data.id, category, brand, name, attributes: data.attributes ?? {}, strength: data.strength, status: data.status, tags: [], makerId } as Item
     },
     async listLogs() {
       const { data, error } = await sb.from('logs').select('*, log_tags(descriptor, family, third, intensity)').order('logged_at', { ascending: false })
