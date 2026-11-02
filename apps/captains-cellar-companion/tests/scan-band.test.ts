@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { createHandler, MAX_IMAGE_BYTES, type BandReading, type Deps } from '../api/scan-band'
+import { createHandler, defaultDeps, MAX_IMAGE_BYTES, SparkRefused, toReading, type BandReading, type Deps } from '../api/scan-band'
 
 const reading: BandReading = { found: true, maker: 'Test Maker', name: 'Maduro Robusto', confidence: 'high' }
 const deps = (over: Partial<Deps> = {}): Deps => ({
@@ -37,10 +37,61 @@ describe('POST /api/scan-band', () => {
     expect((await handler(post({ image: 'a'.repeat(Math.ceil(MAX_IMAGE_BYTES / 0.75) + 8), mediaType: 'image/png' }))).status).toBe(413)
   })
 
+  it('passes the signed-in user to SPARK so per-user caps apply', async () => {
+    let seenUser = ''
+    await createHandler(deps({ readBand: async (_i, _m, u) => { seenUser = u; return reading } }))(post({ image: 'x', mediaType: 'image/jpeg' }))
+    expect(seenUser).toBe('user-1')
+  })
+
+  it('shows a spending-cap refusal as-is', async () => {
+    const handler = createHandler(deps({ readBand: async () => { throw new SparkRefused('Daily limit reached.') } }))
+    const res = await handler(post({ image: 'x', mediaType: 'image/jpeg' }))
+    expect(res.status).toBe(429)
+    expect((await res.json()).error).toBe('Daily limit reached.')
+  })
+
   it('turns an upstream failure into a friendly 502', async () => {
     const handler = createHandler(deps({ readBand: async () => { throw new Error('boom') } }))
     const res = await handler(post({ image: 'x', mediaType: 'image/jpeg' }))
     expect(res.status).toBe(502)
     expect((await res.json()).error).toMatch(/Type it in/)
+  })
+})
+
+describe('SPARK cigar_band record -> log form', () => {
+  it('joins line and size into the Cigar line and buckets confidence', () => {
+    expect(toReading({ maker: 'Test Maker', line: 'Maduro', vitola: 'Robusto', confidence: 0.9 }))
+      .toEqual({ found: true, maker: 'Test Maker', name: 'Maduro Robusto', confidence: 'high' })
+    expect(toReading({ maker: 'Test Maker', line: null, vitola: null, confidence: 0.6 }).confidence).toBe('medium')
+  })
+  it('treats an unread band as not found', () => {
+    expect(toReading(null).found).toBe(false)
+    expect(toReading({ maker: null, line: null, vitola: 'Toro', confidence: 0.2 }).found).toBe(false)
+  })
+})
+
+describe('the request sent to SPARK', () => {
+  it('is a multipart /v1/extract for module cellar with the install token and the user as subject', async () => {
+    process.env.SPARK_URL = 'https://spark.example'
+    process.env.SPARK_CORE_TOKEN = 'tok'
+    const calls: { url: string; init: RequestInit }[] = []
+    const realFetch = globalThis.fetch
+    globalThis.fetch = (async (url: string | URL, init?: RequestInit) => {
+      calls.push({ url: String(url), init: init! })
+      return new Response(JSON.stringify({ extracted: { maker: 'A', line: 'B', vitola: null, confidence: 0.9 } }))
+    }) as typeof fetch
+    try {
+      const out = await defaultDeps.readBand('aGVsbG8=', 'image/jpeg', 'user-9')
+      expect(out).toEqual({ found: true, maker: 'A', name: 'B', confidence: 'high' })
+    } finally {
+      globalThis.fetch = realFetch
+    }
+    const { url, init } = calls[0]
+    expect(url).toBe('https://spark.example/v1/extract')
+    expect(init.headers).toMatchObject({ 'X-Core-Token': 'tok', 'X-App': 'cellar', 'X-Subject': 'user-9' })
+    const form = init.body as FormData
+    expect(form.get('module_id')).toBe('cellar')
+    expect(form.get('kind')).toBe('cigar_band')
+    expect(await (form.get('file') as Blob).text()).toBe('hello')
   })
 })

@@ -24,10 +24,15 @@ With no environment variables it runs in **demo mode**: one local user, everythi
 
 ### Band scanning (optional)
 
-`api/scan-band.ts` is a Vercel Function that reads a photo of a cigar band with Claude and pre-fills the
-Maker and Cigar fields. Set `ANTHROPIC_API_KEY` in the Vercel project (Production and Preview) to turn it on.
-Only signed-in users can call it (it checks the Supabase session), so demo mode shows a "needs an account"
-note instead. Photos are resized in the browser before upload and are not stored.
+`api/scan-band.ts` is a Vercel Function behind the "Scan the band" button. It checks the caller's Supabase
+session, then forwards the photo to Chronicler Library's SPARK install (`POST /v1/extract`, module `cellar`,
+kind `cigar_band`), which reads the band with its vision model and returns the maker and line. The app never
+holds a model key: SPARK owns the key, the per-user and daily spending caps, and the audit log.
+Setting up that install is in `wastegate-spark-core/docs/CHRONICLER_INSTALL.md`.
+
+Vercel variables (Production and Preview): `SPARK_URL` (the install's public address) and `SPARK_CORE_TOKEN`
+(the same value as the install's). Demo mode has no session, so it shows a "needs an account" note instead.
+Photos are resized in the browser before upload and are not stored.
 
 ### Checks
 
