@@ -1,0 +1,1511 @@
+{
+  "maker": {
+    "name": "G. L. Pease",
+    "website": "https://www.glpease.com",
+    "country": null
+  },
+  "category": "pipe_tobacco",
+  "entries": [
+    {
+      "brand": "G. L. Pease",
+      "name": "Abingdon",
+      "attributes": {
+        "blend_style": "Balkan",
+        "components": [
+          "Cyprian Latakia",
+          "oriental tobaccos",
+          "dark tobaccos"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "grassy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Classic",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Ashbury",
+      "attributes": {
+        "blend_style": "Balkan",
+        "components": [
+          "oriental tobaccos",
+          "bright Virginia",
+          "red Virginia",
+          "Cyprus Latakia"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.6
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Bankside",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "bright Virginia",
+          "St. James Perique",
+          "dark-fired Kentucky",
+          "Cypriot Latakia",
+          "Burley"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.6
+        },
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Barbary Coast",
+      "attributes": {
+        "components": [
+          "cube-cut Burley",
+          "red Virginia",
+          "Perique"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "nutty",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated",
+        "flavored with brandy (from the page; not a leaf)"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Blackpoint",
+      "attributes": {
+        "blend_style": "English",
+        "components": [
+          "red Virginia",
+          "lemon Virginia",
+          "Cyprian Latakia",
+          "oriental tobaccos",
+          "Louisiana perique"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "creamy",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Classic",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Cairo",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "orange Virginia",
+          "bright Virginia",
+          "oriental leaf",
+          "perique"
+        ]
+      },
+      "strength": 3,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "nutty",
+          "weight": 0.3
+        },
+        {
+          "family": "fruity",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Caravan",
+      "attributes": {
+        "blend_style": "Balkan",
+        "components": [
+          "Cyprian Latakia",
+          "oriental tobaccos",
+          "Virginia",
+          "Turkish leaf",
+          "Grecian leaf"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Charing Cross",
+      "attributes": {
+        "blend_style": "Balkan",
+        "components": [
+          "Virginia",
+          "Cyprian Latakia",
+          "oriental tobaccos"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "smoky",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Classic",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Chelsea Morning",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "bright Virginia",
+          "oriental tobaccos",
+          "Cyprus Latakia",
+          "Acadian perique"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "fruity",
+          "weight": 0.3
+        },
+        {
+          "family": "smoky",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Cumberland",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "Kentucky dark-fired",
+          "stoved and matured flue-cured",
+          "Louisiana perique"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.3
+        },
+        {
+          "family": "fruity",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Ellipsis",
+      "attributes": {
+        "components": [
+          "Virginia",
+          "small leaf Izmir",
+          "St. James Perique",
+          "heirloom Burley"
+        ],
+        "cut": "Flake"
+      },
+      "strength": 3,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        },
+        {
+          "family": "nutty",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Embarcadero",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "Izmir leaf"
+        ],
+        "cut": "Broken flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "nutty",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Fillmore",
+      "attributes": {
+        "blend_style": "Scottish",
+        "components": [
+          "red Virginia",
+          "Louisiana perique"
+        ],
+        "cut": "Broken flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Gaslight",
+      "attributes": {
+        "blend_style": "English",
+        "components": [
+          "Latakia",
+          "red Virginia",
+          "orientals"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "géométrie",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "Basma",
+          "Izmir"
+        ],
+        "cut": "Plug"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        },
+        {
+          "family": "floral",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Haddo's Delight",
+      "attributes": {
+        "components": [
+          "Virginia",
+          "long-cut perique",
+          "Green River black Cavendish",
+          "air-cured white burley ribbon"
+        ]
+      },
+      "strength": 4,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Horizons",
+      "attributes": {
+        "blend_style": "English",
+        "components": [
+          "matured red Virginia",
+          "bright flue-cured",
+          "Turkish Latakia",
+          "Orientals",
+          "red VA cavendish",
+          "unflavored black cavendish"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "nutty",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "JackKnife Plug",
+      "attributes": {
+        "components": [
+          "dark-fired Kentucky",
+          "red Virginia",
+          "golden flue-cured"
+        ],
+        "cut": "Plug"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "smoky",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/NewWorld",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Kensington",
+      "attributes": {
+        "blend_style": "Balkan",
+        "components": [
+          "bright Virginia",
+          "red Virginia",
+          "oriental leaf",
+          "Cyprian Latakia"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "floral",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Classic",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Key Largo",
+      "attributes": {
+        "components": [
+          "Virginia",
+          "oriental tobaccos",
+          "Cypriot Latakia",
+          "cigar leaf"
+        ]
+      },
+      "strength": 4,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "earthy",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Heirloom",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Lagonda",
+      "attributes": {
+        "components": [
+          "Cyprus Latakia",
+          "ripe red Virginia",
+          "fine oriental leaf",
+          "bright Virginia"
+        ],
+        "cut": "Ribbon"
+      },
+      "strength": 4,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Laurel Heights",
+      "attributes": {
+        "blend_style": "Virginia",
+        "components": [
+          "red Virginia"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.3
+        },
+        {
+          "family": "earthy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Lombard",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "bright Virginia",
+          "American condimental leaf",
+          "perique",
+          "Cyprus Latakia"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Maltese Falcon",
+      "attributes": {
+        "blend_style": "English"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Heirloom",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Meridian",
+      "attributes": {
+        "components": [
+          "Cyprus Latakia",
+          "red Virginia",
+          "orange Virginia",
+          "small leaf orientals"
+        ],
+        "cut": "Ribbon"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Metropolis",
+      "attributes": {
+        "components": [
+          "matured red Virginia",
+          "bright Virginia",
+          "exotic fire-cured leaf",
+          "Italian dark-fired",
+          "Turkish Latakia",
+          "Kentucky semi-fired",
+          "St. James perique"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "floral",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "smoky",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Montgomery",
+      "attributes": {
+        "blend_style": "Virginia",
+        "components": [
+          "flue-cured Virginia (soft yellow to deep red)",
+          "dark-fired Kentucky"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Navigator",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "bright Virginia",
+          "dark-fired Kentucky"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "fruity",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "no style stated",
+        "flavored with rum (from the page; not a leaf)"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Odyssey",
+      "attributes": {
+        "components": [
+          "Latakia",
+          "oriental tobaccos",
+          "matured red Virginia",
+          "stoved Virginia"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Penny Farthing",
+      "attributes": {
+        "components": [
+          "bright Virginia",
+          "red Virginia",
+          "Louisiana Perique",
+          "fire-cured dark Kentucky"
+        ],
+        "cut": "Shag"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Piccadilly",
+      "attributes": {
+        "components": [
+          "Virginia",
+          "Latakia",
+          "Louisiana perique"
+        ]
+      },
+      "strength": 2,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        },
+        {
+          "family": "smoky",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Classic",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Quiet Nights",
+      "attributes": {
+        "blend_style": "English",
+        "components": [
+          "red Virginia",
+          "fine orientals",
+          "Cyprus Latakia",
+          "Acadian perique"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Regents Flake",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "bright Virginia",
+          "brown Virginia",
+          "oriental leaf",
+          "perique"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "earthy",
+          "weight": 0.3
+        },
+        {
+          "family": "floral",
+          "weight": 0.3
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Robusto",
+      "attributes": {
+        "components": [
+          "Virginia",
+          "oriental tobaccos",
+          "Cyprian Latakia",
+          "cigar leaf"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Samarra",
+      "attributes": {
+        "blend_style": "English",
+        "components": [
+          "Cyprus Latakia",
+          "matured red Virginia",
+          "fine oriental leaf",
+          "lemon Virginia",
+          "perique"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.3
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Blends",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Sextant",
+      "attributes": {
+        "components": [
+          "Virginia",
+          "Cypriot Latakia",
+          "Orientals",
+          "dark-fired Kentucky"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated",
+        "flavored with dark rum (from the page; not a leaf)"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Sixpence",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "perique",
+          "dark-fired leaf"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "no style stated",
+        "flavored with special spirit (from the page; not a leaf)",
+        "no flavor notes named"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Stonehenge Flake",
+      "attributes": {
+        "blend_style": "VaPer",
+        "components": [
+          "bright flue-cured",
+          "sun-cured leaf (Brazil, Zimbabwe, Malawi)",
+          "Burley",
+          "perique"
+        ],
+        "cut": "Flake"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "no flavor notes named"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Heirloom",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Stratford",
+      "attributes": {
+        "blend_style": "VaPer",
+        "components": [
+          "bright Virginia",
+          "red Virginia",
+          "Louisiana perique"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/Classic",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Telegraph Hill",
+      "attributes": {
+        "components": [
+          "Virginia",
+          "flake-cut perique"
+        ]
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "no style stated",
+        "no flavor notes named"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Temple Bar",
+      "attributes": {
+        "components": [
+          "red Virginia",
+          "bright Virginia",
+          "oriental leaf",
+          "perique"
+        ],
+        "cut": "Plug"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/OldLondon",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "The Virginia Cream",
+      "attributes": {
+        "blend_style": "Aromatic",
+        "components": [
+          "red Virginia",
+          "golden flue-cured Virginia",
+          "condimental leaf"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "flavored with vanilla, bourbon (from the page; not a leaf)"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Heirloom",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Triple Play",
+      "attributes": {
+        "components": [
+          "ripe red flue-cured",
+          "bright flue-cured",
+          "Acadian perique",
+          "dark-fired Kentucky"
+        ],
+        "cut": "Plug"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "smoky",
+          "weight": 0.3
+        },
+        {
+          "family": "spicy",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/NewWorld",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Union Square",
+      "attributes": {
+        "blend_style": "Virginia",
+        "components": [
+          "flue-cured Virginia (brights to deep reds)"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "earthy",
+          "weight": 0.3
+        }
+      ],
+      "review": [],
+      "sources": [
+        "glpease.com/Tobacco/FogCity",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Westminster",
+      "attributes": {
+        "blend_style": "English",
+        "components": [
+          "New World red Virginia",
+          "bright leaf",
+          "oriental tobaccos",
+          "Cyprus Latakia"
+        ]
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "no flavor notes named"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Heirloom",
+        "glpease.com/CompleteList"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "JackKnife ReadyRubbed",
+      "attributes": {
+        "blend_style": "Virginia",
+        "components": [
+          "dark-fired Kentucky",
+          "red Virginia",
+          "golden flue-cured"
+        ],
+        "cut": "Ready rubbed"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "no flavor notes named"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/NewWorld"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "G. L. Pease",
+      "name": "Bohemian Scandal",
+      "attributes": {
+        "components": [
+          "Syrian Latakia",
+          "bright Virginia",
+          "red Virginia",
+          "rare oriental tobaccos"
+        ]
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "smoky",
+          "weight": 0.6
+        },
+        {
+          "family": "earthy",
+          "weight": 0.3
+        },
+        {
+          "family": "sweet",
+          "weight": 0.3
+        }
+      ],
+      "review": [
+        "no style stated"
+      ],
+      "sources": [
+        "glpease.com/Tobacco/Heirloom"
+      ],
+      "reference_images": []
+    }
+  ]
+}
