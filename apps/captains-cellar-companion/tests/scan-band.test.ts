@@ -54,7 +54,25 @@ describe('POST /api/scan-band', () => {
     const handler = createHandler(deps({ readBand: async () => { throw new Error('boom') } }))
     const res = await handler(post({ image: 'x', mediaType: 'image/jpeg' }))
     expect(res.status).toBe(502)
-    expect((await res.json()).error).toMatch(/Type it in/)
+    const body = await res.json()
+    expect(body.error).toMatch(/Type it in/)
+    expect(body.code).toBe('unexpected')
+  })
+
+  it('names a broken link to SPARK with a short code', async () => {
+    const handler = createHandler(deps())
+    const cases: [Record<string, string | undefined>, string][] = [
+      [{ SPARK_URL: undefined, SPARK_CORE_TOKEN: 'tok' }, 'config-missing'],
+      [{ SPARK_URL: 'chronicler-spark.example', SPARK_CORE_TOKEN: 'tok' }, 'config-bad-url'],
+    ]
+    for (const [env, code] of cases) {
+      Object.assign(process.env, env)
+      if (env.SPARK_URL === undefined) delete process.env.SPARK_URL
+      const real = createHandler({ ...deps(), readBand: defaultDeps.readBand })
+      const res = await real(post({ image: 'aGVsbG8=', mediaType: 'image/jpeg' }))
+      expect((await res.json()).code).toBe(code)
+    }
+    void handler
   })
 })
 

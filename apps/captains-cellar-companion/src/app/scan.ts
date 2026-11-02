@@ -31,6 +31,6 @@ export async function scanBand(file: File): Promise<ScanResult | null> {
     body: JSON.stringify({ image: await toJpegBase64(file), mediaType: 'image/jpeg' }),
   })
   const body = await res.json().catch(() => ({}))
-  if (!res.ok) throw new Error(body.error ?? 'Scan failed.')
+  if (!res.ok) throw new Error(`${body.error ?? 'Scan failed.'}${body.code ? ` (${body.code})` : ` (http-${res.status})`}`)
   return body.found && (body.maker || body.name) ? body : null
 }
