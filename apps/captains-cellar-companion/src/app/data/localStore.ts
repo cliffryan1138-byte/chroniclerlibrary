@@ -1,4 +1,4 @@
-import { branch } from '../branch'
+import { branches } from '../branch'
 import type { AppUser, NewLog, Store, UserPatch } from './store'
 import type { Item, Log, TasteProfile } from '../../core'
 
@@ -41,7 +41,8 @@ export function createLocalStore(): Store {
       return user
     },
     async listItems(category) {
-      return [...branch.sampleCatalog, ...read<Item[]>(KEY.items, [])].filter((i) => i.category === category)
+      const samples = branches.flatMap((b) => b.sampleCatalog)
+      return [...samples, ...read<Item[]>(KEY.items, [])].filter((i) => i.category === category)
     },
     async addItem(category, brand, name) {
       const item: Item = { id: crypto.randomUUID(), category, brand, name, attributes: {}, strength: null, status: 'user_added_pending', tags: [] }
@@ -55,6 +56,6 @@ export function createLocalStore(): Store {
       return log
     },
     async communityAggregates() { return {} },
-    async saveProfile(profile: TasteProfile) { write(KEY.profile, profile) },
+    async saveProfiles(profiles: Record<string, TasteProfile>) { write(KEY.profile, profiles) },
   }
 }

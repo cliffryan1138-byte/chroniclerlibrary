@@ -2,8 +2,8 @@ import { Camera, Loader2, Star } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import type { Intensity, LogTag, Rating, Third } from '../../core'
 import { copy } from '../../config/captains-cellar'
-import { branch } from '../branch'
 import { cx, findItem, normalizeName } from '../lib'
+import { DetailFields } from '../components/DetailFields'
 import { scanBand } from '../scan'
 import { useApp } from '../state'
 import { FamilyPicker } from '../components/FamilyPicker'
@@ -12,7 +12,7 @@ import { Button, Card, Chip, Section, Segmented } from '../components/ui'
 const INTENSITY = [{ label: 'Faint', value: 1 }, { label: 'Present', value: 2 }, { label: 'Bold', value: 3 }] as const
 
 export function LogScreen({ onSaved }: { onSaved: () => void }) {
-  const { items, user, addLog, addItem } = useApp()
+  const { items, user, addLog, addItem, branch } = useApp()
   const detailed = user?.mode === 'detailed'
   const [maker, setMaker] = useState('')
   const [cigar, setCigar] = useState('')
@@ -22,7 +22,7 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
     if (!file) return
     setScanState({ status: 'busy' })
     try {
-      const result = await scanBand(file)
+      const result = await scanBand(file, branch.scanKind)
       if (!result) return setScanState({ status: 'missed' })
       if (result.maker) setMaker(result.maker)
       if (result.name) setCigar(result.name)
@@ -84,7 +84,7 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
           <label className={cx('flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-accent px-4 font-semibold text-accent',
             scanState.status === 'busy' && 'pointer-events-none opacity-60')}>
             {scanState.status === 'busy' ? <Loader2 size={20} className="animate-spin" /> : <Camera size={20} />}
-            {scanState.status === 'busy' ? copy.log.scanning : copy.log.scan}
+            {scanState.status === 'busy' ? copy.log.scanning : labels.scan}
             <input type="file" accept="image/*" capture="environment" className="sr-only"
               onChange={(e) => { onPhoto(e.target.files?.[0]); e.target.value = '' }} />
           </label>
@@ -129,11 +129,11 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
           value={buyAgain === null ? 'm' : buyAgain ? 'y' : 'n'} onChange={(v) => setBuyAgain(v === 'm' ? null : v === 'y')} />
       </Section>
 
-      <Section title={copy.log.tags} hint={detailed ? 'Pick a third, open a family, tap specific notes.' : 'Tap every note you noticed.'}>
+      <Section title={copy.log.tags} hint={detailed ? 'Pick when you noticed it, open a family, tap specific notes.' : 'Tap every note you noticed.'}>
         {detailed ? (
           <div className="space-y-3">
             <Segmented<Third | 0> label="Which part of the session" value={third} onChange={setThird}
-              options={[{ label: 'Whole', value: 0 }, ...branch.thirds.map((t) => ({ label: t.label.replace(' third', ''), value: t.value as Third }))]} />
+              options={[{ label: 'Whole', value: 0 }, ...branch.stages.map((t) => ({ label: t.short, value: t.value as Third }))]} />
             <div className="flex flex-wrap gap-2">
               {taxonomy.families.map((f) => (
                 <Chip key={f.id} selected={openFamily === f.id} onClick={() => setOpenFamily(openFamily === f.id ? null : f.id)}>
@@ -157,7 +157,7 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
                   <li key={`${t.descriptor}-${t.third}`} className="flex items-center justify-between gap-2 rounded-lg border border-line bg-surface px-3 py-2 text-sm">
                     <span className="min-w-0 truncate">
                       {taxonomy.descriptors.find((d) => d.id === t.descriptor)?.label}
-                      <span className="text-muted"> · {t.third ? branch.thirds[t.third - 1].label : 'Whole'}</span>
+                      <span className="text-muted"> · {t.third ? branch.stages[t.third - 1].label : 'Whole'}</span>
                     </span>
                     <div className="w-44 shrink-0"><Segmented label="Intensity" options={INTENSITY} value={t.intensity} onChange={(v) => setIntensity(i, v)} /></div>
                   </li>
@@ -172,7 +172,7 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
 
       {detailed && (
         <Section title="Scores and notes">
-          <branch.DetailFields value={details} onChange={setDetails} />
+          <DetailFields scores={branch.detailScores} text={branch.detailText} value={details} onChange={setDetails} />
         </Section>
       )}
 

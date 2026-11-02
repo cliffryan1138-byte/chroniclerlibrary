@@ -1,6 +1,6 @@
 # Captain's Cellar Companion
 
-A tasting journal that learns your palate and suggests what to try next. Phase 1: cigars only.
+A tasting journal that learns your palate and suggests what to try next. Branches today: **cigars** and **pipe tobacco**, each with its own palate, quiz, suggestions and label scanner. Spirits, beer and wine come next as further branches (cigar-and-spirit pairing is planned on top).
 Mobile-first PWA (React + TypeScript + Vite + Tailwind) on Supabase, built to be wrapped for the app stores later.
 
 For adults 21+. It does not promote tobacco use. There are no sales, purchase links, or affiliate links, and logs are private.
@@ -49,7 +49,8 @@ npm run screenshots -- http://localhost:4173   # phone-width walkthrough, light 
 ```
 src/
   core/                    SPARK engine: profile builder, recommender, pairing scorer (stub)
-  branches/cigar/          taxonomy, SAMPLE catalog, strength labels, glossary, cigar-only form fields
+  branches/cigar/          taxonomy, SAMPLE catalog, strength labels, glossary, cigar-only form fields, catalog importer
+  branches/pipe/           pipe tobacco: taxonomy (incl. smoky/grassy), blend styles, cuts, bowl stages, pipe scores
   config/captains-cellar/  app name, palette, fonts, voice and compliance copy
   app/                     screens, state, data layer: wires one config + one branch to the engine
 ```
@@ -75,12 +76,15 @@ Two fences enforce it and fail if `core/` imports from `branches/`, `config/`, o
 
 ## Adding a new branch (e.g. spirits)
 
+`branches/pipe/` is the worked example: it was added without touching `core/`.
+
 1. Create `src/branches/spirits/` with:
    - `taxonomy.ts`: a `Taxonomy` (families and descriptors; every descriptor in exactly one family; ids unique).
    - `rules.ts`: a `BranchSpec` plus any display rules (strength labels, glossary, detail scores).
    - `catalog.ts`: sample or real `Item`s with `category: 'spirits'`.
    - `ui/`: a `DetailFields` and an `AttributeSummary` component.
-2. Register it in `src/app/branch.ts` and list it in the app config's `branches`.
+2. Register it in `src/app/branch.ts` (display name, stages, detail scores, labels, scan kind) and list it in the app config's `branches`. The category switch, a quiz and a palate per branch come for free.
+   Label scanning needs a matching `kind` in SPARK's extractor (`cigar_band` and `pipe_tobacco_tin` exist).
 3. Add a taxonomy-validity test (see `tests/architecture.test.ts`), and add the branch's distinctive words to the banned list there.
 4. No schema change needed: `items.category`, `items.attributes`, and `logs.details` carry the branch-specific bits.
 

@@ -1,5 +1,5 @@
 import { appConfig, copy } from '../../config/captains-cellar'
-import { branch } from '../branch'
+import { branches } from '../branch'
 import { store } from '../data'
 import { useApp } from '../state'
 import { useTheme, type ThemeSetting } from '../theme'
@@ -26,16 +26,18 @@ export function Settings({ onRetakeQuiz }: { onRetakeQuiz: () => void }) {
         <Button variant="ghost" className="w-full" onClick={onRetakeQuiz}>Retake the quiz</Button>
       </Section>
 
-      <Section title="Glossary">
-        <Card className="divide-y divide-line p-0">
-          {branch.glossary.map((g) => (
-            <details key={g.term} className="px-4 py-3">
-              <summary className="cursor-pointer font-semibold">{g.term}</summary>
-              <p className="mt-1 text-sm text-muted">{g.meaning}</p>
-            </details>
-          ))}
-        </Card>
-      </Section>
+      {branches.map((b) => (
+        <Section key={b.id} title={branches.length > 1 ? `Glossary: ${b.name.toLowerCase()}` : 'Glossary'}>
+          <Card className="divide-y divide-line p-0">
+            {b.glossary.map((g) => (
+              <details key={g.term} className="px-4 py-3">
+                <summary className="cursor-pointer font-semibold">{g.term}</summary>
+                <p className="mt-1 text-sm text-muted">{g.meaning}</p>
+              </details>
+            ))}
+          </Card>
+        </Section>
+      ))}
 
       <Section title="About">
         <Card className="space-y-2 text-sm">

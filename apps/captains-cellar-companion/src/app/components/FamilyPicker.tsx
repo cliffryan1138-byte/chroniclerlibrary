@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import type { FamilyId } from '../../core'
-import { branch } from '../branch'
+import { useApp } from '../state'
 import { Chip } from './ui'
 
 /** Family chips with a plain-English line under them for whichever one was tapped last (the simple-mode tooltip). */
 export function FamilyPicker({ selected, onToggle, tone, disabled = [] }: { selected: FamilyId[]; onToggle: (f: FamilyId) => void; tone?: 'accent' | 'danger'; disabled?: FamilyId[] }) {
+  const { branch } = useApp()
   const [hint, setHint] = useState<FamilyId | null>(null)
   const families = branch.spec.taxonomy.families.filter((f) => !disabled.includes(f.id))
   const hinted = families.find((f) => f.id === hint)

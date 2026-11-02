@@ -2,6 +2,7 @@ import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative, resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { cigarTaxonomy } from '../src/branches/cigar'
+import { pipeTaxonomy } from '../src/branches/pipe'
 import { validateTaxonomy } from '../src/core'
 
 const root = resolve(__dirname, '..')
@@ -29,8 +30,8 @@ describe('three-layer rule', () => {
     const banned = [
       'cigar', 'tobacco', 'humidor', 'vitola', 'wrapper', 'binder', 'filler', 'ring_gauge', 'retrohale', 'draw', 'burn',
       'whiskey', 'bourbon', 'wine', 'beer', 'spirit',
-      ...cigarTaxonomy.families.map((f) => f.id),
-      ...cigarTaxonomy.descriptors.map((d) => d.label.toLowerCase()),
+      'pipe', 'latakia', 'perique', 'virginia', 'burley', 'cavendish', 'flake',
+      ...[cigarTaxonomy, pipeTaxonomy].flatMap((t) => [...t.families.map((f) => f.id), ...t.descriptors.map((d) => d.label.toLowerCase())]),
     ]
     for (const file of coreFiles) {
       const src = readFileSync(file, 'utf8').toLowerCase()
@@ -46,5 +47,12 @@ describe('cigar taxonomy', () => {
     expect(() => validateTaxonomy(cigarTaxonomy)).not.toThrow()
     expect(cigarTaxonomy.families).toHaveLength(10)
     expect(cigarTaxonomy.descriptors).toHaveLength(44)
+  })
+})
+
+describe('pipe tobacco taxonomy', () => {
+  it('is valid: every descriptor in exactly one family', () => {
+    expect(() => validateTaxonomy(pipeTaxonomy)).not.toThrow()
+    expect(pipeTaxonomy.families.length).toBeGreaterThanOrEqual(10)
   })
 })

@@ -1,10 +1,10 @@
 import { BookOpen, Compass, PenLine, Settings as Cog } from 'lucide-react'
 import { useEffect, useState } from 'react'
 import { copy } from '../config/captains-cellar'
-import { branch } from './branch'
+import { branches } from './branch'
 import { cx } from './lib'
 import { useApp } from './state'
-import { Button, Card } from './components/ui'
+import { Button, Card, Segmented } from './components/ui'
 import { Auth } from './screens/Auth'
 import { Discover } from './screens/Discover'
 import { LogScreen } from './screens/LogScreen'
@@ -21,7 +21,7 @@ const TABS: { id: Tab; label: string; Icon: typeof BookOpen }[] = [
 ]
 
 export function App() {
-  const { ready, user, logs, updateUser } = useApp()
+  const { ready, user, allLogs, updateUser, branch, setBranch, seeds } = useApp()
   const [tab, setTab] = useState<Tab>('palate')
   const [retakeQuiz, setRetakeQuiz] = useState(false)
   const [toast, setToast] = useState<string | null>(null)
@@ -35,15 +35,21 @@ export function App() {
 
   if (!ready) return null
   if (!user) return <Auth />
-  if (!user.quizSeed || retakeQuiz) return <Quiz onDone={() => { setRetakeQuiz(false); setTab('discover') }} />
+  if (!seeds[branch.id] || retakeQuiz) return <Quiz key={branch.id} onDone={() => { setRetakeQuiz(false); setTab('discover') }} />
 
-  const offerDetailed = user.mode === 'simple' && !user.detailedOfferSeen && logs.length >= branch.detailedOfferAfter
+  const offerDetailed = user.mode === 'simple' && !user.detailedOfferSeen && allLogs.length >= branch.detailedOfferAfter
 
   return (
     <div className="mx-auto min-h-dvh max-w-md">
       <main className="px-4 pb-28 pt-6">
+        {branches.length > 1 && tab !== 'settings' && (
+          <div className="mb-5">
+            <Segmented label="Category" value={branch.id} onChange={setBranch}
+              options={branches.map((b) => ({ label: b.name, value: b.id }))} />
+          </div>
+        )}
         {tab === 'palate' && <Palate />}
-        {tab === 'log' && <LogScreen key={logKey} onSaved={() => { setToast(copy.log.saved); setLogKey((k) => k + 1); setTab('palate') }} />}
+        {tab === 'log' && <LogScreen key={`${branch.id}-${logKey}`} onSaved={() => { setToast(copy.log.saved); setLogKey((k) => k + 1); setTab('palate') }} />}
         {tab === 'discover' && <Discover />}
         {tab === 'settings' && <Settings onRetakeQuiz={() => setRetakeQuiz(true)} />}
       </main>

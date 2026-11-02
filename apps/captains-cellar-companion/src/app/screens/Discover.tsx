@@ -1,10 +1,9 @@
 import { copy } from '../../config/captains-cellar'
-import { branch } from '../branch'
 import { useApp } from '../state'
 import { Card } from '../components/ui'
 
 export function Discover() {
-  const { recommendations } = useApp()
+  const { recommendations, branch } = useApp()
   return (
     <div className="space-y-5">
       <header>
