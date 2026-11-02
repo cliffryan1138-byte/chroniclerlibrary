@@ -36,6 +36,13 @@ export function toReading(band: SparkBand | null): BandReading {
 /** A refusal SPARK means for the person (a spending cap reached): shown to them as-is. */
 export class SparkRefused extends Error {}
 
+/** A failure with a short, non-secret reason the phone can show, so a broken link is named on screen. */
+export class ScanFailure extends Error {
+  constructor(readonly code: string, detail: string) {
+    super(detail)
+  }
+}
+
 export interface Deps {
   /** Resolves the bearer token to a user id, or null if it isn't a valid session. */
   verifyUser: (token: string) => Promise<string | null>
@@ -68,7 +75,8 @@ export function createHandler(deps: Deps) {
     } catch (err) {
       if (err instanceof SparkRefused) return json({ error: err.message }, 429)
       console.error('scan-band failed', err)
-      return json({ error: "Couldn't read the band right now. Type it in instead." }, 502)
+      const code = err instanceof ScanFailure ? err.code : 'unexpected'
+      return json({ error: "Couldn't read the band right now. Type it in instead.", code }, 502)
     }
   }
 }
@@ -85,20 +93,31 @@ export const defaultDeps: Deps = {
   async readBand(image, mediaType, userId) {
     const base = process.env.SPARK_URL
     const coreToken = process.env.SPARK_CORE_TOKEN
-    if (!base || !coreToken) throw new Error('SPARK_URL and SPARK_CORE_TOKEN must be set')
+    if (!base || !coreToken) throw new ScanFailure('config-missing', 'SPARK_URL and SPARK_CORE_TOKEN must be set')
+    let url: URL
+    try {
+      url = new URL('/v1/extract', base.trim())
+    } catch {
+      throw new ScanFailure('config-bad-url', `SPARK_URL is not a full https address: ${base}`)
+    }
     const form = new FormData()
     form.append('module_id', 'cellar')
     form.append('kind', 'cigar_band')
     form.append('file', new Blob([Buffer.from(image, 'base64')], { type: mediaType }), 'band.' + mediaType.split('/')[1])
-    const res = await fetch(new URL('/v1/extract', base), {
-      method: 'POST',
-      // X-Subject and X-App let SPARK's meter apply the per-user and per-app spending caps.
-      headers: { 'X-Core-Token': coreToken, 'X-App': 'cellar', 'X-Subject': userId, 'X-Feature': 'scan-band' },
-      body: form,
-    })
+    let res: Response
+    try {
+      res = await fetch(url, {
+        method: 'POST',
+        // X-Subject and X-App let SPARK's meter apply the per-user and per-app spending caps.
+        headers: { 'X-Core-Token': coreToken.trim(), 'X-App': 'cellar', 'X-Subject': userId, 'X-Feature': 'scan-band' },
+        body: form,
+      })
+    } catch (err) {
+      throw new ScanFailure('spark-unreachable', `${url.host}: ${err instanceof Error ? err.message : err}`)
+    }
     const body = await res.json().catch(() => ({}))
     if (res.status === 429) throw new SparkRefused(body.detail ?? "You've hit today's scan limit. Type it in for now.")
-    if (!res.ok) throw new Error(`SPARK ${res.status}: ${body.detail ?? 'no detail'}`)
+    if (!res.ok) throw new ScanFailure(`spark-${res.status}`, `SPARK ${res.status}: ${body.detail ?? 'no detail'}`)
     return toReading(body.extracted ?? null)
   },
 }
