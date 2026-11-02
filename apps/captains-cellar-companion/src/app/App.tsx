@@ -24,7 +24,8 @@ const CURATE_TAB = { id: 'curator' as Tab, label: 'Curate', Icon: ClipboardCheck
 
 export function App() {
   const { ready, user, allLogs, updateUser, branch, setBranch, seeds, waiting } = useApp()
-  const [tab, setTab] = useState<Tab>('palate')
+  // Logging is what people open the app to do, so it opens there.
+  const [tab, setTab] = useState<Tab>('log')
   const [retakeQuiz, setRetakeQuiz] = useState(false)
   const [toast, setToast] = useState<string | null>(null)
   const [logKey, setLogKey] = useState(0)

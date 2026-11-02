@@ -58,6 +58,20 @@ export interface CuratorActions {
   rejectMaker(id: string): Promise<void>
 }
 
+/** Something kept rather than consumed (a pipe). Private to its owner. */
+export interface CollectionItem {
+  id: string
+  category: string
+  kind: string
+  maker: string | null
+  name: string | null
+  attributes: Record<string, unknown>
+  dedicatedItemId: string | null
+  notes: string | null
+  acquiredOn: string | null
+}
+export type NewCollectionItem = Omit<CollectionItem, 'id'> & { id?: string }
+
 export type UserPatch = Partial<Pick<AppUser, 'mode' | 'quizSeed' | 'detailedOfferSeen'>>
 
 export interface Store {
@@ -78,4 +92,8 @@ export interface Store {
   /** The derived profile for each category, saved as one row. */
   saveProfiles(profiles: Record<string, TasteProfile>): Promise<void>
   curator: CuratorActions
+  listCollection(): Promise<CollectionItem[]>
+  /** Adds a new one, or updates it when it has an id. */
+  saveCollectionItem(item: NewCollectionItem): Promise<CollectionItem>
+  deleteCollectionItem(id: string): Promise<void>
 }

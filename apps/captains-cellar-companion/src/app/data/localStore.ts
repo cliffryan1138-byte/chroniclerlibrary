@@ -1,9 +1,9 @@
 import { branches } from '../branch'
-import type { AppUser, CuratorActions, NewLog, QueueEntry, Store, UserPatch } from './store'
+import type { AppUser, CollectionItem, CuratorActions, NewLog, QueueEntry, Store, UserPatch } from './store'
 import type { Item, Log, TasteProfile } from '../../core'
 
 // Demo mode: a single local user, everything in this browser's localStorage.
-const KEY = { user: 'ccc:user', logs: 'ccc:logs', profile: 'ccc:profile', items: 'ccc:items' }
+const KEY = { user: 'ccc:user', logs: 'ccc:logs', profile: 'ccc:profile', items: 'ccc:items', collection: 'ccc:collection' }
 
 function read<T>(key: string, fallback: T): T {
   try {
@@ -59,6 +59,14 @@ export function createLocalStore(): Store {
   return {
     kind: 'local',
     curator: localCurator,
+    async listCollection() { return read<CollectionItem[]>(KEY.collection, []) },
+    async saveCollectionItem(input) {
+      const all = read<CollectionItem[]>(KEY.collection, [])
+      const item: CollectionItem = { ...input, id: input.id ?? crypto.randomUUID() }
+      write(KEY.collection, input.id ? all.map((c) => (c.id === input.id ? item : c)) : [...all, item])
+      return item
+    },
+    async deleteCollectionItem(id) { write(KEY.collection, read<CollectionItem[]>(KEY.collection, []).filter((c) => c.id !== id)) },
     async currentUser() { return read<AppUser | null>(KEY.user, null) },
     async signUp(email, _password, birthYear) {
       // The demo's only user curates their own typed-in entries, so the curator screen can be tried out.

@@ -3,6 +3,7 @@ import { topFamilies } from '../../core'
 import { copy } from '../../config/captains-cellar'
 import { useApp } from '../state'
 import { Card, Section } from '../components/ui'
+import { Collection } from '../components/Collection'
 
 export function Palate() {
   const { profile, logs, items, branch } = useApp()
@@ -72,6 +73,8 @@ export function Palate() {
           </ul>
         </Section>
       )}
+
+      {branch.collection && <Collection spec={branch.collection} branch={branch} />}
     </div>
   )
 }

@@ -12,7 +12,8 @@ import { Button, Card, Chip, Section, Segmented } from '../components/ui'
 const INTENSITY = [{ label: 'Faint', value: 1 }, { label: 'Present', value: 2 }, { label: 'Bold', value: 3 }] as const
 
 export function LogScreen({ onSaved }: { onSaved: () => void }) {
-  const { items, user, addLog, addItem, branch } = useApp()
+  const { items, user, addLog, addItem, branch, collection } = useApp()
+  const [usedIn, setUsedIn] = useState('')
   const detailed = user?.mode === 'detailed'
   const [maker, setMaker] = useState('')
   const [cigar, setCigar] = useState('')
@@ -67,7 +68,7 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
     const logTags: LogTag[] = detailed ? tags : families.map((family) => ({ descriptor: null, family, third: null, intensity: 2 }))
     try {
       const item = match ?? (await addItem(maker, cigar))
-      await addLog({ itemId: item.id, overallRating: rating, wouldBuyAgain: buyAgain, notes: notes.trim() || null, details: detailed ? details : {}, tags: logTags })
+      await addLog({ itemId: item.id, overallRating: rating, wouldBuyAgain: buyAgain, notes: notes.trim() || null, details: { ...(detailed ? details : {}), ...(usedIn ? { collection_item_id: usedIn } : {}) }, tags: logTags })
       onSaved()
     } catch (e) {
       setError(e instanceof Error ? e.message : 'Could not save.')
@@ -173,6 +174,18 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
       {detailed && (
         <Section title="Scores and notes">
           <DetailFields scores={branch.detailScores} text={branch.detailText} value={details} onChange={setDetails} />
+        </Section>
+      )}
+
+      {branch.collection && collection.length > 0 && (
+        <Section title={branch.collection.usedLabel}>
+          <select aria-label={branch.collection.usedLabel} value={usedIn} onChange={(e) => setUsedIn(e.target.value)}
+            className="min-h-11 w-full rounded-md border border-line bg-surface px-3 text-sm">
+            <option value="">Not saying</option>
+            {collection.map((c) => (
+              <option key={c.id} value={c.id}>{[c.maker, c.name].filter(Boolean).join(' · ') || 'Unnamed'}{c.attributes.shape ? ` (${c.attributes.shape})` : ''}</option>
+            ))}
+          </select>
         </Section>
       )}
 

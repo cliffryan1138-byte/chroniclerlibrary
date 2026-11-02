@@ -1,6 +1,6 @@
 import { createClient, type SupabaseClient } from '@supabase/supabase-js'
 import type { CommunityAggregates, Item, Log, LogTag, TasteProfile } from '../../core'
-import type { AppUser, CuratorActions, NewLog, QueueEntry, Store, UserPatch } from './store'
+import type { AppUser, CollectionItem, CuratorActions, NewLog, QueueEntry, Store, UserPatch } from './store'
 
 interface UserRow { id: string; mode: AppUser['mode']; birth_year: number; quiz_seed: AppUser['quizSeed']; detailed_offer_seen: boolean; is_curator?: boolean }
 
@@ -65,9 +65,36 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
     rejectMaker: (id) => rpc('reject_maker', { maker_id: id }),
   }
 
+  const toCollection = (r: Record<string, unknown>): CollectionItem => ({
+    id: r.id as string, category: r.category as string, kind: r.kind as string, maker: (r.maker as string) ?? null,
+    name: (r.name as string) ?? null, attributes: (r.attributes as Record<string, unknown>) ?? {},
+    dedicatedItemId: (r.dedicated_item_id as string) ?? null, notes: (r.notes as string) ?? null, acquiredOn: (r.acquired_on as string) ?? null,
+  })
+
   return {
     kind: 'supabase',
     curator,
+    async listCollection() {
+      const { data, error } = await sb.from('collection_items').select('*').order('created_at')
+      if (error) throw error
+      return (data ?? []).map(toCollection)
+    },
+    async saveCollectionItem(input) {
+      const row = {
+        category: input.category, kind: input.kind, maker: input.maker, name: input.name, attributes: input.attributes,
+        dedicated_item_id: input.dedicatedItemId, notes: input.notes, acquired_on: input.acquiredOn,
+      }
+      const q = input.id
+        ? sb.from('collection_items').update(row).eq('id', input.id).select().single()
+        : sb.from('collection_items').insert(row).select().single()
+      const { data, error } = await q
+      if (error) throw error
+      return toCollection(data)
+    },
+    async deleteCollectionItem(id) {
+      const { error } = await sb.from('collection_items').delete().eq('id', id)
+      if (error) throw error
+    },
     currentUser: loadUser,
     async signUp(email, password, birthYear) {
       const { data, error } = await sb.auth.signUp({ email, password, options: { data: { birth_year: birthYear }, emailRedirectTo: window.location.origin } })
