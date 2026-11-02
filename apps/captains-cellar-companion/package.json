@@ -11,7 +11,9 @@
     "lint": "eslint src api tests",
     "typecheck": "tsc -b",
     "seed:sql": "tsx scripts/generate-seed.ts > supabase/seed.sql",
-    "screenshots": "tsx scripts/screenshots.ts"
+    "screenshots": "tsx scripts/screenshots.ts",
+    "catalog:shopify": "tsx scripts/catalog-from-shopify.ts",
+    "catalog:sql": "tsx scripts/catalog-to-sql.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",

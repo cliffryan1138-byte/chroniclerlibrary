@@ -92,4 +92,19 @@ A user-submitted item is pending and visible only to whoever submitted it. A tri
 
 ## Catalog
 
-Every item in `src/branches/cigar/catalog.ts` is a clearly labelled **SAMPLE** placeholder, not a real product. Replace it with the real catalog, then regenerate `supabase/seed.sql`.
+Real catalogs load in three steps, run from a machine that can reach the maker's site:
+
+```bash
+npm run catalog:shopify -- https://maker-site.com --brand "Maker"   # writes catalog/<site>.json
+# open the JSON: fix names, fill blanks, delete anything that isn't a cigar. "review" lists what the site didn't say.
+npm run catalog:sql -- catalog/<site>.json > catalog/<site>.sql      # paste into the Supabase SQL editor
+```
+
+The importer reads a Shopify store's public product list and keeps facts only: maker, name, vitola, size, wrapper,
+binder, filler, origin, a stated strength word, and flavor notes the description names. It keeps no marketing copy,
+prices or links, and leaves anything the site doesn't state blank. Products sold in several sizes become one cigar per
+size. Re-running the SQL updates the same cigars rather than duplicating them (ids come from maker + name).
+`reference_images` in the JSON are the site's own photos, listed for the reviewer only; they are not loaded.
+
+
+The starter items in `src/branches/cigar/catalog.ts` are clearly labelled **SAMPLE** placeholders, not real products. Once a real catalog is loaded they can be removed with `delete from items where name like 'SAMPLE %';`.
