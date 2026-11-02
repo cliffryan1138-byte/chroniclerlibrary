@@ -40,6 +40,10 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
       return (await loadUser())!
     },
     async signOut() { await sb.auth.signOut() },
+    async accessToken() {
+      const { data } = await sb.auth.getSession()
+      return data.session?.access_token ?? null
+    },
     async updateUser(patch: UserPatch) {
       const { data: { user } } = await sb.auth.getUser()
       const row: Record<string, unknown> = {}

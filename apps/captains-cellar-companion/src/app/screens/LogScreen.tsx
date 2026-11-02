@@ -1,9 +1,10 @@
-import { Star } from 'lucide-react'
+import { Camera, Loader2, Star } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import type { Intensity, LogTag, Rating, Third } from '../../core'
 import { copy } from '../../config/captains-cellar'
 import { branch } from '../branch'
 import { cx, findItem, normalizeName } from '../lib'
+import { scanBand } from '../scan'
 import { useApp } from '../state'
 import { FamilyPicker } from '../components/FamilyPicker'
 import { Button, Card, Chip, Section, Segmented } from '../components/ui'
@@ -15,6 +16,22 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
   const detailed = user?.mode === 'detailed'
   const [maker, setMaker] = useState('')
   const [cigar, setCigar] = useState('')
+  const [scanState, setScanState] = useState<{ status: 'idle' | 'busy' | 'read' | 'missed' | 'error'; message?: string }>({ status: 'idle' })
+
+  async function onPhoto(file: File | undefined) {
+    if (!file) return
+    setScanState({ status: 'busy' })
+    try {
+      const result = await scanBand(file)
+      if (!result) return setScanState({ status: 'missed' })
+      if (result.maker) setMaker(result.maker)
+      if (result.name) setCigar(result.name)
+      setScanState({ status: 'read' })
+    } catch (e) {
+      const message = e instanceof Error && e.message !== 'demo' ? e.message : copy.log.scanDemo
+      setScanState({ status: 'error', message })
+    }
+  }
   const [rating, setRating] = useState<Rating | null>(null)
   const [buyAgain, setBuyAgain] = useState<boolean | null>(null)
   const [families, setFamilies] = useState<string[]>([])
@@ -64,6 +81,16 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
 
       <Section title={copy.log.pickItem} hint={copy.log.pickItemHint}>
         <div className="space-y-3">
+          <label className={cx('flex min-h-11 cursor-pointer items-center justify-center gap-2 rounded-lg border border-accent px-4 font-semibold text-accent',
+            scanState.status === 'busy' && 'pointer-events-none opacity-60')}>
+            {scanState.status === 'busy' ? <Loader2 size={20} className="animate-spin" /> : <Camera size={20} />}
+            {scanState.status === 'busy' ? copy.log.scanning : copy.log.scan}
+            <input type="file" accept="image/*" capture="environment" className="sr-only"
+              onChange={(e) => { onPhoto(e.target.files?.[0]); e.target.value = '' }} />
+          </label>
+          {scanState.status === 'read' && <p className="text-xs text-accent" role="status">{copy.log.scanRead}</p>}
+          {scanState.status === 'missed' && <p className="text-xs text-muted" role="status">{copy.log.scanMissed}</p>}
+          {scanState.status === 'error' && <p className="text-xs text-danger" role="alert">{scanState.message}</p>}
           <label className="block">
             <span className="mb-1 block text-sm font-semibold">{labels.brand}</span>
             <input list="makers" value={maker} maxLength={80} autoCapitalize="words" placeholder={labels.brandPlaceholder}
