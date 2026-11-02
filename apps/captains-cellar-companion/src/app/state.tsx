@@ -19,6 +19,9 @@ interface AppState {
   allItems: Item[]
   /** Re-read the catalog and logs, e.g. after a curator merges or approves something. */
   reloadCatalog: () => Promise<void>
+  /** How many entries wait for a curator; null for everyone else. */
+  waiting: number | null
+  refreshWaiting: () => Promise<void>
   profile: TasteProfile
   recommendations: Recommendation[]
   setUser: (u: AppUser | null) => void
@@ -55,6 +58,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [allItems, setAllItems] = useState<Item[]>([])
   const [allLogs, setAllLogs] = useState<Log[]>([])
   const [community, setCommunity] = useState<CommunityAggregates>({})
+  const [waiting, setWaiting] = useState<number | null>(null)
 
   useEffect(() => {
     store.currentUser().then(setUser).catch(() => setUser(null)).finally(() => setReady(true))
@@ -65,6 +69,20 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setAllItems(lists.flat())
     setAllLogs(logs)
   }, [])
+
+  const refreshWaiting = useCallback(async () => {
+    if (!user?.isCurator) return setWaiting(null)
+    try { setWaiting((await store.curator.queue()).length) } catch { /* keep the last count */ }
+  }, [user?.isCurator])
+
+  // A curator's badge stays current: on open, after the catalog changes, and when they come back to the app.
+  useEffect(() => { refreshWaiting() }, [allItems, refreshWaiting])
+  useEffect(() => {
+    refreshWaiting()
+    const onVisible = () => { if (document.visibilityState === 'visible') refreshWaiting() }
+    document.addEventListener('visibilitychange', onVisible)
+    return () => document.removeEventListener('visibilitychange', onVisible)
+  }, [refreshWaiting])
 
   useEffect(() => {
     if (!user) return
@@ -122,7 +140,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   return (
     <Ctx.Provider value={{
-      ready, user, branch, setBranch, seeds, items, logs, allLogs, allItems, reloadCatalog, profile, recommendations,
+      ready, user, branch, setBranch, seeds, items, logs, allLogs, allItems, reloadCatalog, waiting, refreshWaiting, profile, recommendations,
       setUser, updateUser, saveSeed, addLog, addItem, signOut,
     }}>
       {children}

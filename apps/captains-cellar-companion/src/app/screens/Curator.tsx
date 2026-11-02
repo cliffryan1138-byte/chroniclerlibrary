@@ -147,8 +147,8 @@ function MakerCard({ entry, makers, onDone }: { entry: QueueEntry; makers: Maker
   )
 }
 
-export function Curator({ onBack }: { onBack: () => void }) {
-  const { allItems, reloadCatalog } = useApp()
+export function Curator() {
+  const { allItems, reloadCatalog, refreshWaiting } = useApp()
   const [queue, setQueue] = useState<QueueEntry[] | null>(null)
   const [makers, setMakers] = useState<MakerRecord[]>([])
   const [error, setError] = useState<string | null>(null)
@@ -162,7 +162,7 @@ export function Curator({ onBack }: { onBack: () => void }) {
     }
   }, [])
   useEffect(() => { load() }, [load])
-  const done = useCallback(async () => { await Promise.all([load(), reloadCatalog()]) }, [load, reloadCatalog])
+  const done = useCallback(async () => { await Promise.all([load(), reloadCatalog(), refreshWaiting()]) }, [load, reloadCatalog, refreshWaiting])
 
   const items = useMemo(() => (queue ?? []).filter((e) => e.kind === 'item'), [queue])
   const pendingMakers = useMemo(() => (queue ?? []).filter((e) => e.kind === 'maker'), [queue])
@@ -170,7 +170,6 @@ export function Curator({ onBack }: { onBack: () => void }) {
   return (
     <div className="space-y-7">
       <header className="space-y-1">
-        <button className="text-sm text-muted underline" onClick={onBack}>← Settings</button>
         <h1 className="font-display text-3xl font-bold">{copy.curator.title}</h1>
         <p className="text-sm text-muted">{copy.curator.subtitle}</p>
       </header>
