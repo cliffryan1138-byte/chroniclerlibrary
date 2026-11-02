@@ -39,7 +39,7 @@ export interface Item {
   attributes: Record<string, unknown>
   /** 1-5, or null when unknown. */
   strength: number | null
-  status: 'curated' | 'user_added_pending'
+  status: 'curated' | 'user_added_pending' | 'rejected'
   tags?: ItemTag[]
   /** The producer's record, when the data layer keeps one. `brand` stays as the display name. */
   makerId?: string | null

@@ -11,8 +11,9 @@ import { LogScreen } from './screens/LogScreen'
 import { Palate } from './screens/Palate'
 import { Quiz } from './screens/Quiz'
 import { Settings } from './screens/Settings'
+import { Curator } from './screens/Curator'
 
-type Tab = 'palate' | 'log' | 'discover' | 'settings'
+type Tab = 'palate' | 'log' | 'discover' | 'settings' | 'curator'
 const TABS: { id: Tab; label: string; Icon: typeof BookOpen }[] = [
   { id: 'palate', label: 'Palate', Icon: BookOpen },
   { id: 'log', label: 'Log', Icon: PenLine },
@@ -42,7 +43,7 @@ export function App() {
   return (
     <div className="mx-auto min-h-dvh max-w-md">
       <main className="px-4 pb-28 pt-6">
-        {branches.length > 1 && tab !== 'settings' && (
+        {branches.length > 1 && tab !== 'settings' && tab !== 'curator' && (
           <div className="mb-5">
             <Segmented label="Category" value={branch.id} onChange={setBranch}
               options={branches.map((b) => ({ label: b.name, value: b.id }))} />
@@ -51,7 +52,8 @@ export function App() {
         {tab === 'palate' && <Palate />}
         {tab === 'log' && <LogScreen key={`${branch.id}-${logKey}`} onSaved={() => { setToast(copy.log.saved); setLogKey((k) => k + 1); setTab('palate') }} />}
         {tab === 'discover' && <Discover />}
-        {tab === 'settings' && <Settings onRetakeQuiz={() => setRetakeQuiz(true)} />}
+        {tab === 'settings' && <Settings onRetakeQuiz={() => setRetakeQuiz(true)} onOpenCurator={() => setTab('curator')} />}
+        {tab === 'curator' && <Curator onBack={() => setTab('settings')} />}
       </main>
 
       {toast && (

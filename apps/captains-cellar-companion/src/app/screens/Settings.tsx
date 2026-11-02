@@ -5,7 +5,7 @@ import { useApp } from '../state'
 import { useTheme, type ThemeSetting } from '../theme'
 import { Button, Card, Section, Segmented } from '../components/ui'
 
-export function Settings({ onRetakeQuiz }: { onRetakeQuiz: () => void }) {
+export function Settings({ onRetakeQuiz, onOpenCurator }: { onRetakeQuiz: () => void; onOpenCurator: () => void }) {
   const { user, updateUser, signOut } = useApp()
   const { theme, setTheme } = useTheme()
   return (
@@ -21,6 +21,12 @@ export function Settings({ onRetakeQuiz }: { onRetakeQuiz: () => void }) {
         <Segmented<ThemeSetting> label="Theme" value={theme} onChange={setTheme}
           options={[{ label: 'System', value: 'system' }, { label: 'Light', value: 'light' }, { label: 'Dark', value: 'dark' }]} />
       </Section>
+
+      {user?.isCurator && (
+        <Section title="Curation">
+          <Button className="w-full" onClick={onOpenCurator}>{copy.curator.open}</Button>
+        </Section>
+      )}
 
       <Section title="Your palate quiz">
         <Button variant="ghost" className="w-full" onClick={onRetakeQuiz}>Retake the quiz</Button>

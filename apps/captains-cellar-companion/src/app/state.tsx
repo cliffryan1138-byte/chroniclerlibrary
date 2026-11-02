@@ -15,6 +15,10 @@ interface AppState {
   items: Item[]
   logs: Log[]
   allLogs: Log[]
+  /** Every category's catalog, for screens that work across them (curation). */
+  allItems: Item[]
+  /** Re-read the catalog and logs, e.g. after a curator merges or approves something. */
+  reloadCatalog: () => Promise<void>
   profile: TasteProfile
   recommendations: Recommendation[]
   setUser: (u: AppUser | null) => void
@@ -56,12 +60,17 @@ export function AppProvider({ children }: { children: ReactNode }) {
     store.currentUser().then(setUser).catch(() => setUser(null)).finally(() => setReady(true))
   }, [])
 
+  const reloadCatalog = useCallback(async () => {
+    const [lists, logs] = await Promise.all([Promise.all(branches.map((b) => store.listItems(b.spec.category))), store.listLogs()])
+    setAllItems(lists.flat())
+    setAllLogs(logs)
+  }, [])
+
   useEffect(() => {
     if (!user) return
-    Promise.all(branches.map((b) => store.listItems(b.spec.category))).then((lists) => setAllItems(lists.flat()))
-    store.listLogs().then(setAllLogs)
+    reloadCatalog()
     store.communityAggregates().then(setCommunity).catch(() => setCommunity({}))
-  }, [user?.id])
+  }, [user?.id, reloadCatalog])
 
   const setBranch = useCallback((id: BranchId) => {
     const next = branches.find((b) => b.id === id)
@@ -113,7 +122,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   return (
     <Ctx.Provider value={{
-      ready, user, branch, setBranch, seeds, items, logs, allLogs, profile, recommendations,
+      ready, user, branch, setBranch, seeds, items, logs, allLogs, allItems, reloadCatalog, profile, recommendations,
       setUser, updateUser, saveSeed, addLog, addItem, signOut,
     }}>
       {children}

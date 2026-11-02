@@ -1,5 +1,5 @@
 import { branches } from '../branch'
-import type { AppUser, NewLog, Store, UserPatch } from './store'
+import type { AppUser, CuratorActions, NewLog, QueueEntry, Store, UserPatch } from './store'
 import type { Item, Log, TasteProfile } from '../../core'
 
 // Demo mode: a single local user, everything in this browser's localStorage.
@@ -17,12 +17,52 @@ function write(key: string, value: unknown) {
   try { localStorage.setItem(key, JSON.stringify(value)) } catch { /* storage blocked: session-only */ }
 }
 
+const key = (s: string) => s.trim().replace(/\s+/g, ' ').toLowerCase()
+
+/** Curation over this browser's own typed-in entries. Demo makers are just the catalog's brand names. */
+const localCurator: CuratorActions = {
+  async queue() {
+    const logs = read<Log[]>(KEY.logs, [])
+    return read<Item[]>(KEY.items, []).filter((i) => i.status === 'user_added_pending').map((i): QueueEntry => {
+      const n = logs.filter((l) => l.itemId === i.id).length
+      return { kind: 'item', id: i.id, category: i.category, brand: i.brand, name: i.name, strength: i.strength, attributes: i.attributes,
+        makerId: null, createdAt: new Date().toISOString(), logCount: n, people: n ? 1 : 0 }
+    })
+  },
+  async makers() {
+    const all = [...branches.flatMap((b) => b.sampleCatalog), ...read<Item[]>(KEY.items, [])].filter((i) => i.status === 'curated')
+    return [...new Map(all.map((i) => [key(i.brand), i.brand])).entries()].map(([id, name]) => ({ id, name, country: null, website: null }))
+  },
+  async approveItem(id, brand, name, strength) {
+    const items = read<Item[]>(KEY.items, [])
+    const all = [...branches.flatMap((b) => b.sampleCatalog), ...items]
+    const me = items.find((i) => i.id === id)
+    if (!me) throw new Error('No such item')
+    if (all.some((o) => o.id !== id && o.status === 'curated' && o.category === me.category && key(o.brand) === key(brand) && key(o.name) === key(name))) {
+      throw new Error('Already in the catalog: merge it instead')
+    }
+    write(KEY.items, items.map((i) => (i.id === id ? { ...i, brand: brand.trim().replace(/\s+/g, ' '), name: name.trim().replace(/\s+/g, ' '), strength, status: 'curated' as const } : i)))
+  },
+  async mergeItem(fromId, intoId) {
+    write(KEY.logs, read<Log[]>(KEY.logs, []).map((l) => (l.itemId === fromId ? { ...l, itemId: intoId } : l)))
+    write(KEY.items, read<Item[]>(KEY.items, []).filter((i) => i.id !== fromId))
+  },
+  async rejectItem(id) {
+    write(KEY.items, read<Item[]>(KEY.items, []).map((i) => (i.id === id ? { ...i, status: 'rejected' as Item['status'] } : i)))
+  },
+  async approveMaker() {},
+  async mergeMaker() {},
+  async rejectMaker() {},
+}
+
 export function createLocalStore(): Store {
   return {
     kind: 'local',
+    curator: localCurator,
     async currentUser() { return read<AppUser | null>(KEY.user, null) },
     async signUp(email, _password, birthYear) {
-      const user: AppUser = { id: 'local-user', email: email || null, mode: 'simple', birthYear, quizSeed: null, detailedOfferSeen: false }
+      // The demo's only user curates their own typed-in entries, so the curator screen can be tried out.
+      const user: AppUser = { id: 'local-user', email: email || null, mode: 'simple', birthYear, quizSeed: null, detailedOfferSeen: false, isCurator: true }
       write(KEY.user, user)
       return user
     },

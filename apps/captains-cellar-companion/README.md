@@ -88,6 +88,23 @@ Two fences enforce it and fail if `core/` imports from `branches/`, `config/`, o
 3. Add a taxonomy-validity test (see `tests/architecture.test.ts`), and add the branch's distinctive words to the banned list there.
 4. No schema change needed: `items.category`, `items.attributes`, and `logs.details` carry the branch-specific bits.
 
+## Curation
+
+Anything a user types in that the catalog doesn't have is saved as pending: visible only to them, never recommended.
+A curator reviews the queue in **Settings → Open the curator queue**: approve it (fixing the maker, name or strength),
+merge it into the right catalog entry (typos and duplicates; every log moves over), or reject it (it leaves the queue
+and the catalog but stays with the person who added it). Approving something that already exists is refused with
+"merge it instead". Curators see how often an entry was logged and by how many people, never who.
+
+Curators are granted in the Supabase SQL editor only; the app can't set the flag:
+
+```sql
+update public.users set is_curator = true where id in (select id from auth.users where email = 'person@example.com');
+```
+
+All curation goes through checked database functions (`curator_queue`, `approve_item`, `merge_item`, `reject_item` and
+the maker equivalents) in `supabase/migrations/20261103000000_curation.sql`.
+
 ## Data model
 
 `users`, `items`, `item_tags`, `logs`, `log_tags`, `taste_profiles` (derived cache), `inventory` and `pairings` (tables only, no UI or logic yet).
