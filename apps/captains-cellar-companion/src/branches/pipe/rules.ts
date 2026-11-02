@@ -49,7 +49,22 @@ export const ITEM_LABELS = {
   scan: 'Scan the tin',
 } as const
 
-export const BLEND_STYLES = ['English', 'Balkan', 'Scottish', 'Virginia', 'VaPer', 'VaBur', 'Burley', 'Aromatic', 'Navy', 'Oriental', 'Other'] as const
+/** Pipe smokers choose by style first. Each style gets one plain-English line for the browse view. */
+export const STYLE_GUIDE = [
+  { id: 'Virginia', label: 'Virginia', description: 'Bright and naturally sweet. Grassy and citrusy when young, deeper and fruitier with age. Often pressed into flakes.' },
+  { id: 'VaPer', label: 'VaPer', description: 'Virginia with a measure of Perique: sweet and fig-like with a peppery edge.' },
+  { id: 'VaBur', label: 'VaBur', description: 'Virginia and Burley together: sweet top notes over a nutty, cocoa-like body. An easy everyday smoke.' },
+  { id: 'Burley', label: 'Burley', description: 'Low in sugar, nutty and cocoa-like. Plenty of body and usually gentle on the tongue.' },
+  { id: 'English', label: 'English', description: 'Built around Latakia: smoky and campfire-like, with Virginia and often some Oriental leaf.' },
+  { id: 'Balkan', label: 'Balkan', description: 'A cousin of English with more Oriental leaf: smoky, spicy and a little floral.' },
+  { id: 'Scottish', label: 'Scottish', description: 'Dark, rich Virginias, sometimes with a touch of Latakia: full, earthy and sweet.' },
+  { id: 'Navy', label: 'Navy', description: 'Pressed Virginia, sometimes with Burley or Perique, in the old sailor\'s way. Usually plug or flake, often with a light rum or fig note.' },
+  { id: 'Oriental', label: 'Oriental', description: 'Small-leaf tobaccos from the eastern Mediterranean: spicy, woody, sometimes floral or slightly sour.' },
+  { id: 'Aromatic', label: 'Aromatic', description: 'A blend with an added flavoring such as vanilla, cherry or rum. Often Cavendish-based, with a pleasant room note.' },
+  { id: 'Other', label: 'Other', description: "Blends that don't sit neatly in one style." },
+] as const
+
+export const BLEND_STYLES = STYLE_GUIDE.map((s) => s.id)
 export const CUTS = ['Ribbon', 'Flake', 'Broken flake', 'Ready rubbed', 'Plug', 'Coin', 'Crumble cake', 'Rope', 'Cube cut', 'Shag'] as const
 
 export interface PipeAttributes {

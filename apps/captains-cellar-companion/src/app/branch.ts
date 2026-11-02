@@ -19,6 +19,7 @@ export const registry = {
     detailText: cigar.DETAIL_TEXT,
     glossary: cigar.GLOSSARY,
     scanKind: 'cigar_band',
+    browse: null,
     AttributeSummary: CigarSummary,
   },
   pipe_tobacco: {
@@ -34,6 +35,8 @@ export const registry = {
     detailText: pipe.DETAIL_TEXT,
     glossary: pipe.GLOSSARY,
     scanKind: 'pipe_tobacco_tin',
+    // Discover groups the catalog by this attribute, with a line about each group.
+    browse: { title: 'Browse by style', field: 'blend_style', groups: pipe.STYLE_GUIDE },
     AttributeSummary: PipeSummary,
   },
 } as const

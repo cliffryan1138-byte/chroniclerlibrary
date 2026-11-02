@@ -1,9 +1,10 @@
 import { copy } from '../../config/captains-cellar'
 import { useApp } from '../state'
+import { BrowseBy } from '../components/BrowseBy'
 import { Card } from '../components/ui'
 
 export function Discover() {
-  const { recommendations, branch } = useApp()
+  const { recommendations, branch, items } = useApp()
   return (
     <div className="space-y-5">
       <header>
@@ -26,6 +27,7 @@ export function Discover() {
           </li>
         ))}
       </ol>
+      {branch.browse && <BrowseBy browse={branch.browse} items={items} branch={branch} />}
     </div>
   )
 }
