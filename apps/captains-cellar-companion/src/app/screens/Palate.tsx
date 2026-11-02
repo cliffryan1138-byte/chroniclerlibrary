@@ -61,6 +61,7 @@ export function Palate() {
                 <li key={l.id}>
                   <Card className="flex items-center justify-between gap-3 py-3">
                     <div className="min-w-0">
+                      <p className="truncate text-xs text-muted">{item?.brand}</p>
                       <p className="truncate text-sm font-semibold">{item?.name ?? 'Unknown item'}</p>
                       <p className="text-xs text-muted">{new Date(l.loggedAt).toLocaleDateString()}</p>
                     </div>

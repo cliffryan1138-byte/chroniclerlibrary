@@ -1,9 +1,9 @@
 import { branch } from '../branch'
 import type { AppUser, NewLog, Store, UserPatch } from './store'
-import type { Log, TasteProfile } from '../../core'
+import type { Item, Log, TasteProfile } from '../../core'
 
 // Demo mode: a single local user, everything in this browser's localStorage.
-const KEY = { user: 'ccc:user', logs: 'ccc:logs', profile: 'ccc:profile' }
+const KEY = { user: 'ccc:user', logs: 'ccc:logs', profile: 'ccc:profile', items: 'ccc:items' }
 
 function read<T>(key: string, fallback: T): T {
   try {
@@ -39,7 +39,14 @@ export function createLocalStore(): Store {
       write(KEY.user, user)
       return user
     },
-    async listItems(category) { return branch.sampleCatalog.filter((i) => i.category === category) },
+    async listItems(category) {
+      return [...branch.sampleCatalog, ...read<Item[]>(KEY.items, [])].filter((i) => i.category === category)
+    },
+    async addItem(category, brand, name) {
+      const item: Item = { id: crypto.randomUUID(), category, brand, name, attributes: {}, strength: null, status: 'user_added_pending', tags: [] }
+      write(KEY.items, [...read<Item[]>(KEY.items, []), item])
+      return item
+    },
     async listLogs() { return read<Log[]>(KEY.logs, []) },
     async addLog(input: NewLog) {
       const log: Log = { ...input, id: crypto.randomUUID(), userId: 'local-user', loggedAt: new Date().toISOString() }

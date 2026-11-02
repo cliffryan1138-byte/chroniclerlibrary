@@ -28,6 +28,8 @@ export interface Store {
   signOut(): Promise<void>
   updateUser(patch: UserPatch): Promise<AppUser>
   listItems(category: string): Promise<Item[]>
+  /** A cigar the catalog doesn't have yet: saved as pending, visible only to the person who added it. */
+  addItem(category: string, brand: string, name: string): Promise<Item>
   listLogs(): Promise<Log[]>
   addLog(log: NewLog): Promise<Log>
   communityAggregates(): Promise<CommunityAggregates>

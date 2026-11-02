@@ -45,8 +45,10 @@ async function run(scheme: 'light' | 'dark') {
   await shot('03-discover-cold-start')
 
   await page.getByRole('button', { name: 'Log', exact: true }).click()
-  await page.getByPlaceholder('Search by name or brand').fill('pepper')
-  await page.getByRole('button', { name: /SAMPLE Pepper Mill Torpedo/ }).click()
+  // A cigar the catalog doesn't know: typed straight in, no picking.
+  await page.getByLabel('Maker').fill('Test Maker')
+  await page.getByLabel('Cigar', { exact: true }).fill('Test Maduro Robusto')
+  await page.getByText('New to us.').waitFor()
   await page.getByRole('radio', { name: '5 of 5' }).click()
   await page.getByRole('radio', { name: 'Yes' }).click()
   for (const f of ['Spicy', 'Earthy']) await page.getByRole('button', { name: f, exact: true }).click()
@@ -61,7 +63,10 @@ async function run(scheme: 'light' | 'dark') {
   await page.getByRole('radio', { name: 'Detailed' }).click()
   await shot('06-settings')
   await page.getByRole('button', { name: 'Log', exact: true }).click()
-  await page.getByRole('button', { name: /SAMPLE Cocoa Box Toro/ }).click()
+  // A catalog cigar typed by hand, in sloppy case: should still match.
+  await page.getByLabel('Maker').fill('sample house b')
+  await page.getByLabel('Cigar', { exact: true }).fill('sample cocoa box toro')
+  await page.getByText('In the catalog').waitFor()
   await page.getByRole('radio', { name: '4 of 5' }).click()
   await page.getByRole('radio', { name: 'First' }).click()
   await page.getByRole('button', { name: 'Roasted', exact: true }).click()
@@ -71,6 +76,7 @@ async function run(scheme: 'light' | 'dark') {
   await shot('07-log-detailed')
   await page.getByRole('button', { name: 'Save to journal' }).click()
   await page.getByText('Specific notes you like').waitFor()
+  await page.getByText('Test Maduro Robusto').waitFor()
 
   await page.getByRole('button', { name: 'Discover' }).click()
   await page.getByText('% match').first().waitFor()

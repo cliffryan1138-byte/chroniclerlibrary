@@ -10,6 +10,7 @@ const registry = {
     strengthOptions: cigar.SIMPLE_STRENGTH_OPTIONS,
     detailedOfferAfter: cigar.DETAILED_OFFER_AFTER_LOGS,
     thirds: cigar.THIRDS,
+    itemLabels: cigar.ITEM_LABELS,
     glossary: cigar.GLOSSARY,
     DetailFields,
     AttributeSummary,

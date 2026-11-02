@@ -41,6 +41,14 @@ export const DETAIL_TEXT = [
   { key: 'finish', label: 'Finish notes', placeholder: 'What lingered after the draw?' },
 ] as const
 
+/** What the two "what did you have?" lines are called for this category. */
+export const ITEM_LABELS = {
+  brand: 'Maker',
+  brandPlaceholder: 'The name on the band',
+  name: 'Cigar',
+  namePlaceholder: 'Line and size, e.g. Maduro Robusto',
+} as const
+
 /** Keys allowed in items.attributes for a cigar. */
 export const ATTRIBUTE_FIELDS = [
   { key: 'vitola', label: 'Vitola' },
