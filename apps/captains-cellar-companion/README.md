@@ -107,9 +107,22 @@ the maker equivalents) in `supabase/migrations/20261103000000_curation.sql`.
 
 ## Data model
 
-`users`, `items`, `item_tags`, `logs`, `log_tags`, `taste_profiles` (derived cache), `inventory` and `pairings` (tables only, no UI or logic yet).
+`users`, `items`, `item_tags`, `logs`, `log_tags`, `taste_profiles` (derived cache), `makers`, `collection_items`, `inventory` and `pairings` (tables only, no UI or logic yet).
 RLS: users see only their own row, logs, tags, profile, inventory, and pairings. Curated items are readable by everyone.
 A user-submitted item is pending and visible only to whoever submitted it. A trigger rejects any user under 21 at the database level.
+
+## Collections (pipes)
+
+A branch can declare a `collection` in `src/app/branch.ts`: things people own and reuse, rather than items they smoke up.
+Pipe tobacco has one: **Your pipes**, shown on the Palate tab.
+
+- Pipes are grouped by shape. Each shape and material comes with a short description (`PIPE_SHAPES` and `PIPE_MATERIALS` in `src/branches/pipe/rules.ts`).
+- A pipe can be dedicated to a style, or to a blend in the catalog.
+- When you have pipes, the log form asks **Smoked in**. The answer is saved as `details.collection_item_id`, and each pipe shows its bowl count.
+- Cigars have no collection (`collection: null`).
+
+The data lives in `collection_items`, migration `20261104000000_collection.sql`. RLS limits it to the owner.
+When a curator merges a blend, any pipes dedicated to it follow the merge.
 
 ## Catalog
 

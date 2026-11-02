@@ -48,6 +48,7 @@ export const ITEM_LABELS = {
   namePlaceholder: 'The blend name on the tin',
   scan: 'Scan the tin',
   noun: ['blend', 'blends'] as [string, string],
+  smokedIn: 'Smoked in',
 } as const
 
 /** Pipe smokers choose by style first. Each style gets one plain-English line for the browse view. */
@@ -108,4 +109,49 @@ export const pipeBranch: BranchSpec = {
   taxonomy: pipeTaxonomy,
   strengthLabel,
   coldStartLogs: COLD_START_LOGS,
+}
+
+// ── The pipe collection: pipes are kept, not smoked up, so they live in a collection, not the palate ──
+
+/** Shapes, grouped the way pipe smokers talk about them, each with one plain line. */
+export const PIPE_SHAPES = [
+  { id: 'Billiard', label: 'Billiard', description: 'The classic: a straight, cylindrical bowl on a straight shank. The shape most others are measured against.' },
+  { id: 'Bent Billiard', label: 'Bent Billiard', description: 'A billiard with a curved stem, so it hangs from the teeth more easily.' },
+  { id: 'Apple', label: 'Apple', description: 'A rounded, apple-shaped bowl. Sits comfortably in the palm.' },
+  { id: 'Dublin', label: 'Dublin', description: 'A bowl that flares wider toward the rim, often a little forward-canted.' },
+  { id: 'Pot', label: 'Pot', description: 'A short, wide, straight-walled bowl: big chamber, short height.' },
+  { id: 'Prince', label: 'Prince', description: 'A low, squat, rounded bowl on a long shank with a gently bent stem. Light and elegant.' },
+  { id: 'Bulldog', label: 'Bulldog', description: 'A bowl with a cut ridge (a "coronet") near the top, on a diamond-shaped shank.' },
+  { id: 'Rhodesian', label: 'Rhodesian', description: 'A bulldog with a round shank and usually a slight bend.' },
+  { id: 'Canadian', label: 'Canadian', description: 'A billiard bowl on an extra-long oval shank with a short stem.' },
+  { id: 'Lovat', label: 'Lovat', description: 'Like a Canadian but with a round shank and a saddle stem.' },
+  { id: 'Liverpool', label: 'Liverpool', description: 'Like a Canadian but with a round shank and a tapered stem.' },
+  { id: 'Poker', label: 'Poker', description: 'A flat-bottomed, cylindrical bowl that stands up on its own: a "sitter".' },
+  { id: 'Calabash', label: 'Calabash', description: 'A deep curve ending in a wide bowl, traditionally a gourd with a meerschaum cup; smokes cool and dry.' },
+  { id: 'Churchwarden', label: 'Churchwarden', description: 'Any bowl on a very long stem (9 inches or more), for a cooler smoke held away from the face.' },
+  { id: 'Author', label: 'Author', description: 'A heavy, bent, pear-shaped bowl that fills the hand.' },
+  { id: 'Freehand', label: 'Freehand', description: 'Carved to follow the grain rather than a standard shape; often with a rough, plateau rim.' },
+  { id: 'Other', label: 'Other', description: "Shapes that don't sit neatly in one family." },
+] as const
+
+export const PIPE_MATERIALS = [
+  { id: 'Briar', label: 'Briar', description: 'Burl from the root of the heath tree. Hard, heat-resistant, and the standard for good pipes.' },
+  { id: 'Meerschaum', label: 'Meerschaum', description: 'A soft white mineral, often carved. Smokes cool and dry, and colors to honey and amber with use. Block is carved whole; pressed is bonded dust.' },
+  { id: 'Corn cob', label: 'Corn cob', description: 'Light, cheap and honest. Many prefer it for Virginias and aromatics.' },
+  { id: 'Clay', label: 'Clay', description: 'The oldest kind. Neutral-tasting but fragile, and it runs hot.' },
+  { id: 'Morta', label: 'Morta', description: 'Bog oak, fossilized for thousands of years. Light, dark and dry-smoking.' },
+  { id: 'Olivewood', label: 'Olivewood', description: 'Beautifully grained and dense; a little sweetness at first.' },
+  { id: 'Cherrywood', label: 'Cherrywood', description: 'Often with the bark left on. A traditional, rustic look.' },
+  { id: 'Other', label: 'Other', description: 'Anything else: horn, glass, metal-lined and so on.' },
+] as const
+
+export const PIPE_FINISHES = ['Smooth', 'Sandblast', 'Rusticated', 'Carved', 'Natural'] as const
+export const PIPE_FILTERS = ['None', '6mm', '9mm', 'Other'] as const
+
+export interface PipeFields {
+  shape?: string
+  material?: string
+  finish?: string
+  filter?: string
+  dedicated_style?: string
 }

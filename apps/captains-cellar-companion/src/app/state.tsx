@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { buildProfile, recommend, type CommunityAggregates, type Item, type Log, type Recommendation, type SeedProfile, type TasteProfile } from '../core'
 import { appConfig } from '../config/captains-cellar'
 import { branches, type ActiveBranch, type BranchId } from './branch'
-import { readSeeds, store, type AppUser, type NewLog, type QuizSeeds, type UserPatch } from './data'
+import { readSeeds, store, type AppUser, type CollectionItem, type NewCollectionItem, type NewLog, type QuizSeeds, type UserPatch } from './data'
 
 interface AppState {
   ready: boolean
@@ -21,6 +21,10 @@ interface AppState {
   reloadCatalog: () => Promise<void>
   /** How many entries wait for a curator; null for everyone else. */
   waiting: number | null
+  /** The user's collection (pipes) for the active category. */
+  collection: CollectionItem[]
+  saveCollectionItem: (item: NewCollectionItem) => Promise<void>
+  deleteCollectionItem: (id: string) => Promise<void>
   refreshWaiting: () => Promise<void>
   profile: TasteProfile
   recommendations: Recommendation[]
@@ -59,6 +63,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   const [allLogs, setAllLogs] = useState<Log[]>([])
   const [community, setCommunity] = useState<CommunityAggregates>({})
   const [waiting, setWaiting] = useState<number | null>(null)
+  const [allCollection, setAllCollection] = useState<CollectionItem[]>([])
 
   useEffect(() => {
     store.currentUser().then(setUser).catch(() => setUser(null)).finally(() => setReady(true))
@@ -68,6 +73,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
     const [lists, logs] = await Promise.all([Promise.all(branches.map((b) => store.listItems(b.spec.category))), store.listLogs()])
     setAllItems(lists.flat())
     setAllLogs(logs)
+    setAllCollection(await store.listCollection().catch(() => []))
   }, [])
 
   const refreshWaiting = useCallback(async () => {
@@ -128,6 +134,16 @@ export function AppProvider({ children }: { children: ReactNode }) {
     return item
   }, [branch])
 
+  const collection = useMemo(() => allCollection.filter((c) => c.category === branch.spec.category), [allCollection, branch])
+  const saveCollectionItem = useCallback(async (input: NewCollectionItem) => {
+    const saved = await store.saveCollectionItem(input)
+    setAllCollection((prev) => (input.id ? prev.map((c) => (c.id === saved.id ? saved : c)) : [...prev, saved]))
+  }, [])
+  const deleteCollectionItem = useCallback(async (id: string) => {
+    await store.deleteCollectionItem(id)
+    setAllCollection((prev) => prev.filter((c) => c.id !== id))
+  }, [])
+
   const updateUser = useCallback(async (patch: UserPatch) => setUser(await store.updateUser(patch)), [])
   const saveSeed = useCallback(async (seed: SeedProfile) => {
     setUser(await store.updateUser({ quizSeed: { ...seeds, [branch.id]: seed } }))
@@ -135,12 +151,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const signOut = useCallback(async () => {
     await store.signOut()
-    setUser(null); setAllLogs([]); setAllItems([])
+    setUser(null); setAllLogs([]); setAllItems([]); setAllCollection([])
   }, [])
 
   return (
     <Ctx.Provider value={{
-      ready, user, branch, setBranch, seeds, items, logs, allLogs, allItems, reloadCatalog, waiting, refreshWaiting, profile, recommendations,
+      ready, user, branch, setBranch, seeds, items, logs, allLogs, allItems, reloadCatalog, waiting, refreshWaiting, collection, saveCollectionItem, deleteCollectionItem, profile, recommendations,
       setUser, updateUser, saveSeed, addLog, addItem, signOut,
     }}>
       {children}

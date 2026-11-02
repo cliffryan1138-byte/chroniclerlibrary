@@ -20,6 +20,7 @@ export const registry = {
     glossary: cigar.GLOSSARY,
     scanKind: 'cigar_band',
     browse: null,
+    collection: null,
     AttributeSummary: CigarSummary,
   },
   pipe_tobacco: {
@@ -37,6 +38,24 @@ export const registry = {
     scanKind: 'pipe_tobacco_tin',
     // Discover groups the catalog by this attribute, with a line about each group.
     browse: { title: 'Browse by style', field: 'blend_style', groups: pipe.STYLE_GUIDE },
+    // Pipes are kept, not smoked up: a personal collection grouped by shape, each pipe usable in a log.
+    collection: {
+      kind: 'pipe',
+      title: 'Your pipes',
+      noun: ['pipe', 'pipes'] as [string, string],
+      add: 'Add a pipe',
+      groupBy: 'shape',
+      fields: [
+        { key: 'shape', label: 'Shape', options: pipe.PIPE_SHAPES },
+        { key: 'material', label: 'Material', options: pipe.PIPE_MATERIALS },
+        { key: 'finish', label: 'Finish', options: pipe.PIPE_FINISHES.map((f) => ({ id: f, label: f })) },
+        { key: 'filter', label: 'Filter', options: pipe.PIPE_FILTERS.map((f) => ({ id: f, label: f })) },
+        { key: 'dedicated_style', label: 'Dedicated to a style', options: [{ id: '', label: 'Anything' }, ...pipe.STYLE_GUIDE.filter((s) => s.id !== 'Other')] },
+      ],
+      dedicatedLabel: 'Dedicated to a blend',
+      usedLabel: pipe.ITEM_LABELS.smokedIn,
+      usageNoun: ['bowl', 'bowls'] as [string, string],
+    },
     AttributeSummary: PipeSummary,
   },
 } as const

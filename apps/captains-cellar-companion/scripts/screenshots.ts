@@ -1,6 +1,6 @@
 // Phone-width smoke test in light and dark, in demo mode: npm run build && npx vite preview, then
 //   npm run screenshots -- http://localhost:4173
-// Walks signup → quiz → simple log → palate → discover → detailed log, saving screenshots and
+// Walks signup → quiz → logs → palate → discover → pipe tobacco and pipes → curation, saving screenshots and
 // failing on console errors or horizontal overflow. Set CHROMIUM_PATH if Chromium isn't on the default path.
 import { mkdirSync } from 'node:fs'
 import { chromium, type Page } from 'playwright-core'
@@ -128,6 +128,30 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await page.getByText('Built around Latakia').waitFor()
   await shot('12-pipe-styles')
 
+  // Pipe collection: add a pipe on the palate, smoke a bowl in it, and see the bowl counted.
+  await page.getByRole('button', { name: 'Palate' }).click()
+  await page.getByRole('button', { name: 'Add a pipe' }).click()
+  await page.getByPlaceholder('Who made it').fill('Test Pipe Maker')
+  await page.getByLabel('Shape').selectOption('Bent Billiard')
+  await page.getByText('A billiard with a curved stem').waitFor()
+  await page.getByLabel('Material').selectOption('Briar')
+  await page.getByLabel('Dedicated to a blend: Maker').fill('SAMPLE Blender A')
+  await page.getByLabel('Dedicated to a blend: Blend').fill('SAMPLE Morning Virginia Flake')
+  await page.getByText('In your catalog: SAMPLE Blender A SAMPLE Morning Virginia Flake').waitFor()
+  await shot('13-pipe-add')
+  await page.getByRole('button', { name: 'Add a pipe' }).last().click()
+  await page.getByText('0 bowls').waitFor()
+  await page.getByRole('button', { name: 'Log', exact: true }).click()
+  await page.getByLabel('Maker').fill('sample blender a')
+  await page.getByLabel('Blend', { exact: true }).fill('sample morning virginia flake')
+  await page.getByRole('radio', { name: '4 of 5' }).click()
+  await page.getByRole('button', { name: 'Grassy', exact: true }).click()
+  await page.getByLabel('Smoked in').selectOption({ label: 'Test Pipe Maker (Bent Billiard)' })
+  await page.getByRole('button', { name: 'Save to journal' }).click()
+  await page.getByText('1 bowl', { exact: true }).waitFor()
+  await page.getByText('For SAMPLE Blender A SAMPLE Morning Virginia Flake').waitFor()
+  await shot('14-pipe-collection')
+
   // Switching back keeps the cigar palate separate, and cigars have no style browser.
   await page.getByRole('button', { name: 'Palate' }).click()
   await page.getByRole('radio', { name: 'Cigars' }).click()
@@ -136,7 +160,7 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   if (await page.getByText('Browse by style').count()) throw new Error('cigars should not show the pipe style browser')
   await page.locator('summary', { hasText: 'SAMPLE House B' }).click()
   await page.locator('details[open]').getByText('SAMPLE Cocoa Box Toro').waitFor()
-  await shot('13-cigar-makers')
+  await shot('15-cigar-makers')
 
   // Curation: the demo user curates their own typed-in cigar.
   await page.getByRole('button', { name: 'Curate, 1 waiting' }).waitFor()
@@ -150,16 +174,20 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await page.getByRole('button', { name: 'Merge…' }).click()
   await page.getByPlaceholder('Search the catalog').fill('cocoa')
   await page.getByRole('button', { name: /SAMPLE House B SAMPLE Cocoa Box Toro/ }).click()
-  await shot('14-curator-merge')
+  await shot('16-curator-merge')
   await page.getByRole('button', { name: 'Merge', exact: true }).click()
   await page.getByText('Nothing waiting. The catalog is all caught up.').waitFor()
   await page.getByRole('button', { name: 'Curate', exact: true }).waitFor()  // the badge is gone
-  await shot('15-curator-empty')
+  await shot('17-curator-empty')
   await page.getByRole('button', { name: 'Palate' }).click()
   await page.getByText('Sessions logged').waitFor()
   if (await page.getByText('Test Maduro Robusto').count()) throw new Error('the merged entry should be gone from the palate')
   if ((await page.getByText('SAMPLE Cocoa Box Toro').count()) < 2) throw new Error('both logs should now be on the catalog cigar')
 
+  // Coming back later: the quiz is done, so the app opens straight on the log.
+  await page.reload()
+  await page.getByRole('button', { name: 'Save to journal' }).waitFor()
+  if ((await page.getByRole('button', { name: 'Log', exact: true }).getAttribute('aria-current')) !== 'page') throw new Error('the app should open on Log')
 
   await browser.close()
   if (errors.length) throw new Error(`${scheme}: console errors:\n${errors.join('\n')}`)
