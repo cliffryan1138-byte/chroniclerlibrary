@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { meetsMinimumAge } from '../src/app/lib'
+import { findItem, meetsMinimumAge } from '../src/app/lib'
 
 describe('age gate', () => {
   const now = new Date('2026-10-21')
@@ -9,4 +9,11 @@ describe('age gate', () => {
     expect(meetsMinimumAge(1800, 21, now)).toBe(false)
     expect(meetsMinimumAge(NaN, 21, now)).toBe(false)
   })
+})
+
+describe('matching a typed cigar to the catalog', () => {
+  const items = [{ brand: 'SAMPLE House B', name: 'SAMPLE Cocoa Box Toro' }]
+  it('ignores case and extra spaces', () => expect(findItem(items, '  sample house b', 'sample   cocoa box TORO ')).toBe(items[0]))
+  it('needs both lines', () => expect(findItem(items, 'SAMPLE House B', '')).toBeUndefined())
+  it('returns nothing for a new cigar', () => expect(findItem(items, 'SAMPLE House B', 'Something Else')).toBeUndefined())
 })

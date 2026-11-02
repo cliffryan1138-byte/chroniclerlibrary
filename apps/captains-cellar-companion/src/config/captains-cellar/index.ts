@@ -60,6 +60,9 @@ export const copy = {
   log: {
     title: 'Log a session',
     pickItem: 'What did you have?',
+    pickItemHint: 'Type it in. Suggestions pop up as you go.',
+    inCatalog: 'In the catalog',
+    newItem: "New to us. It goes into your journal now and gets reviewed before it joins the catalog.",
     rating: 'How was it overall?',
     wouldBuyAgain: 'Would you reach for it again?',
     tags: 'What did you taste?',

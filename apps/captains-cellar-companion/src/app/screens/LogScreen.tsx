@@ -1,9 +1,9 @@
-import { Search, Star, X } from 'lucide-react'
+import { Star } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import type { Intensity, LogTag, Rating, Third } from '../../core'
 import { copy } from '../../config/captains-cellar'
 import { branch } from '../branch'
-import { cx } from '../lib'
+import { cx, findItem, normalizeName } from '../lib'
 import { useApp } from '../state'
 import { FamilyPicker } from '../components/FamilyPicker'
 import { Button, Card, Chip, Section, Segmented } from '../components/ui'
@@ -11,10 +11,10 @@ import { Button, Card, Chip, Section, Segmented } from '../components/ui'
 const INTENSITY = [{ label: 'Faint', value: 1 }, { label: 'Present', value: 2 }, { label: 'Bold', value: 3 }] as const
 
 export function LogScreen({ onSaved }: { onSaved: () => void }) {
-  const { items, user, addLog } = useApp()
+  const { items, user, addLog, addItem } = useApp()
   const detailed = user?.mode === 'detailed'
-  const [query, setQuery] = useState('')
-  const [itemId, setItemId] = useState<string | null>(null)
+  const [maker, setMaker] = useState('')
+  const [cigar, setCigar] = useState('')
   const [rating, setRating] = useState<Rating | null>(null)
   const [buyAgain, setBuyAgain] = useState<boolean | null>(null)
   const [families, setFamilies] = useState<string[]>([])
@@ -26,11 +26,14 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
-  const item = items.find((i) => i.id === itemId)
-  const matches = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    return items.filter((i) => i.status === 'curated' && (!q || `${i.brand} ${i.name}`.toLowerCase().includes(q))).slice(0, 8)
-  }, [items, query])
+  const labels = branch.itemLabels
+  const makers = useMemo(() => [...new Set(items.map((i) => i.brand))].sort(), [items])
+  const cigarsForMaker = useMemo(() => {
+    const m = normalizeName(maker)
+    return items.filter((i) => !m || normalizeName(i.brand) === m).map((i) => i.name).sort()
+  }, [items, maker])
+  const match = findItem(items, maker, cigar)
+  const named = maker.trim() !== '' && cigar.trim() !== ''
 
   const { taxonomy } = branch.spec
   const thirdValue = third === 0 ? null : third
@@ -42,10 +45,11 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
   const setIntensity = (idx: number, intensity: Intensity) => setTags(tags.map((t, i) => (i === idx ? { ...t, intensity } : t)))
 
   async function save() {
-    if (!item || !rating) return
+    if (!named || !rating) return
     setBusy(true); setError(null)
     const logTags: LogTag[] = detailed ? tags : families.map((family) => ({ descriptor: null, family, third: null, intensity: 2 }))
     try {
+      const item = match ?? (await addItem(maker, cigar))
       await addLog({ itemId: item.id, overallRating: rating, wouldBuyAgain: buyAgain, notes: notes.trim() || null, details: detailed ? details : {}, tags: logTags })
       onSaved()
     } catch (e) {
@@ -58,35 +62,29 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
     <div className="space-y-7">
       <h1 className="font-display text-3xl font-bold">{copy.log.title}</h1>
 
-      <Section title={copy.log.pickItem}>
-        {item ? (
-          <Card className="flex items-start justify-between gap-3">
-            <div>
-              <p className="text-xs text-muted">{item.brand}</p>
-              <p className="font-semibold">{item.name}</p>
-              <branch.AttributeSummary item={item} />
-            </div>
-            <button aria-label="Change selection" onClick={() => setItemId(null)} className="p-1 text-muted"><X size={20} /></button>
-          </Card>
-        ) : (
-          <>
-            <label className="flex items-center gap-2 rounded-md border border-line bg-surface px-3">
-              <Search size={18} className="text-muted" />
-              <input value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Search by name or brand" className="min-h-11 w-full bg-transparent outline-none" />
-            </label>
-            <ul className="divide-y divide-line overflow-hidden rounded-lg border border-line bg-surface">
-              {matches.map((i) => (
-                <li key={i.id}>
-                  <button className="w-full px-3 py-2 text-left" onClick={() => setItemId(i.id)}>
-                    <p className="text-sm font-semibold">{i.name}</p>
-                    <branch.AttributeSummary item={i} />
-                  </button>
-                </li>
-              ))}
-              {!matches.length && <li className="px-3 py-3 text-sm text-muted">No match in the catalog yet.</li>}
-            </ul>
-          </>
-        )}
+      <Section title={copy.log.pickItem} hint={copy.log.pickItemHint}>
+        <div className="space-y-3">
+          <label className="block">
+            <span className="mb-1 block text-sm font-semibold">{labels.brand}</span>
+            <input list="makers" value={maker} maxLength={80} autoCapitalize="words" placeholder={labels.brandPlaceholder}
+              onChange={(e) => setMaker(e.target.value)} className="min-h-11 w-full rounded-md border border-line bg-surface px-3" />
+            <datalist id="makers">{makers.map((m) => <option key={m} value={m} />)}</datalist>
+          </label>
+          <label className="block">
+            <span className="mb-1 block text-sm font-semibold">{labels.name}</span>
+            <input list="cigars" value={cigar} maxLength={120} autoCapitalize="words" placeholder={labels.namePlaceholder}
+              onChange={(e) => setCigar(e.target.value)} className="min-h-11 w-full rounded-md border border-line bg-surface px-3" />
+            <datalist id="cigars">{cigarsForMaker.map((n) => <option key={n} value={n} />)}</datalist>
+          </label>
+          {match ? (
+            <Card className="py-3">
+              <p className="text-xs font-semibold text-accent">{copy.log.inCatalog}</p>
+              <branch.AttributeSummary item={match} />
+            </Card>
+          ) : named ? (
+            <p className="text-xs text-muted">{copy.log.newItem}</p>
+          ) : null}
+        </div>
       </Section>
 
       <Section title={copy.log.rating}>
@@ -156,7 +154,7 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
       </Section>
 
       {error && <p role="alert" className="text-sm text-danger">{error}</p>}
-      <Button className="w-full" onClick={save} disabled={!item || !rating || busy}>{copy.log.save}</Button>
+      <Button className="w-full" onClick={save} disabled={!named || !rating || busy}>{copy.log.save}</Button>
     </div>
   )
 }

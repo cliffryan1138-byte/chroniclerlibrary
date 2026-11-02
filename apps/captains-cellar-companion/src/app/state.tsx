@@ -14,6 +14,7 @@ interface AppState {
   setUser: (u: AppUser | null) => void
   updateUser: (patch: UserPatch) => Promise<void>
   addLog: (log: NewLog) => Promise<void>
+  addItem: (brand: string, name: string) => Promise<Item>
   signOut: () => Promise<void>
 }
 
@@ -58,6 +59,12 @@ export function AppProvider({ children }: { children: ReactNode }) {
     await store.saveProfile(buildProfile({ logs: next, items, taxonomy: branch.spec.taxonomy, seed: user?.quizSeed, coldStartLogs: branch.spec.coldStartLogs }))
   }, [logs, items, user?.quizSeed])
 
+  const addItem = useCallback(async (brand: string, name: string) => {
+    const item = await store.addItem(branch.spec.category, brand.trim().replace(/\s+/g, ' '), name.trim().replace(/\s+/g, ' '))
+    setItems((prev) => [...prev, item])
+    return item
+  }, [])
+
   const updateUser = useCallback(async (patch: UserPatch) => setUser(await store.updateUser(patch)), [])
   const signOut = useCallback(async () => {
     await store.signOut()
@@ -65,7 +72,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   }, [])
 
   return (
-    <Ctx.Provider value={{ ready, user, items, logs, profile, recommendations, setUser, updateUser, addLog, signOut }}>
+    <Ctx.Provider value={{ ready, user, items, logs, profile, recommendations, setUser, updateUser, addLog, addItem, signOut }}>
       {children}
     </Ctx.Provider>
   )

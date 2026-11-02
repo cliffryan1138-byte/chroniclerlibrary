@@ -58,6 +58,14 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
         tags: (r.item_tags ?? []).map((t: { family: string; descriptor: string | null; weight: number }) => ({ ...t, weight: Number(t.weight) })),
       })) as Item[]
     },
+    async addItem(category, brand, name) {
+      const { data: { user } } = await sb.auth.getUser()
+      const { data, error } = await sb.from('items')
+        .insert({ category, brand, name, status: 'user_added_pending', created_by: user!.id })
+        .select().single()
+      if (error) throw error
+      return { id: data.id, category, brand, name, attributes: data.attributes ?? {}, strength: data.strength, status: data.status, tags: [] } as Item
+    },
     async listLogs() {
       const { data, error } = await sb.from('logs').select('*, log_tags(descriptor, family, third, intensity)').order('logged_at', { ascending: false })
       if (error) throw error
