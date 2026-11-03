@@ -43,7 +43,8 @@ Return only JSON, in exactly this shape:
 }
 
 For CIGARS, attributes may have: vitola, length (inches, number), ring_gauge (number), wrapper, binder,
-filler, origin. Make one entry per size. Strength: mild 1, mild-medium 2, medium 3, medium-full 4, full 5.
+filler, origin. Make one entry per size. For a shape with two rings (e.g. "42/49"), put the larger in
+ring_gauge and both, as written, in ring_gauge_range: { "ring_gauge": 49, "ring_gauge_range": "42/49" }. Strength: mild 1, mild-medium 2, medium 3, medium-full 4, full 5.
 Tag families (only these ids): woody, earthy, spicy, sweet, creamy, roasted, nutty, leather, fruity, floral.
 
 For PIPE TOBACCO, attributes may have: blend_style (one of Virginia, VaPer, VaBur, Burley, English, Balkan,

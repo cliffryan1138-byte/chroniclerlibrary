@@ -3,7 +3,11 @@ import * as cigar from '../branches/cigar'
 import { AttributeSummary as CigarSummary } from '../branches/cigar/ui'
 import * as pipe from '../branches/pipe'
 import { AttributeSummary as PipeSummary } from '../branches/pipe/ui'
+import type { Item } from '../core'
 import { appConfig } from '../config/captains-cellar'
+
+/** A number box on the log form for an item the catalog doesn't know yet (e.g. a cigar's size). */
+export interface NewItemField { key: string; label: string; placeholder: string; min: number; max: number; step: number }
 
 export const registry = {
   cigar: {
@@ -19,7 +23,10 @@ export const registry = {
     detailText: cigar.DETAIL_TEXT,
     glossary: cigar.GLOSSARY,
     scanKind: 'cigar_band',
-    browse: null,
+    // Discover groups the catalog with a line about each group: cigars by ring size.
+    browse: { title: 'Browse by ring', groups: cigar.RING_GROUPS, groupOf: (i: Item) => cigar.ringGroupOf(i.attributes as cigar.CigarAttributes), hideEmpty: ['unknown'] },
+    // Optional size boxes on the log form for a cigar the catalog doesn't know yet.
+    newItemFields: cigar.NEW_ITEM_FIELDS,
     collection: null,
     AttributeSummary: CigarSummary,
   },
@@ -36,8 +43,8 @@ export const registry = {
     detailText: pipe.DETAIL_TEXT,
     glossary: pipe.GLOSSARY,
     scanKind: 'pipe_tobacco_tin',
-    // Discover groups the catalog by this attribute, with a line about each group.
-    browse: { title: 'Browse by style', field: 'blend_style', groups: pipe.STYLE_GUIDE },
+    browse: { title: 'Browse by style', groups: pipe.STYLE_GUIDE, groupOf: (i: Item) => String((i.attributes as pipe.PipeAttributes).blend_style ?? 'Other'), hideEmpty: ['Other'] },
+    newItemFields: [] as readonly NewItemField[],
     // Pipes are kept, not smoked up: a personal collection grouped by shape, each pipe usable in a log.
     collection: {
       kind: 'pipe',

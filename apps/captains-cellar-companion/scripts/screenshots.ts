@@ -66,6 +66,11 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await page.getByLabel('Maker').fill('Test Maker')
   await page.getByLabel('Cigar', { exact: true }).fill('Test Maduro Robusto')
   await page.getByText('New to us.').waitFor()
+  // Its size, typed in, travels to the curator. A silly ring is flagged, not saved.
+  await page.getByLabel(/Ring gauge/).fill('500')
+  await page.getByText('Between 20 and 80').waitFor()
+  await page.getByLabel(/Ring gauge/).fill('50')
+  await page.getByLabel(/Length/).fill('5')
   await page.getByRole('radio', { name: '5 of 5' }).click()
   await page.getByRole('radio', { name: 'Yes' }).click()
   for (const f of ['Spicy', 'Earthy']) await page.getByRole('button', { name: f, exact: true }).click()
@@ -158,6 +163,10 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await page.getByText('Test Maduro Robusto').waitFor()
   await page.getByRole('button', { name: 'Discover' }).click()
   if (await page.getByText('Browse by style').count()) throw new Error('cigars should not show the pipe style browser')
+  await page.locator('summary', { hasText: 'Thick (52 and up)' }).click()
+  await page.getByText('A cooler, slower smoke').waitFor()
+  await page.locator('details[open]').getByText(/\d+ ring/).first().waitFor()
+  await page.locator('summary', { hasText: 'Thick (52 and up)' }).click() // closed again, so the maker list below is the only one open
   await page.locator('summary', { hasText: 'SAMPLE House B' }).click()
   await page.locator('details[open]').getByText('SAMPLE Cocoa Box Toro').waitFor()
   await shot('15-cigar-makers')
@@ -167,6 +176,7 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await page.getByRole('button', { name: 'Curate, 1 waiting' }).click()
   await page.getByText('Waiting: 1').waitFor()
   await page.getByText('Logged 1 time by 1 person').waitFor()
+  await page.getByText('5" · 50 ring').waitFor() // the size they typed in
   await page.getByLabel('Maker', { exact: true }).fill('SAMPLE House B')
   await page.getByLabel('Cigar', { exact: true }).fill('sample cocoa box toro')
   await page.getByRole('button', { name: 'Approve' }).click()

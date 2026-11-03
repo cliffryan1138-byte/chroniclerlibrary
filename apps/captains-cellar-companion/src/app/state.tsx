@@ -32,7 +32,7 @@ interface AppState {
   updateUser: (patch: UserPatch) => Promise<void>
   saveSeed: (seed: SeedProfile) => Promise<void>
   addLog: (log: NewLog) => Promise<void>
-  addItem: (brand: string, name: string) => Promise<Item>
+  addItem: (brand: string, name: string, attributes?: Record<string, unknown>) => Promise<Item>
   signOut: () => Promise<void>
 }
 
@@ -138,8 +138,8 @@ export function AppProvider({ children }: { children: ReactNode }) {
     await store.saveProfiles(Object.fromEntries(branches.map((b) => [b.id, profileFor(b, next, allItems, seeds)])))
   }, [allLogs, allItems, seeds])
 
-  const addItem = useCallback(async (brand: string, name: string) => {
-    const item = await store.addItem(branch.spec.category, brand.trim().replace(/\s+/g, ' '), name.trim().replace(/\s+/g, ' '))
+  const addItem = useCallback(async (brand: string, name: string, attributes: Record<string, unknown> = {}) => {
+    const item = await store.addItem(branch.spec.category, brand.trim().replace(/\s+/g, ' '), name.trim().replace(/\s+/g, ' '), attributes)
     setAllItems((prev) => [...prev, item])
     return item
   }, [branch])

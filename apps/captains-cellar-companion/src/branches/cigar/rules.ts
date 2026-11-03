@@ -56,6 +56,7 @@ export const ITEM_LABELS = {
 export const ATTRIBUTE_FIELDS = [
   { key: 'vitola', label: 'Vitola' },
   { key: 'ring_gauge', label: 'Ring gauge' },
+  { key: 'ring_gauge_range', label: 'Ring gauge (two-ring shapes)' },
   { key: 'length', label: 'Length (in)' },
   { key: 'wrapper', label: 'Wrapper' },
   { key: 'binder', label: 'Binder' },
@@ -65,7 +66,10 @@ export const ATTRIBUTE_FIELDS = [
 
 export interface CigarAttributes {
   vitola?: string
+  /** For a two-ring shape (a figurado, or a tapered head), the widest ring; ring_gauge_range keeps both. */
   ring_gauge?: number
+  /** Both rings of a two-ring shape as the maker writes them, e.g. "42/49". */
+  ring_gauge_range?: string
   length?: number
   wrapper?: string
   binder?: string
@@ -94,3 +98,49 @@ export const cigarBranch: BranchSpec = {
   strengthLabel,
   coldStartLogs: COLD_START_LOGS,
 }
+
+// ── Size: how ring gauge and length read on a card, and the ring groups Discover browses by ──
+
+const EIGHTHS: Record<number, string> = { 1: '⅛', 2: '¼', 3: '⅜', 4: '½', 5: '⅝', 6: '¾', 7: '⅞' }
+
+/** 6.125 → 6⅛", 5 → 5". Lengths that aren't a whole number of eighths keep their decimals. */
+export function lengthLabel(inches: number): string {
+  const whole = Math.floor(inches)
+  const eighths = Math.round((inches - whole) * 8)
+  if (Math.abs(inches - whole - eighths / 8) > 0.01) return `${inches}"`
+  if (eighths === 8) return `${whole + 1}"`
+  return `${whole || ''}${eighths ? EIGHTHS[eighths] : whole ? '' : '0'}"`
+}
+
+/** "54 ring", or "42/49 ring" for a two-ring shape; null when the ring isn't known. */
+export function ringLabel(a: CigarAttributes): string | null {
+  if (a.ring_gauge_range) return `${a.ring_gauge_range} ring`
+  return a.ring_gauge != null ? `${a.ring_gauge} ring` : null
+}
+
+/** The widest ring a cigar has: its ring gauge, or the larger side of a two-ring range. */
+export function widestRing(a: CigarAttributes): number | null {
+  const fromRange = a.ring_gauge_range?.match(/\d+/g)?.map(Number) ?? []
+  const all = [...fromRange, ...(a.ring_gauge != null ? [a.ring_gauge] : [])]
+  return all.length ? Math.max(...all) : null
+}
+
+export const RING_GROUPS = [
+  { id: 'thin', label: 'Thin (under 44)', description: 'Lanceros, coronas, panatelas. More wrapper in every puff, so the wrapper leads the flavor. Burns a bit warmer and quicker.' },
+  { id: 'medium', label: 'Medium (44 to 51)', description: 'Robustos, corona gordas and classic toros. The usual balance of wrapper and filler.' },
+  { id: 'thick', label: 'Thick (52 and up)', description: 'Toro grandes, gordos and up. A cooler, slower smoke where the filler blend leads.' },
+  { id: 'unknown', label: 'Ring not listed', description: "The maker's page didn't give a ring gauge." },
+] as const
+
+/** Which ring group a cigar falls in, by its widest ring. */
+export function ringGroupOf(a: CigarAttributes): (typeof RING_GROUPS)[number]['id'] {
+  const ring = widestRing(a)
+  if (ring == null) return 'unknown'
+  return ring < 44 ? 'thin' : ring < 52 ? 'medium' : 'thick'
+}
+
+/** Optional size boxes on the log form when a cigar isn't in the catalog yet; they travel to the curator. */
+export const NEW_ITEM_FIELDS = [
+  { key: 'length', label: 'Length (inches)', placeholder: 'e.g. 6 or 5.5', min: 2, max: 12, step: 0.125 },
+  { key: 'ring_gauge', label: 'Ring gauge', placeholder: 'e.g. 52', min: 20, max: 80, step: 1 },
+] as const

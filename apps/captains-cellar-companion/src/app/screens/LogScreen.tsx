@@ -14,6 +14,7 @@ const INTENSITY = [{ label: 'Faint', value: 1 }, { label: 'Present', value: 2 },
 export function LogScreen({ onSaved }: { onSaved: () => void }) {
   const { items, user, addLog, addItem, branch, collection } = useApp()
   const [usedIn, setUsedIn] = useState('')
+  const [size, setSize] = useState<Record<string, string>>({})
   const detailed = user?.mode === 'detailed'
   const [maker, setMaker] = useState('')
   const [cigar, setCigar] = useState('')
@@ -67,7 +68,12 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
     setBusy(true); setError(null)
     const logTags: LogTag[] = detailed ? tags : families.map((family) => ({ descriptor: null, family, third: null, intensity: 2 }))
     try {
-      const item = match ?? (await addItem(maker, cigar))
+      // Size boxes only count when they hold a sensible number; anything else is left out, never guessed.
+      const sizeFacts = Object.fromEntries(branch.newItemFields.flatMap((f) => {
+        const n = Number(size[f.key]?.replace(',', '.'))
+        return size[f.key]?.trim() && Number.isFinite(n) && n >= f.min && n <= f.max ? [[f.key, n]] : []
+      }))
+      const item = match ?? (await addItem(maker, cigar, sizeFacts))
       await addLog({ itemId: item.id, overallRating: rating, wouldBuyAgain: buyAgain, notes: notes.trim() || null, details: { ...(detailed ? details : {}), ...(usedIn ? { collection_item_id: usedIn } : {}) }, tags: logTags })
       onSaved()
     } catch (e) {
@@ -110,7 +116,26 @@ export function LogScreen({ onSaved }: { onSaved: () => void }) {
               <branch.AttributeSummary item={match} />
             </Card>
           ) : named ? (
-            <p className="text-xs text-muted">{copy.log.newItem}</p>
+            <div className="space-y-2">
+              <p className="text-xs text-muted">{copy.log.newItem}</p>
+              {branch.newItemFields.length > 0 && (
+                <div className="grid grid-cols-2 gap-2">
+                  {branch.newItemFields.map((f) => {
+                    const v = size[f.key] ?? ''
+                    const n = Number(v.replace(',', '.'))
+                    const bad = v.trim() !== '' && !(Number.isFinite(n) && n >= f.min && n <= f.max)
+                    return (
+                      <label key={f.key} className="block text-xs font-semibold">{f.label} <span className="font-normal text-muted">(optional)</span>
+                        <input inputMode="decimal" value={v} placeholder={f.placeholder} aria-invalid={bad}
+                          onChange={(e) => setSize({ ...size, [f.key]: e.target.value })}
+                          className={cx('mt-1 min-h-11 w-full rounded-md border bg-surface px-3 text-sm font-normal', bad ? 'border-danger' : 'border-line')} />
+                        {bad && <span className="mt-1 block font-normal text-danger">Between {f.min} and {f.max}</span>}
+                      </label>
+                    )
+                  })}
+                </div>
+              )}
+            </div>
           ) : null}
         </div>
       </Section>

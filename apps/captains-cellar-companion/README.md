@@ -172,6 +172,14 @@ pages and returns the same file format, with facts only and no guessing. `catalo
 writing SQL: known flavor families, strength 1-5, names present. A hand-made file with a mistake is refused,
 with the reason named.
 
+### Cigar sizes
+
+Cigar cards show length and ring separately, like `Toro · 6⅛" · 52 ring · Habano wrapper`. A two-ring shape
+such as a figurado keeps both rings in `ring_gauge_range` (`"42/49"`), with the widest in `ring_gauge`.
+Discover has **Browse by ring**: thin (under 44), medium (44 to 51) and thick (52 and up), grouped by the widest
+ring. When someone logs a cigar the catalog doesn't know, the log form offers optional Length and Ring boxes.
+The curator sees those under "What they told us". The size rules live in `src/branches/cigar/rules.ts`.
+
 ### Pipe tobacco
 
 ```bash
