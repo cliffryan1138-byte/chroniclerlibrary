@@ -40,8 +40,8 @@ export function Discover() {
         ))}
       </ol>
       {branch.browse && (
-        <BrowseBy title={branch.browse.title} groups={branch.browse.groups} branch={branch} noun={branch.itemLabels.noun} hideEmpty={['Other']}
-          membersOf={(id) => curated.filter((i) => String((i.attributes as Record<string, unknown>)[branch.browse!.field] ?? 'Other') === id)} />
+        <BrowseBy title={branch.browse.title} groups={branch.browse.groups} branch={branch} noun={branch.itemLabels.noun} hideEmpty={[...branch.browse.hideEmpty]}
+          membersOf={(id) => curated.filter((i) => branch.browse!.groupOf(i) === id)} />
       )}
       {makers.length > 0 && (
         <BrowseBy title={copy.discover.byMaker} groups={makers} branch={branch} noun={branch.itemLabels.noun}

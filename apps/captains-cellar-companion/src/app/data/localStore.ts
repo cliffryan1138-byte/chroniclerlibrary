@@ -92,8 +92,8 @@ export function createLocalStore(): Store {
       const samples = branches.flatMap((b) => b.sampleCatalog)
       return [...samples, ...read<Item[]>(KEY.items, [])].filter((i) => i.category === category)
     },
-    async addItem(category, brand, name) {
-      const item: Item = { id: crypto.randomUUID(), category, brand, name, attributes: {}, strength: null, status: 'user_added_pending', tags: [] }
+    async addItem(category, brand, name, attributes = {}) {
+      const item: Item = { id: crypto.randomUUID(), category, brand, name, attributes, strength: null, status: 'user_added_pending', tags: [] }
       write(KEY.items, [...read<Item[]>(KEY.items, []), item])
       return item
     },

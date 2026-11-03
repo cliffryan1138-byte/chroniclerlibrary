@@ -85,7 +85,8 @@ export interface Store {
   updateUser(patch: UserPatch): Promise<AppUser>
   listItems(category: string): Promise<Item[]>
   /** A cigar the catalog doesn't have yet: saved as pending, visible only to the person who added it. */
-  addItem(category: string, brand: string, name: string): Promise<Item>
+  /** A user-typed item, pending review; `attributes` are facts the user gave (e.g. a cigar's size). */
+  addItem(category: string, brand: string, name: string, attributes?: Record<string, unknown>): Promise<Item>
   listLogs(): Promise<Log[]>
   addLog(log: NewLog): Promise<Log>
   communityAggregates(): Promise<CommunityAggregates>

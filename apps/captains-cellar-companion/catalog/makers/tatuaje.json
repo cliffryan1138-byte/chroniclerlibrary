@@ -2018,6 +2018,8 @@
       "name": "Avion 11",
       "attributes": {
         "length": 6.75,
+        "ring_gauge": 52,
+        "ring_gauge_range": "48/52",
         "wrapper": "Ecuador",
         "binder": "Nicaragua",
         "filler": "Nicaragua",
@@ -2030,7 +2032,7 @@
         "strength scale on page shows '5+'; no strength text on page, recorded as 5",
         "page has no description text",
         "no vitola name stated",
-        "ring gauge listed as a range '48/52', so left null"
+        "two-ring shape: 48/52 as the page gives it; ring_gauge holds the widest (52)"
       ],
       "sources": [
         "tatuajecigars.com/avion.html"
@@ -2042,6 +2044,8 @@
       "name": "Avion 12",
       "attributes": {
         "length": 5.625,
+        "ring_gauge": 52,
+        "ring_gauge_range": "48/52",
         "wrapper": "Ecuador",
         "binder": "Nicaragua",
         "filler": "Nicaragua",
@@ -2054,7 +2058,7 @@
         "strength scale on page shows '5+'; no strength text on page, recorded as 5",
         "page has no description text",
         "no vitola name stated",
-        "ring gauge listed as a range '48/52', so left null"
+        "two-ring shape: 48/52 as the page gives it; ring_gauge holds the widest (52)"
       ],
       "sources": [
         "tatuajecigars.com/avion.html"

@@ -461,13 +461,15 @@
       "name": "Hemingway Short Story",
       "attributes": {
         "vitola": "Short Story",
-        "length": 4
+        "length": 4,
+        "ring_gauge": 49,
+        "ring_gauge_range": "42/49"
       },
       "strength": null,
       "tags": [],
       "review": [
         "Page lists wrapper codes (N)(M) for this size without a legend in the page text, so wrapper is left out.",
-        "Page gives two ring gauges (42/49); ring_gauge left out because it must be a single number."
+        "two-ring shape: 42/49 as the page gives it; ring_gauge holds the widest (49)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/hemingway/"
@@ -479,13 +481,15 @@
       "name": "Hemingway Best Seller",
       "attributes": {
         "vitola": "Best Seller",
-        "length": 4.5
+        "length": 4.5,
+        "ring_gauge": 55,
+        "ring_gauge_range": "43/55"
       },
       "strength": null,
       "tags": [],
       "review": [
         "Page lists wrapper codes (N)(M) for this size without a legend in the page text, so wrapper is left out.",
-        "Page gives two ring gauges (43/55); ring_gauge left out because it must be a single number."
+        "two-ring shape: 43/55 as the page gives it; ring_gauge holds the widest (55)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/hemingway/"
@@ -497,13 +501,15 @@
       "name": "Hemingway Between The Lines",
       "attributes": {
         "vitola": "Between The Lines",
-        "length": 4.5
+        "length": 4.5,
+        "ring_gauge": 54,
+        "ring_gauge_range": "45/54"
       },
       "strength": null,
       "tags": [],
       "review": [
         "Page lists wrapper codes (N/M) for this size without a legend in the page text, so wrapper is left out.",
-        "Page gives two ring gauges (45/54); ring_gauge left out because it must be a single number."
+        "two-ring shape: 45/54 as the page gives it; ring_gauge holds the widest (54)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/hemingway/"
@@ -515,13 +521,15 @@
       "name": "Hemingway Work of Art",
       "attributes": {
         "vitola": "Work of Art",
-        "length": 4.875
+        "length": 4.875,
+        "ring_gauge": 60,
+        "ring_gauge_range": "46/60"
       },
       "strength": null,
       "tags": [],
       "review": [
         "Page lists wrapper codes (N)(M) for this size without a legend in the page text, so wrapper is left out.",
-        "Page gives two ring gauges (46/60); ring_gauge left out because it must be a single number."
+        "two-ring shape: 46/60 as the page gives it; ring_gauge holds the widest (60)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/hemingway/"
@@ -786,14 +794,16 @@
       "attributes": {
         "vitola": "No. 2",
         "length": 5.875,
+        "ring_gauge": 55,
+        "ring_gauge_range": "44/55",
         "wrapper": "African Cameroon",
         "origin": "Dominican Republic"
       },
       "strength": null,
       "tags": [],
       "review": [
-        "Page gives two ring gauges (44/55); ring_gauge left out because it must be a single number.",
-        "Wrapper and origin (rolled at Tabacalera A. Fuente, Dominican Republic) are stated for the line as a whole, not per size."
+        "Wrapper and origin (rolled at Tabacalera A. Fuente, Dominican Republic) are stated for the line as a whole, not per size.",
+        "two-ring shape: 44/55 as the page gives it; ring_gauge holds the widest (55)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/don-carlos/"
@@ -1065,12 +1075,14 @@
       "name": "Rare Pink Short Story",
       "attributes": {
         "vitola": "Short Story",
-        "length": 4
+        "length": 4,
+        "ring_gauge": 49,
+        "ring_gauge_range": "42/49"
       },
       "strength": null,
       "tags": [],
       "review": [
-        "Page gives two ring gauges (42/49); ring_gauge left out because it must be a single number."
+        "two-ring shape: 42/49 as the page gives it; ring_gauge holds the widest (49)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/rare-pink/"
@@ -1098,12 +1110,14 @@
       "name": "Rare Pink Work of Art",
       "attributes": {
         "vitola": "Work of Art",
-        "length": 4.875
+        "length": 4.875,
+        "ring_gauge": 60,
+        "ring_gauge_range": "46/60"
       },
       "strength": null,
       "tags": [],
       "review": [
-        "Page gives two ring gauges (46/60); ring_gauge left out because it must be a single number."
+        "two-ring shape: 46/60 as the page gives it; ring_gauge holds the widest (60)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/rare-pink/"
@@ -1202,13 +1216,15 @@
       "attributes": {
         "vitola": "No.77 Shark",
         "length": 5.875,
+        "ring_gauge": 64,
+        "ring_gauge_range": "48/64",
         "wrapper": "Maduro, aged in Cognac barrels"
       },
       "strength": null,
       "tags": [],
       "review": [
-        "Page gives two ring gauges (48/64); ring_gauge left out because it must be a single number.",
-        "Wrapper statement is for the line as a whole, not per size."
+        "Wrapper statement is for the line as a whole, not per size.",
+        "two-ring shape: 48/64 as the page gives it; ring_gauge holds the widest (64)"
       ],
       "sources": [
         "arturofuente.com/our-cigars/anejo/"

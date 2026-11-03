@@ -1,10 +1,10 @@
 import type { Item } from '../../../core'
-import { ATTRIBUTE_FIELDS, strengthLabel, type CigarAttributes } from '../rules'
+import { ATTRIBUTE_FIELDS, lengthLabel, ringLabel, strengthLabel, type CigarAttributes } from '../rules'
 
 /** One-line spec summary for an item card. */
 export function AttributeSummary({ item }: { item: Item }) {
   const a = item.attributes as CigarAttributes
-  const parts = [a.vitola, a.length && a.ring_gauge ? `${a.length} × ${a.ring_gauge}` : null, a.wrapper && `${a.wrapper} wrapper`]
+  const parts = [a.vitola, a.length ? lengthLabel(a.length) : null, ringLabel(a), a.wrapper && `${a.wrapper} wrapper`]
   return (
     <p className="text-xs text-muted">
       {parts.filter(Boolean).join(' · ')}

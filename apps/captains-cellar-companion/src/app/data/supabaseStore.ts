@@ -131,11 +131,11 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
         tags: (r.item_tags ?? []).map((t: { family: string; descriptor: string | null; weight: number }) => ({ ...t, weight: Number(t.weight) })),
       })) as Item[]
     },
-    async addItem(category, brand, name) {
+    async addItem(category, brand, name, attributes = {}) {
       const { data: { user } } = await sb.auth.getUser()
       const makerId = await findOrAddMaker(brand, user!.id)
       const { data, error } = await sb.from('items')
-        .insert({ category, brand, name, status: 'user_added_pending', created_by: user!.id, maker_id: makerId })
+        .insert({ category, brand, name, attributes, status: 'user_added_pending', created_by: user!.id, maker_id: makerId })
         .select().single()
       if (error) throw error
       return { id: data.id, category, brand, name, attributes: data.attributes ?? {}, strength: data.strength, status: data.status, tags: [], makerId } as Item

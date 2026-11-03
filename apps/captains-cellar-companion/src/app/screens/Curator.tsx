@@ -59,6 +59,12 @@ function ItemCard({ entry, catalog, onDone }: { entry: QueueEntry; catalog: Item
         <p className="text-xs uppercase tracking-wide text-accent">{branch?.name ?? entry.category}</p>
         <p className="text-xs text-muted">{used(entry)}</p>
       </div>
+      {branch && Object.keys(entry.attributes ?? {}).length > 0 && (
+        <div className="rounded-md bg-bg px-3 py-2">
+          <p className="text-xs font-semibold">What they told us</p>
+          <branch.AttributeSummary item={{ id: entry.id, category: entry.category ?? '', brand: entry.brand, name: entry.name, attributes: entry.attributes ?? {}, strength: null, status: 'user_added_pending', tags: [] }} />
+        </div>
+      )}
       <label className="block text-xs font-semibold">{branch?.itemLabels.brand ?? 'Maker'}
         <input value={brand} onChange={(e) => setBrand(e.target.value)} className={`${field} mt-1 font-normal`} />
       </label>
