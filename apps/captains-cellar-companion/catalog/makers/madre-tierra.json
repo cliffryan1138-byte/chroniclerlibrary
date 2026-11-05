@@ -1,0 +1,468 @@
+{
+  "maker": {
+    "name": "Madre Tierra",
+    "website": "https://www.madretierracigars.com",
+    "country": "Dominican Republic"
+  },
+  "category": "cigar",
+  "entries": [
+    {
+      "brand": "Madre Tierra",
+      "name": "Pura Luz 107 Connecticut",
+      "attributes": {
+        "length": 6.5,
+        "ring_gauge": 56,
+        "wrapper": "Connecticut",
+        "binder": "Ecuador",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 1,
+      "tags": [],
+      "review": [
+        "Vitola not stated",
+        "Pop-up has an Evaluation heading with no flavor notes",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Pura Luz 107 Habano",
+      "attributes": {
+        "length": 6.5,
+        "ring_gauge": 56,
+        "wrapper": "Ecuador",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 4,
+      "tags": [],
+      "review": [
+        "Vitola not stated",
+        "Pop-up has an Evaluation heading with no flavor notes",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Pura Luz 107 San Andres",
+      "attributes": {
+        "length": 6.5,
+        "ring_gauge": 56,
+        "wrapper": "Mexican",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 5,
+      "tags": [],
+      "review": [
+        "Vitola not stated",
+        "Pop-up has an Evaluation heading with no flavor notes",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Connecticut Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut",
+        "binder": "Ecuador",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 1,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "nutty",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.5
+        }
+      ],
+      "review": [
+        "Sweet tag is from the page's mention of vanilla",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Rosado Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 1,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "nutty",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Candela Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Dominican",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 1,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Page also lists grassy and herbal notes, which are not in the allowed tag families",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Cameroon Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Cameroon",
+        "binder": "Ecuador",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 2,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.5
+        }
+      ],
+      "review": [
+        "Woody tag is from the page's mention of cedar",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Habano Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 4,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.5
+        },
+        {
+          "family": "roasted",
+          "weight": 0.5
+        }
+      ],
+      "review": [
+        "Woody tag is from the page's mention of cedar, roasted tag from coffee",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Sumatra Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 4,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "leather",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.5
+        }
+      ],
+      "review": [
+        "Roasted tag is from the page's mention of coffee and cocoa",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Broadleaf Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Pennsylvania",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 5,
+      "tags": [
+        {
+          "family": "leather",
+          "weight": 0.6
+        },
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.5
+        },
+        {
+          "family": "spicy",
+          "weight": 0.5
+        },
+        {
+          "family": "woody",
+          "weight": 0.5
+        }
+      ],
+      "review": [
+        "Roasted tag is from dark chocolate and espresso, spicy from black pepper, woody from cedar",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "San Andres Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Mexican",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 5,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.5
+        }
+      ],
+      "review": [
+        "Roasted tag is from the page's mention of dark chocolate and espresso",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "Corojo Toro",
+      "attributes": {
+        "vitola": "Toro",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador",
+        "binder": "Dominican",
+        "filler": "Dominican",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 5,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        },
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "leather",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic",
+        "size read as length x ring (page writes 6x52)"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Madre Tierra",
+      "name": "La Fuma Ricardo",
+      "attributes": {
+        "length": 6,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador",
+        "binder": "Dominican",
+        "filler": "Proprietary",
+        "origin": "Tamboril, Dominican Republic"
+      },
+      "strength": 2,
+      "tags": [
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Vitola not stated",
+        "Filler is listed only as Proprietary",
+        "The page's intro text calls La Fuma (6x50) a medium cut cigar, while its card lists strength as Mild-Medium",
+        "Origin comes from the Home page, which says the cigars are handmade in Tamboril, Dominican Republic"
+      ],
+      "sources": [
+        "madretierracigars.com/selection",
+        "madretierracigars.com/"
+      ],
+      "reference_images": []
+    }
+  ]
+}
