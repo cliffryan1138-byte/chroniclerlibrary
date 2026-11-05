@@ -144,3 +144,16 @@ export const NEW_ITEM_FIELDS = [
   { key: 'length', label: 'Length (inches)', placeholder: 'e.g. 6 or 5.5', min: 2, max: 12, step: 0.125 },
   { key: 'ring_gauge', label: 'Ring gauge', placeholder: 'e.g. 52', min: 20, max: 80, step: 1 },
 ] as const
+
+/**
+ * The line a cigar belongs to ("Hemingway" for "Hemingway Short Story"): a stated `line`, or the
+ * part of the name before its vitola. Null when the name doesn't contain the vitola.
+ */
+export function lineOf(item: { name: string; attributes: unknown }): string | null {
+  const a = item.attributes as CigarAttributes & { line?: string }
+  if (a.line) return a.line
+  if (!a.vitola) return null
+  const at = item.name.toLowerCase().lastIndexOf(a.vitola.toLowerCase())
+  const line = at > 0 ? item.name.slice(0, at).replace(/[\s,–—-]+$/, '').trim() : ''
+  return line || null
+}

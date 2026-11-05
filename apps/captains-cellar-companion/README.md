@@ -180,6 +180,18 @@ Discover has **Browse by ring**: thin (under 44), medium (44 to 51) and thick (5
 ring. When someone logs a cigar the catalog doesn't know, the log form offers optional Length and Ring boxes.
 The curator sees those under "What they told us". The size rules live in `src/branches/cigar/rules.ts`.
 
+### An item's own page
+
+Tapping any cigar or blend opens its card:
+- **Header:** the maker and the line. The line is read from the name, before the vitola, so "Hemingway Short Story" belongs to "Hemingway".
+- **The facts:** every stored fact, plus the source site as plain text, not a link.
+- **Your own history** with it.
+- **Members' logs:** how many members logged it, the share who would reach for it again, the average rating, and which flavor families the fans (4–5 stars) and the low raters (1–2 stars) noted most. These are totals only, from `item_card_stats` (migration `20261106000000_item_card_stats.sql`). The app never shows anyone's notes or individual ratings, and the community view stays hidden until 3 different people have logged the item.
+- **Other sizes in the same line.**
+- **Log this**, which opens the log form already filled in.
+
+Browse by maker groups each maker's items under their lines. There are no buy or store links, by design.
+
 ### Pipe tobacco
 
 ```bash

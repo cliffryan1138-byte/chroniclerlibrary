@@ -90,6 +90,8 @@ export interface Store {
   listLogs(): Promise<Log[]>
   addLog(log: NewLog): Promise<Log>
   communityAggregates(): Promise<CommunityAggregates>
+  /** The community block on an item's card. Totals only, never anyone's notes. */
+  itemStats(itemId: string): Promise<ItemStats>
   /** The derived profile for each category, saved as one row. */
   saveProfiles(profiles: Record<string, TasteProfile>): Promise<void>
   curator: CuratorActions
@@ -98,3 +100,8 @@ export interface Store {
   saveCollectionItem(item: NewCollectionItem): Promise<CollectionItem>
   deleteCollectionItem(id: string): Promise<void>
 }
+
+/** What members' logs say about one item, as totals. Below three people only the head count comes back. */
+export type ItemStats =
+  | { enough: false; people: number }
+  | { enough: true; people: number; logs: number; avgRating: number | null; wouldAgain: number | null; loved: string[]; low: string[] }

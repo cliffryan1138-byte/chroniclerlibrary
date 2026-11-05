@@ -104,6 +104,8 @@ export function createLocalStore(): Store {
       return log
     },
     async communityAggregates() { return {} },
+    // Demo mode has one person, so there is never a community block to show.
+    async itemStats(itemId) { return { enough: false, people: read<Log[]>(KEY.logs, []).some((l) => l.itemId === itemId) ? 1 : 0 } },
     async saveProfiles(profiles: Record<string, TasteProfile>) { write(KEY.profile, profiles) },
   }
 }

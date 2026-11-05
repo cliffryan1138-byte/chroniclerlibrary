@@ -9,7 +9,7 @@ import { Card } from '../components/ui'
 const makerKey = (i: Item) => i.makerId ?? normalizeName(i.brand)
 
 export function Discover() {
-  const { recommendations, branch, items } = useApp()
+  const { recommendations, branch, items, openItem } = useApp()
   const curated = useMemo(() => items.filter((i) => i.status === 'curated'), [items])
   // Grouped by the maker record when there is one, else by the maker's name ignoring case and spacing.
   const makers = useMemo(() => {
@@ -27,7 +27,7 @@ export function Discover() {
       <ol className="space-y-3">
         {recommendations.map((r, i) => (
           <li key={r.item.id}>
-            <Card className="space-y-1">
+            <Card className="space-y-1" onClick={() => openItem(r.item.id)}>
               <div className="flex items-baseline justify-between gap-3">
                 <p className="text-xs text-muted">{i + 1}. {r.item.brand}</p>
                 <span className="shrink-0 text-xs font-semibold text-accent">{Math.round(r.score * 100)}% match</span>
@@ -45,7 +45,7 @@ export function Discover() {
       )}
       {makers.length > 0 && (
         <BrowseBy title={copy.discover.byMaker} groups={makers} branch={branch} noun={branch.itemLabels.noun}
-          membersOf={(key) => curated.filter((i) => makerKey(i) === key)} />
+          membersOf={(key) => curated.filter((i) => makerKey(i) === key)} subgroupOf={(i) => branch.lineOf(i)} />
       )}
     </div>
   )

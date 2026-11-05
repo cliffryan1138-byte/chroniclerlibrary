@@ -6,7 +6,7 @@ import { Card, Section } from '../components/ui'
 import { Collection } from '../components/Collection'
 
 export function Palate() {
-  const { profile, logs, items, branch } = useApp()
+  const { profile, logs, items, branch, openItem } = useApp()
   const { taxonomy, strengthLabel } = branch.spec
   const rows = taxonomy.families.map((f) => ({ ...f, value: profile.families[f.id] ?? 0 })).sort((a, b) => b.value - a.value)
   const top = topFamilies(profile).map((f) => taxonomy.families.find((x) => x.id === f)!.label)
@@ -59,7 +59,7 @@ export function Palate() {
               const item = items.find((i) => i.id === l.itemId)
               return (
                 <li key={l.id}>
-                  <Card className="flex items-center justify-between gap-3 py-3">
+                  <Card className="flex items-center justify-between gap-3 py-3" onClick={item ? () => openItem(item.id) : undefined}>
                     <div className="min-w-0">
                       <p className="truncate text-xs text-muted">{item?.brand}</p>
                       <p className="truncate text-sm font-semibold">{item?.name ?? 'Unknown item'}</p>

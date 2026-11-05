@@ -162,6 +162,18 @@ export function createSupabaseStore(url: string, anonKey: string): Store {
       }
       return { ...input, id: data.id, userId: data.user_id, loggedAt: data.logged_at }
     },
+    async itemStats(itemId) {
+      const { data, error } = await sb.rpc('item_card_stats', { p_item_id: itemId })
+      if (error) throw error
+      const r = (data ?? { enough: false, people: 0 }) as Record<string, unknown>
+      if (!r.enough) return { enough: false, people: Number(r.people ?? 0) }
+      return {
+        enough: true, people: Number(r.people), logs: Number(r.logs),
+        avgRating: r.avg_rating == null ? null : Number(r.avg_rating),
+        wouldAgain: r.would_again == null ? null : Number(r.would_again),
+        loved: (r.loved as string[]) ?? [], low: (r.low as string[]) ?? [],
+      }
+    },
     async communityAggregates() {
       const { data, error } = await sb.rpc('item_family_aggregates')
       if (error) throw error
