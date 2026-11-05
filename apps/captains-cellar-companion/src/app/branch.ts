@@ -6,6 +6,8 @@ import { AttributeSummary as PipeSummary } from '../branches/pipe/ui'
 import type { Item } from '../core'
 import { appConfig } from '../config/captains-cellar'
 
+const formatValue = (v: unknown) => (Array.isArray(v) ? v.join(', ') : String(v))
+
 /** A number box on the log form for an item the catalog doesn't know yet (e.g. a cigar's size). */
 export interface NewItemField { key: string; label: string; placeholder: string; min: number; max: number; step: number }
 
@@ -27,6 +29,11 @@ export const registry = {
     browse: { title: 'Browse by ring', groups: cigar.RING_GROUPS, groupOf: (i: Item) => cigar.ringGroupOf(i.attributes as cigar.CigarAttributes), hideEmpty: ['unknown'] },
     // Optional size boxes on the log form for a cigar the catalog doesn't know yet.
     newItemFields: cigar.NEW_ITEM_FIELDS,
+    // A cigar's card groups sizes by line and lists these facts.
+    lineOf: cigar.lineOf as (i: Item) => string | null,
+    attributeFields: cigar.ATTRIBUTE_FIELDS.filter((f) => f.key !== 'ring_gauge_range') as readonly { key: string; label: string }[],
+    formatFact: (key: string, value: unknown, item: Item) =>
+      key === 'length' ? cigar.lengthLabel(Number(value)) : key === 'ring_gauge' ? cigar.ringLabel(item.attributes as cigar.CigarAttributes) ?? String(value) : formatValue(value),
     collection: null,
     AttributeSummary: CigarSummary,
   },
@@ -45,6 +52,9 @@ export const registry = {
     scanKind: 'pipe_tobacco_tin',
     browse: { title: 'Browse by style', groups: pipe.STYLE_GUIDE, groupOf: (i: Item) => String((i.attributes as pipe.PipeAttributes).blend_style ?? 'Other'), hideEmpty: ['Other'] },
     newItemFields: [] as readonly NewItemField[],
+    lineOf: (() => null) as (i: Item) => string | null,
+    attributeFields: pipe.ATTRIBUTE_FIELDS as readonly { key: string; label: string }[],
+    formatFact: (_key: string, value: unknown) => formatValue(value),
     // Pipes are kept, not smoked up: a personal collection grouped by shape, each pipe usable in a log.
     collection: {
       kind: 'pipe',

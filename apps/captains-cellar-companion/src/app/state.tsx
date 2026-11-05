@@ -34,6 +34,12 @@ interface AppState {
   addLog: (log: NewLog) => Promise<void>
   addItem: (brand: string, name: string, attributes?: Record<string, unknown>) => Promise<Item>
   signOut: () => Promise<void>
+  /** The item whose card is open, if any. */
+  openItemId: string | null
+  openItem: (id: string | null) => void
+  /** A maker and name to start the next log with (from a card's "Log this"); read once by the Log screen. */
+  logPrefill: { brand: string; name: string } | null
+  setLogPrefill: (p: { brand: string; name: string } | null) => void
 }
 
 const Ctx = createContext<AppState | null>(null)
@@ -159,6 +165,9 @@ export function AppProvider({ children }: { children: ReactNode }) {
     setUser(await store.updateUser({ quizSeed: { ...seeds, [branch.id]: seed } }))
   }, [seeds, branch])
 
+  const [openItemId, openItem] = useState<string | null>(null)
+  const [logPrefill, setLogPrefill] = useState<{ brand: string; name: string } | null>(null)
+
   const signOut = useCallback(async () => {
     await store.signOut()
     setUser(null); setAllLogs([]); setAllItems([]); setAllCollection([])
@@ -167,7 +176,7 @@ export function AppProvider({ children }: { children: ReactNode }) {
   return (
     <Ctx.Provider value={{
       ready, user, branch, setBranch, seeds, items, logs, allLogs, allItems, reloadCatalog, waiting, refreshWaiting, collection, saveCollectionItem, deleteCollectionItem, profile, recommendations,
-      setUser, updateUser, saveSeed, addLog, addItem, signOut,
+      setUser, updateUser, saveSeed, addLog, addItem, signOut, openItemId, openItem, logPrefill, setLogPrefill,
     }}>
       {children}
     </Ctx.Provider>

@@ -1,5 +1,5 @@
 import { Camera, Loader2, Star } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import type { Intensity, LogTag, Rating, Third } from '../../core'
 import { copy } from '../../config/captains-cellar'
 import { cx, findItem, normalizeName } from '../lib'
@@ -12,12 +12,13 @@ import { Button, Card, Chip, Section, Segmented } from '../components/ui'
 const INTENSITY = [{ label: 'Faint', value: 1 }, { label: 'Present', value: 2 }, { label: 'Bold', value: 3 }] as const
 
 export function LogScreen({ onSaved }: { onSaved: () => void }) {
-  const { items, user, addLog, addItem, branch, collection } = useApp()
+  const { items, user, addLog, addItem, branch, collection, logPrefill, setLogPrefill } = useApp()
   const [usedIn, setUsedIn] = useState('')
   const [size, setSize] = useState<Record<string, string>>({})
   const detailed = user?.mode === 'detailed'
-  const [maker, setMaker] = useState('')
-  const [cigar, setCigar] = useState('')
+  const [maker, setMaker] = useState(logPrefill?.brand ?? '')
+  const [cigar, setCigar] = useState(logPrefill?.name ?? '')
+  useEffect(() => { if (logPrefill) setLogPrefill(null) }, [logPrefill, setLogPrefill]) // used once
   const [scanState, setScanState] = useState<{ status: 'idle' | 'busy' | 'read' | 'missed' | 'error'; message?: string }>({ status: 'idle' })
 
   async function onPhoto(file: File | undefined) {

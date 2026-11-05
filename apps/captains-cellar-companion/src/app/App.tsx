@@ -12,6 +12,7 @@ import { Palate } from './screens/Palate'
 import { Quiz } from './screens/Quiz'
 import { Settings } from './screens/Settings'
 import { Curator } from './screens/Curator'
+import { ItemSheet } from './components/ItemSheet'
 
 type Tab = 'palate' | 'log' | 'discover' | 'settings' | 'curator'
 const TABS: { id: Tab; label: string; Icon: typeof BookOpen }[] = [
@@ -57,6 +58,8 @@ export function App() {
         {tab === 'settings' && <Settings onRetakeQuiz={() => setRetakeQuiz(true)} />}
         {tab === 'curator' && user.isCurator && <Curator />}
       </main>
+
+      <ItemSheet onLog={() => { setLogKey((k) => k + 1); setTab('log') }} />
 
       {toast && (
         <div role="status" className="fixed inset-x-4 bottom-24 mx-auto max-w-sm rounded-lg bg-ink px-4 py-3 text-center text-sm text-bg shadow-lg">{toast}</div>

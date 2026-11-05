@@ -35,3 +35,15 @@ describe('ring groups', () => {
     expect(NEW_ITEM_FIELDS.map((f) => f.key)).toEqual(['length', 'ring_gauge'])
   })
 })
+
+describe('cigar lines', () => {
+  it('reads the line from the name, before the vitola', async () => {
+    const { lineOf } = await import('../src/branches/cigar')
+    expect(lineOf({ name: 'Hemingway Short Story', attributes: { vitola: 'Short Story' } })).toBe('Hemingway')
+    expect(lineOf({ name: 'Cabaiguan Guapos Toro Grande Natural', attributes: { vitola: 'Toro Grande' } })).toBe('Cabaiguan Guapos')
+    expect(lineOf({ name: 'Reserva Nicaragua 10th Belle Encre - Perfecto', attributes: { vitola: '10th Belle Encre - Perfecto' } })).toBe('Reserva Nicaragua')
+    expect(lineOf({ name: 'Robusto', attributes: { vitola: 'Robusto' } })).toBeNull() // nothing before it
+    expect(lineOf({ name: 'Mystery Stick', attributes: {} })).toBeNull()
+    expect(lineOf({ name: 'Anything', attributes: { line: 'Stated Line', vitola: 'x' } })).toBe('Stated Line')
+  })
+})

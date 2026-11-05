@@ -24,8 +24,11 @@ export function Chip({ selected, onClick, children, tone = 'accent' }: { selecte
   )
 }
 
-export function Card({ children, className }: { children: ReactNode; className?: string }) {
-  return <div className={cx('rounded-xl border border-line bg-surface p-4', className)}>{children}</div>
+/** A panel; with onClick it is a full-width button (an item that opens its card). */
+export function Card({ children, className, onClick }: { children: ReactNode; className?: string; onClick?: () => void }) {
+  const base = cx('rounded-xl border border-line bg-surface p-4', className)
+  if (onClick) return <button type="button" onClick={onClick} className={cx(base, 'block w-full text-left')}>{children}</button>
+  return <div className={base}>{children}</div>
 }
 
 export function Section({ title, hint, children }: { title: string; hint?: ReactNode; children: ReactNode }) {

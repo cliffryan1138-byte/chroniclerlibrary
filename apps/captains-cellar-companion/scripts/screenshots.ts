@@ -169,7 +169,21 @@ async function walk(scheme: 'light' | 'dark', expose: (p: Page) => void) {
   await page.locator('summary', { hasText: 'Thick (52 and up)' }).click() // closed again, so the maker list below is the only one open
   await page.locator('summary', { hasText: 'SAMPLE House B' }).click()
   await page.locator('details[open]').getByText('SAMPLE Cocoa Box Toro').waitFor()
+  await page.locator('details[open]').getByText('SAMPLE Cocoa Box', { exact: true }).waitFor() // its line, as a heading
   await shot('15-cigar-makers')
+
+  // A cigar's own card: its facts, your history, the members' block, then "Log this" fills the form.
+  await page.locator('details[open]').getByRole('button', { name: /SAMPLE Cocoa Box Toro/ }).click()
+  const card = page.getByRole('dialog', { name: /SAMPLE Cocoa Box Toro/ })
+  await card.getByText('The facts').waitFor()
+  await card.getByText(/times, averaging|Once, averaging/).waitFor()
+  await card.getByText('The community view opens once 3 people have logged it.').waitFor()
+  await shot('15b-cigar-card')
+  await card.getByRole('button', { name: /Log this cigar/ }).click()
+  if (await page.getByLabel('Maker').inputValue() !== 'SAMPLE House B') throw new Error('Log this should fill the maker')
+  if (await page.getByLabel('Cigar', { exact: true }).inputValue() !== 'SAMPLE Cocoa Box Toro') throw new Error('Log this should fill the cigar')
+  await page.getByText('In the catalog').waitFor()
+  await page.getByRole('button', { name: 'Discover' }).click()
 
   // Curation: the demo user curates their own typed-in cigar.
   await page.getByRole('button', { name: 'Curate, 1 waiting' }).waitFor()
