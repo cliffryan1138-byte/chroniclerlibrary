@@ -1,0 +1,2086 @@
+{
+  "maker": {
+    "name": "Dunbarton Tobacco & Trust",
+    "website": "https://www.dunbartoncigars.com",
+    "country": null
+  },
+  "category": "cigar",
+  "entries": [
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Gran Búfalo",
+      "attributes": {
+        "line": "Mi Querida",
+        "vitola": "Parejo",
+        "length": 7,
+        "ring_gauge": 64,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Muy Gordo Grande",
+      "attributes": {
+        "line": "Mi Querida",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 56,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Ancho Largo",
+      "attributes": {
+        "line": "Mi Querida",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Fino Largo",
+      "attributes": {
+        "line": "Mi Querida",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Ancho Corto",
+      "attributes": {
+        "line": "Mi Querida",
+        "vitola": "Parejo",
+        "length": 5,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Gordita",
+      "attributes": {
+        "line": "Mi Querida",
+        "vitola": "Parejo",
+        "length": 4,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Black SakaKhan",
+      "attributes": {
+        "line": "Mi Querida Black",
+        "vitola": "Parejo",
+        "length": 7.25,
+        "ring_gauge": 54,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "San Andreas Negro",
+        "filler": "Nicaragua, Honduras, Dominican Republic"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Binder spelled 'San Andreas Negro' on this page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida-black/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Black PapaSaka",
+      "attributes": {
+        "line": "Mi Querida Black",
+        "vitola": "Parejo",
+        "length": 5.63,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "San Andreas Negro",
+        "filler": "Nicaragua, Honduras, Dominican Republic"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Binder spelled 'San Andreas Negro' on this page."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida-black/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Triqui Traca No. 764",
+      "attributes": {
+        "line": "Mi Querida Triqui Traca",
+        "vitola": "Parejo",
+        "length": 7,
+        "ring_gauge": 64,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan, USA"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Filler field reads 'NicaraguanUSA' (two items run together).",
+        "Page text also mentions a Dominican Republic-grown ligero in the blend; it is not in the filler field."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida-triqui-traca/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Triqui Traca No. 652",
+      "attributes": {
+        "line": "Mi Querida Triqui Traca",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan, USA"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Filler field reads 'NicaraguanUSA' (two items run together).",
+        "Page text also mentions a Dominican Republic-grown ligero in the blend; it is not in the filler field."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida-triqui-traca/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Triqui Traca No. 648",
+      "attributes": {
+        "line": "Mi Querida Triqui Traca",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan, USA"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Filler field reads 'NicaraguanUSA' (two items run together).",
+        "Page text also mentions a Dominican Republic-grown ligero in the blend; it is not in the filler field."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida-triqui-traca/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Triqui Traca No. 552",
+      "attributes": {
+        "line": "Mi Querida Triqui Traca",
+        "vitola": "Parejo",
+        "length": 5,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan, USA"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Filler field reads 'NicaraguanUSA' (two items run together).",
+        "Page text also mentions a Dominican Republic-grown ligero in the blend; it is not in the filler field."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida-triqui-traca/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Triqui Traca No. 448",
+      "attributes": {
+        "line": "Mi Querida Triqui Traca",
+        "vitola": "Parejo",
+        "length": 4,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan, USA"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Filler field reads 'NicaraguanUSA' (two items run together).",
+        "Page text also mentions a Dominican Republic-grown ligero in the blend; it is not in the filler field."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/mi-querida-triqui-traca/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Muestra de Saka Exclusivo",
+      "attributes": {
+        "line": "Muestra de Saka",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano Rosado",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/muestra-de-saka/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Muestra de Saka Nacatamale",
+      "attributes": {
+        "line": "Muestra de Saka",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 48,
+        "wrapper": "Nicaraguan Sungrown",
+        "binder": "Nicaraguan Sungrown",
+        "filler": "Nicaraguan Sungrown"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/muestra-de-saka/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Muestra de Saka #NLMTHA",
+      "attributes": {
+        "line": "Muestra de Saka",
+        "vitola": "Parejo",
+        "length": 7,
+        "ring_gauge": 38,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Description text calls it a Lancero; the size table lists Parejo."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/muestra-de-saka/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Muestra de Saka Unstolen Valor",
+      "attributes": {
+        "line": "Muestra de Saka",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Habano 2000 Sungrown",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan, Dominican Republic, US Connecticut"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Filler field reads 'NicaraguanDominican RepublicUS Connecticut' (items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/muestra-de-saka/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Muestra de Saka The Bewitched",
+      "attributes": {
+        "line": "Muestra de Saka",
+        "vitola": "Pressed Parejo",
+        "length": 6.63,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan, USA"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Filler field reads 'NicaraguanUSA' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/muestra-de-saka/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Muestra de Saka Krakatoa",
+      "attributes": {
+        "line": "Muestra de Saka",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador Habano Grade A1",
+        "binder": "Nicaraguan Sungrown",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Binder field reads 'NicaraguanSungrown' (items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/muestra-de-saka/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Red Meat Lovers Porterhouse",
+      "attributes": {
+        "line": "Red Meat Lovers",
+        "vitola": "Prensado",
+        "length": 6,
+        "ring_gauge": 60,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaragua, USA"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Filler field reads 'NicaraguaUSA' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/red-meat-lovers/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Red Meat Lovers Ribeye",
+      "attributes": {
+        "line": "Red Meat Lovers",
+        "vitola": "Prensado",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaragua, USA"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Filler field reads 'NicaraguaUSA' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/red-meat-lovers/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Red Meat Lovers Beef Stick",
+      "attributes": {
+        "line": "Red Meat Lovers",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaragua, USA"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Filler field reads 'NicaraguaUSA' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/red-meat-lovers/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Red Meat Lovers Filet Mignon",
+      "attributes": {
+        "line": "Red Meat Lovers",
+        "vitola": "Prensado",
+        "length": 5,
+        "ring_gauge": 54,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaragua, USA"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Filler field reads 'NicaraguaUSA' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/red-meat-lovers/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Red Meat Lovers Fritanga",
+      "attributes": {
+        "line": "Red Meat Lovers",
+        "vitola": "Prensado",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaragua, USA"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags.",
+        "Filler field reads 'NicaraguaUSA' (two items run together).",
+        "Page describes Fritanga as a special limited production of the RML liga; its own wrapper is not given in the blend fields."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/red-meat-lovers/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sin Compromiso Selección No. 7",
+      "attributes": {
+        "line": "Sin Compromiso",
+        "vitola": "Soft Prensado",
+        "length": 7,
+        "ring_gauge": 56,
+        "wrapper": "Cultivo Tonto San Andrés Negro",
+        "binder": "Ecuador Habano “Thin Ligero”",
+        "filler": "Independent Plantation Grown Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sin-compromiso/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sin Compromiso Selección Varita Mágica",
+      "attributes": {
+        "line": "Sin Compromiso",
+        "vitola": "Soft Prensado",
+        "length": 7,
+        "ring_gauge": 44,
+        "wrapper": "Cultivo Tonto San Andrés Negro",
+        "binder": "Ecuador Habano “Thin Ligero”",
+        "filler": "Independent Plantation Grown Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sin-compromiso/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sin Compromiso Selección No. 2",
+      "attributes": {
+        "line": "Sin Compromiso",
+        "vitola": "Torpedo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Cultivo Tonto San Andrés Negro",
+        "binder": "Ecuador Habano “Thin Ligero”",
+        "filler": "Independent Plantation Grown Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sin-compromiso/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sin Compromiso Selección No. 5",
+      "attributes": {
+        "line": "Sin Compromiso",
+        "vitola": "Soft Prensado",
+        "length": 6,
+        "ring_gauge": 54,
+        "wrapper": "Cultivo Tonto San Andrés Negro",
+        "binder": "Ecuador Habano “Thin Ligero”",
+        "filler": "Independent Plantation Grown Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sin-compromiso/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sin Compromiso Selección Intrépido",
+      "attributes": {
+        "line": "Sin Compromiso",
+        "vitola": "Soft Prensado",
+        "length": 5.63,
+        "ring_gauge": 46,
+        "wrapper": "Cultivo Tonto San Andrés Negro",
+        "binder": "Ecuador Habano “Thin Ligero”",
+        "filler": "Independent Plantation Grown Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sin-compromiso/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sin Compromiso Selección No. 4",
+      "attributes": {
+        "line": "Sin Compromiso",
+        "vitola": "Soft Prensado",
+        "length": 5,
+        "ring_gauge": 54,
+        "wrapper": "Cultivo Tonto San Andrés Negro",
+        "binder": "Ecuador Habano “Thin Ligero”",
+        "filler": "Independent Plantation Grown Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sin-compromiso/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sin Compromiso Selección Paladin de Saka",
+      "attributes": {
+        "line": "Sin Compromiso",
+        "vitola": "Firm Prensado",
+        "length": 7,
+        "ring_gauge": 52,
+        "wrapper": "Cultivo Tonto San Andrés Negro",
+        "binder": "Ecuador Habano “Thin Ligero”",
+        "filler": "Independent Plantation Grown Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page describes Paladin de Saka as an extremely limited production of the Sin Compromiso liga."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sin-compromiso/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Solita Churchill en Cedros",
+      "attributes": {
+        "line": "Sobremesa Solita",
+        "vitola": "Parejo",
+        "length": 7,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan, Pennsylvanian"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Filler field reads 'NicaraguanPennsylvanian' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Solita Toro",
+      "attributes": {
+        "line": "Sobremesa Solita",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan, Pennsylvanian"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Filler field reads 'NicaraguanPennsylvanian' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Solita Robusto",
+      "attributes": {
+        "line": "Sobremesa Solita",
+        "vitola": "Parejo",
+        "length": 5.25,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan, Pennsylvanian"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Filler field reads 'NicaraguanPennsylvanian' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Solita Short Churchill",
+      "attributes": {
+        "line": "Sobremesa Solita",
+        "vitola": "Parejo",
+        "length": 4.75,
+        "ring_gauge": 48,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan, Pennsylvanian"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Filler field reads 'NicaraguanPennsylvanian' (two items run together)."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Solita Red",
+      "attributes": {
+        "line": "Sobremesa Solita",
+        "vitola": "Parejo",
+        "length": 6.25,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan, Pennsylvanian"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Filler field reads 'NicaraguanPennsylvanian' (two items run together).",
+        "Page describes Solita Red as a special limited production of the Solita liga; its own wrapper is not given in the blend fields."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Brûlée Double Corona",
+      "attributes": {
+        "line": "Sobremesa Brûlée",
+        "vitola": "Parejo",
+        "length": 7,
+        "ring_gauge": 54,
+        "wrapper": "Ecuador Connecticut Shade G2BW",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa-brulee/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Brûlée Gordo",
+      "attributes": {
+        "line": "Sobremesa Brûlée",
+        "vitola": "Parejo",
+        "length": 6.25,
+        "ring_gauge": 60,
+        "wrapper": "Ecuador Connecticut Shade G2BW",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa-brulee/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Brûlée Toro",
+      "attributes": {
+        "line": "Sobremesa Brûlée",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Connecticut Shade G2BW",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa-brulee/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Brûlée Robusto",
+      "attributes": {
+        "line": "Sobremesa Brûlée",
+        "vitola": "Parejo",
+        "length": 5.25,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Connecticut Shade G2BW",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa-brulee/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Brûlée Blue",
+      "attributes": {
+        "line": "Sobremesa Brûlée",
+        "vitola": "Parejo",
+        "length": 6.25,
+        "ring_gauge": 46,
+        "wrapper": "Ecuador Connecticut Shade G2BW",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page describes Brûlée Blue as a special limited production of the Brûlée liga; its own wrapper is not given in the blend fields."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa-brulee/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Brûlée Wagashi 和菓子",
+      "attributes": {
+        "line": "Sobremesa Brûlée",
+        "vitola": "Prensado",
+        "length": 6,
+        "ring_gauge": 50,
+        "wrapper": "Ecuador Connecticut Shade G2BW",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        },
+        {
+          "family": "woody",
+          "weight": 0.6
+        },
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page describes Wagashi as a special limited production of the Brûlée liga; its own wrapper is not given in the blend fields."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/sobremesa-brulee/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "StillWell Star Aromatic No. 1",
+      "attributes": {
+        "line": "StillWell Star",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro Cultivo Tonto",
+        "filler": "Various"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no family flavors in the visible part, so no tags.",
+        "Page says each cigar is finished with a cabeza dulce."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/stillwell-star/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "StillWell Star Aromatic No. 22",
+      "attributes": {
+        "line": "StillWell Star",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro Cultivo Tonto",
+        "filler": "Various"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no family flavors in the visible part, so no tags.",
+        "Page says this was formerly the Holiday 2022 blend."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/stillwell-star/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "StillWell Star English No. 27",
+      "attributes": {
+        "line": "StillWell Star",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro Cultivo Tonto",
+        "filler": "Various"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no family flavors in the visible part, so no tags."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/stillwell-star/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "StillWell Star Bayou No. 32",
+      "attributes": {
+        "line": "StillWell Star",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro Cultivo Tonto",
+        "filler": "Various"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page says this liga begins the mildest of all and ends with a spicy finish."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/stillwell-star/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "StillWell Star Navy No. 1056",
+      "attributes": {
+        "line": "StillWell Star",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador Habano",
+        "binder": "San Andrés Negro Cultivo Tonto",
+        "filler": "Various"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no family flavors in the visible part, so no tags.",
+        "Page calls it a medium-bodied aromatic puro."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/stillwell-star/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "StillWell Star Holiday Y2024",
+      "attributes": {
+        "line": "StillWell Star",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Ecuador CT Shade",
+        "binder": "San Andrés Negro Cultivo Tonto",
+        "filler": "Various"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no family flavors in the visible part, so no tags."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/stillwell-star/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Todos Las Dias Toro",
+      "attributes": {
+        "line": "Todos Las Dias",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Nicaraguan Sun Grown",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page note says production was placed on hiatus in mid-2021."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/todos-las-dias/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Todos Las Dias Thick Lonsdale MF",
+      "attributes": {
+        "line": "Todos Las Dias",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 46,
+        "wrapper": "Nicaraguan Sun Grown",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page note says production was placed on hiatus in mid-2021."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/todos-las-dias/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Todos Las Dias Robusto",
+      "attributes": {
+        "line": "Todos Las Dias",
+        "vitola": "Parejo",
+        "length": 5,
+        "ring_gauge": 52,
+        "wrapper": "Nicaraguan Sun Grown",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page note says production was placed on hiatus in mid-2021."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/todos-las-dias/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Todos Las Dias Double Wide Belicoso",
+      "attributes": {
+        "line": "Todos Las Dias",
+        "vitola": "Figurado",
+        "length": 4.75,
+        "ring_gauge": 60,
+        "wrapper": "Nicaraguan Sun Grown",
+        "binder": "Nicaraguan",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "sweet",
+          "weight": 0.6
+        },
+        {
+          "family": "fruity",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Page note says production was placed on hiatus in mid-2021."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/todos-las-dias/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Polpetta Petit Puros",
+      "attributes": {
+        "line": "Polpetta",
+        "length": 4,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Shape (vitola) not stated in the size table.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/polpetta/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Umbagog Gordo Gordo",
+      "attributes": {
+        "line": "Umbagog",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 56,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/umbagog/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Umbagog Toro Toro",
+      "attributes": {
+        "line": "Umbagog",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/umbagog/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Umbagog Corona Gorda",
+      "attributes": {
+        "line": "Umbagog",
+        "vitola": "Parejo",
+        "length": 6,
+        "ring_gauge": 48,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/umbagog/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Umbagog Robusto Plus",
+      "attributes": {
+        "line": "Umbagog",
+        "vitola": "Parejo",
+        "length": 5,
+        "ring_gauge": 52,
+        "wrapper": "Connecticut Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/umbagog/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Umbagog Bronzeback",
+      "attributes": {
+        "line": "Umbagog",
+        "vitola": "Parejo",
+        "length": 5,
+        "ring_gauge": 48,
+        "wrapper": "2LS Broadleaf",
+        "binder": "San Andrés Negro",
+        "filler": "Nicaraguan"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "earthy",
+          "weight": 0.6
+        },
+        {
+          "family": "roasted",
+          "weight": 0.6
+        },
+        {
+          "family": "spicy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part.",
+        "Wrapper taken from the page description of Bronzeback (a 2LS Broadleaf capa); the blend fields show Connecticut Broadleaf for the line."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/umbagog/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Muestra de Saka Unicorn",
+      "attributes": {
+        "line": "Unicorns",
+        "vitola": "Diademas",
+        "length": 6.25,
+        "ring_gauge": 60,
+        "wrapper": "Plantation Select Connecticut Broadleaf",
+        "binder": "Cultivo Tonto San Andrés Negro",
+        "filler": "5 Rare Nicaraguan Tobaccos"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/unicorns/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Sobremesa Brûlée Blue Unicorn",
+      "attributes": {
+        "line": "Unicorns",
+        "vitola": "Diademas",
+        "length": 6.25,
+        "ring_gauge": 60,
+        "wrapper": "Ecuador Connecticut Shade – Grade A++",
+        "binder": "Cultivo Tonto San Andrés Negro",
+        "filler": "Extra Select Nicaraguan Tobaccos"
+      },
+      "strength": null,
+      "tags": [
+        {
+          "family": "creamy",
+          "weight": 0.6
+        }
+      ],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; tags use the visible part."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/unicorns/"
+      ],
+      "reference_images": []
+    },
+    {
+      "brand": "Dunbarton Tobacco & Trust",
+      "name": "Mi Querida Black Unicorn",
+      "attributes": {
+        "line": "Unicorns",
+        "vitola": "Diademas",
+        "length": 6.25,
+        "ring_gauge": 60,
+        "wrapper": "Connecticut Broadleaf No. 1 Darks",
+        "binder": "Cultivo Tonto San Andrés Negro",
+        "filler": "Extra Select Nicaragua, Honduras, Dominican Republic"
+      },
+      "strength": null,
+      "tags": [],
+      "review": [
+        "Strength shown only as a bar graphic, not in words.",
+        "Origin not stated on the page.",
+        "Tasting notes only partly read; no flavors in the visible part, so no tags."
+      ],
+      "sources": [
+        "dunbartoncigars.com/marca/unicorns/"
+      ],
+      "reference_images": []
+    }
+  ]
+}
